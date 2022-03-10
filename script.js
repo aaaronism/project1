@@ -5,23 +5,1077 @@
 
 // grid functionality
 let wordGrid = document.querySelector(`.board`)
-let rowOne = document.querySelector(`.row1`)
-let boxOne = document.querySelector(`.box1`)
+let rowOne = document.querySelector(`#row1`)
+let rowTwo = document.querySelector(`#row2`)
+let rowThree = document.querySelector(`#row3`)
+let rowFour = document.querySelector(`#row4`)
+let rowFive = document.querySelector(`#row5`)
+let rowSix = document.querySelector(`#row6`)
+let boxOne = document.querySelector(`#box1`)
+let boxTwo = document.querySelector(`#box2`)
+let boxThree = document.querySelector(`#box3`)
+let boxFour = document.querySelector(`#box4`)
+let boxFive = document.querySelector(`#box5`)
+let boxSix = document.querySelector(`#box6`)
+let boxSeven = document.querySelector(`#box7`)
+let boxEight = document.querySelector(`#box8`)
+let boxNine = document.querySelector(`#box9`)
+let boxTen = document.querySelector(`#box10`)
+let boxEleven = document.querySelector(`#box11`)
+let boxTwelve = document.querySelector(`#box12`)
+let boxThirteen = document.querySelector(`#box13`)
+let boxFourteen = document.querySelector(`#box14`)
+let boxFifteen = document.querySelector(`#box15`)
+let boxSixteen = document.querySelector(`#box16`)
+let boxSeventeen = document.querySelector(`#box17`)
+let boxEighteen = document.querySelector(`#box18`)
+let boxNineteen = document.querySelector(`#box19`)
+let boxTwenty = document.querySelector(`#box20`)
+let boxTwoOne = document.querySelector(`#box21`)
+let boxTwoTwo = document.querySelector(`#box22`)
+let boxTwoThree = document.querySelector(`#box23`)
+let boxTwoFour = document.querySelector(`#box24`)
+let boxTwoFive = document.querySelector(`#box25`)
+let boxTwoSix = document.querySelector(`#box26`)
+let boxTwoSeven = document.querySelector(`#box27`)
+let boxTwoEight = document.querySelector(`#box28`)
+let boxTwoNine = document.querySelector(`#box29`)
+let boxThirty = document.querySelector(`#box30`)
+
+
+let wholeBoard = {
+    firstRow: [boxOne, boxTwo, boxThree, boxFour, boxFive],
+    secondRow: [boxSix, boxSeven, boxEight, boxNine, boxTen],
+    thirdRow: [boxEleven, boxTwelve, boxThirteen, boxFourteen, boxFifteen],
+    fourthRow: [boxSixteen, boxSeventeen, boxEighteen, boxNineteen, boxTwenty],
+    fifthRow: [boxTwoOne, boxTwoTwo, boxTwoThree, boxTwoFour, boxTwoFive],
+    sixthRow: [boxTwoSix, boxTwoSeven, boxTwoEight, boxTwoNine, boxThirty]
+}
+
+const firstArr = []
+const secondArr = []
+const thirdArr = []
+const fourthArr = []
+const fifthArr = []
+const sixthArr = []
+const testArr = [`P`, `E`, `A`, `R`, `S`]
+
+let currentBox = boxOne;
+let currentRow = wholeBoard.firstRow;
+let word = [`P`, `O`, `O`, `P`, `S`];
+
+function equalArr(a, b) {
+    return Array.isArray(a) && Array.isArray(b) &&
+    a.length === b.length &&
+    a.every((val, index) => val === b[index]);
+}
+
+// function coloring(a, b) {
+//     for(let h = 0; h < 5; h++) {
+//     a.every((val, index) => {val === b[index]
+//     console.log(val, index)}
+//     )}}
+// console.log(coloring(word, testArr))
+// let intersection = arr.filter(element => !word.includes(element)).filter((element, index, self) => self.indexOf(element) === index);
+
+
+// compare second array to master word array, first if any words are in the right spot, highlight green, else if any letters are in the array highlight yellow, else grey
+// check at the end of the row if array is a legitimate word
+
+function moveNext() {
+    for(let j = 0; j < 5; j++) {
+        if(currentRow === wholeBoard.firstRow) {
+            if(currentBox.hasChildNodes()) {
+                if(currentBox === wholeBoard.firstRow[4]) {
+                    if(equalArr(word, firstArr)) {
+                            boxOne.style.backgroundColor = `green`;
+                            boxTwo.style.backgroundColor = `green`;
+                            boxThree.style.backgroundColor = `green`;
+                            boxFour.style.backgroundColor = `green`;
+                            boxFive.style.backgroundColor = `green`;
+                            greenLight()
+                    } else {
+                        yellowLight(firstArr)
+                        greyLight(firstArr)    
+                        currentRow = wholeBoard.secondRow
+                    }
+                }
+                currentBox = wholeBoard.firstRow[j]; 
+            }
+        }
+    for(let j = 0; j < 5; j++) {
+        if(currentRow === wholeBoard.secondRow) {
+            if(currentBox.hasChildNodes()) {
+                if(currentBox === wholeBoard.secondRow[4]) {
+                    if(equalArr(word, secondArr)) {
+                            boxSix.style.backgroundColor = `green`;
+                            boxSeven.style.backgroundColor = `green`;
+                            boxEight.style.backgroundColor = `green`;
+                            boxNine.style.backgroundColor = `green`;
+                            boxTen.style.backgroundColor = `green`;
+                            greenLight()
+                    } else {
+                        yellowLight(secondArr)
+                        greyLight(secondArr)    
+                        currentRow = wholeBoard.thirdRow
+                    }
+                }
+                currentBox = wholeBoard.secondRow[j];
+            }
+        } 
+    for(let j = 0; j < 5; j++) {
+        if(currentRow === wholeBoard.thirdRow) {
+            if(currentBox.hasChildNodes()) {
+                if(currentBox === wholeBoard.thirdRow[4]) {
+                    if(equalArr(word, thirdArr)) {
+                            boxEleven.style.backgroundColor = `green`;
+                            boxTwelve.style.backgroundColor = `green`;
+                            boxThirteen.style.backgroundColor = `green`;
+                            boxFourteen.style.backgroundColor = `green`;
+                            boxFifteen.style.backgroundColor = `green`;
+                            greenLight()
+                    } else {
+                        yellowLight(thirdArr)
+                        greyLight(thirdArr)    
+                        currentRow = wholeBoard.fourthRow
+                    }
+                }
+                currentBox = wholeBoard.thirdRow[j];
+            }
+        }
+    for(let j = 0; j < 5; j++) {
+        if(currentRow === wholeBoard.fourthRow) {
+            if(currentBox.hasChildNodes()) {
+                if(currentBox === wholeBoard.fourthRow[4]) {
+                    if(equalArr(word, fourthArr)) {
+                            boxSixteen.style.backgroundColor = `green`;
+                            boxSeventeen.style.backgroundColor = `green`;
+                            boxEighteen.style.backgroundColor = `green`;
+                            boxNineteen.style.backgroundColor = `green`;
+                            boxTwenty.style.backgroundColor = `green`;
+                            greenLight()
+                    } else {
+                        yellowLight(fourthArr)
+                        greyLight(fourthArr)    
+                        currentRow = wholeBoard.fifthRow
+                    }
+                }
+                currentBox = wholeBoard.fourthRow[j];
+            }
+        }
+    for(let j = 0; j < 5; j++) {
+        if(currentRow === wholeBoard.fifthRow) {
+            if(currentBox.hasChildNodes()) {
+                if(currentBox === wholeBoard.fifthRow[4]) {
+                    if(equalArr(word, fifthArr)) {
+                            boxTwoOne.style.backgroundColor = `green`;
+                            boxTwoTwo.style.backgroundColor = `green`;
+                            boxTwoThree.style.backgroundColor = `green`;
+                            boxTwoFour.style.backgroundColor = `green`;
+                            boxTwoFive.style.backgroundColor = `green`;
+                            greenLight()
+                    } else {
+                        yellowLight(fifthArr)
+                        greyLight(fifthArr)    
+                        currentRow = wholeBoard.sixthRow
+                    }
+                }
+                currentBox = wholeBoard.fifthRow[j];
+            }
+        }
+    for(let j = 0; j < 5; j++) {
+        if(currentRow === wholeBoard.sixthRow) {
+            if(currentBox.hasChildNodes()) {
+                if(currentBox === wholeBoard.sixthRow[4]) {
+                    if(equalArr(word, sixthArr)) {
+                            boxTwoSix.style.backgroundColor = `green`;
+                            boxTwoSeven.style.backgroundColor = `green`;
+                            boxTwoEight.style.backgroundColor = `green`;
+                            boxTwoNine.style.backgroundColor = `green`;
+                            boxThirty.style.backgroundColor = `green`;
+                            greenLight()
+                    } else {
+                        yellowLight(sixthArr)
+                        greyLight(sixthArr)    
+                        alert(`you lose`)
+                    }
+                }
+                currentBox = wholeBoard.sixthRow[j];
+            }
+        }
+    }
+}
+    }
+}
+    }
+}
+}
+
+
 
 // keyboard functionality
 let keyBoard = document.querySelector(`.keyboard`);
-let indKey = document.querySelectorAll(`.button`);
-let indKeys = document.querySelector(`.button`)
+let indKeys = document.querySelectorAll(`.button`)
+let aKey = document.querySelector(`#A`)
+let bKey = document.querySelector(`#B`)
+let cKey = document.querySelector(`#C`)
+let dKey = document.querySelector(`#D`)
+let eKey = document.querySelector(`#E`)
+let fKey = document.querySelector(`#F`)
+let gKey = document.querySelector(`#G`)
+let hKey = document.querySelector(`#H`)
+let iKey = document.querySelector(`#I`)
+let jKey = document.querySelector(`#J`)
+let kKey = document.querySelector(`#K`)
+let lKey = document.querySelector(`#L`)
+let mKey = document.querySelector(`#M`)
+let nKey = document.querySelector(`#N`)
+let oKey = document.querySelector(`#O`)
+let pKey = document.querySelector(`#P`)
+let qKey = document.querySelector(`#Q`)
+let rKey = document.querySelector(`#R`)
+let sKey = document.querySelector(`#S`)
+let tKey = document.querySelector(`#T`)
+let uKey = document.querySelector(`#U`)
+let vKey = document.querySelector(`#V`)
+let wKey = document.querySelector(`#W`)
+let xKey = document.querySelector(`#X`)
+let yKey = document.querySelector(`#Y`)
+let zKey = document.querySelector(`#Z`)
+let deleteBut = document.querySelector(`.delete`)
+let enterBut = document.querySelector(`.enter`)
 
-keyBoard.addEventListener(`click`, (event) => {
-    if (event.target.classList.contains(`button`)) {
-        var letter = ``;
-        letter = indKeys.id
-        console.log(indKeys.id)
-        boxOne.appendChild(boxOne.createTextNode(letter))
+// function keyColor(key) {
+//     if(a is in the array) {
+//         if(a is in the correct spot) {
+//             light up a key green
+//         } else if(a is not in the correct spot) {
+//             light up a key yellow
+//         }
+//     } else if(b is in the array) {
+//         if(b is in the correct spot) {
+//             light up b key green
+//         } else if(b is not in teh correct spot) {
+//             light up b key yellow
+//         }
+//     }
+// }
+
+// let intersection = word.filter(element => !firstArr.includes(element))
+// console.log(intersection)
+// function keyColor() {
+// let intersection = word.filter(element => firstArr.includes(element)).filter((element, index, self) => self.indexOf(element) === index);
+// console.log(intersection)
+// }
+
+
+function greyLight(arr) {
+    let intersection = arr.filter(element => !word.includes(element)).filter((element, index, self) => self.indexOf(element) === index);
+    for(let x = 0; x < 5; x++) {
+        if(aKey.id === intersection[x]) {
+            aKey.style.backgroundColor = `rgb(80, 80, 80)`
+        } else if(bKey.id === intersection[x]) {
+            bKey.style.backgroundColor = `rgb(80, 80, 80)`
+        } else if(cKey.id === intersection[x]) {
+            cKey.style.backgroundColor = `rgb(80, 80, 80)`
+        } else if(dKey.id === intersection[x]) {
+            dKey.style.backgroundColor = `rgb(80, 80, 80)`
+        } else if(eKey.id === intersection[x]) {
+            eKey.style.backgroundColor = `rgb(80, 80, 80)`
+        } else if(fKey.id === intersection[x]) {
+            fKey.style.backgroundColor = `rgb(80, 80, 80)`
+        } else if(gKey.id === intersection[x]) {
+            gKey.style.backgroundColor = `rgb(80, 80, 80)`
+        } else if(hKey.id === intersection[x]) {
+            hKey.style.backgroundColor = `rgb(80, 80, 80)`
+        } else if(iKey.id === intersection[x]) {
+            iKey.style.backgroundColor = `rgb(80, 80, 80)`
+        } else if(jKey.id === intersection[x]) {
+            jKey.style.backgroundColor = `rgb(80, 80, 80)`
+        } else if(kKey.id === intersection[x]) {
+            kKey.style.backgroundColor = `rgb(80, 80, 80)`
+        } else if(lKey.id === intersection[x]) {
+            lKey.style.backgroundColor = `rgb(80, 80, 80)`
+        } else if(mKey.id === intersection[x]) {
+            mKey.style.backgroundColor = `rgb(80, 80, 80)`
+        } else if(nKey.id === intersection[x]) {
+            nKey.style.backgroundColor = `rgb(80, 80, 80)`
+        } else if(oKey.id === intersection[x]) {
+            oKey.style.backgroundColor = `rgb(80, 80, 80)`
+        } else if(pKey.id === intersection[x]) {
+            pKey.style.backgroundColor = `rgb(80, 80, 80)`
+        } else if(qKey.id === intersection[x]) {
+            qKey.style.backgroundColor = `rgb(80, 80, 80)`
+        } else if(rKey.id === intersection[x]) {
+            rKey.style.backgroundColor = `rgb(80, 80, 80)`
+        } else if(sKey.id === intersection[x]) {
+            sKey.style.backgroundColor = `rgb(80, 80, 80)`
+        } else if(tKey.id === intersection[x]) {
+            tKey.style.backgroundColor = `rgb(80, 80, 80)`
+        } else if(uKey.id === intersection[x]) {
+            uKey.style.backgroundColor = `rgb(80, 80, 80)`
+        } else if(vKey.id === intersection[x]) {
+            vKey.style.backgroundColor = `rgb(80, 80, 80)`
+        } else if(wKey.id === intersection[x]) {
+            wKey.style.backgroundColor = `rgb(80, 80, 80)`
+        } else if(xKey.id === intersection[x]) {
+            xKey.style.backgroundColor = `rgb(80, 80, 80)`
+        } else if(yKey.id === intersection[x]) {
+            yKey.style.backgroundColor = `rgb(80, 80, 80)`
+        } else if(zKey.id === intersection[x]) {
+            zKey.style.backgroundColor = `rgb(80, 80, 80)`
+        }
     }
+}
+
+function yellowLight(arr) {
+    let intersection = word.filter(element => arr.includes(element)).filter((element, index, self) => self.indexOf(element) === index);
+    for(let x = 0; x < 5; x++) {
+        if(aKey.id === intersection[x]) {
+            aKey.style.backgroundColor = `rgb(227, 201, 26)`
+        } else if(bKey.id === intersection[x]) {
+            bKey.style.backgroundColor = `rgb(227, 201, 26)`
+        } else if(cKey.id === intersection[x]) {
+            cKey.style.backgroundColor = `rgb(227, 201, 26)`
+        } else if(dKey.id === intersection[x]) {
+            dKey.style.backgroundColor = `rgb(227, 201, 26)`
+        } else if(eKey.id === intersection[x]) {
+            eKey.style.backgroundColor = `rgb(227, 201, 26)`
+        } else if(fKey.id === intersection[x]) {
+            fKey.style.backgroundColor = `rgb(227, 201, 26)`
+        } else if(gKey.id === intersection[x]) {
+            gKey.style.backgroundColor = `rgb(227, 201, 26)`
+        } else if(hKey.id === intersection[x]) {
+            hKey.style.backgroundColor = `rgb(227, 201, 26)`
+        } else if(iKey.id === intersection[x]) {
+            iKey.style.backgroundColor = `rgb(227, 201, 26)`
+        } else if(jKey.id === intersection[x]) {
+            jKey.style.backgroundColor = `rgb(227, 201, 26)`
+        } else if(kKey.id === intersection[x]) {
+            kKey.style.backgroundColor = `rgb(227, 201, 26)`
+        } else if(lKey.id === intersection[x]) {
+            lKey.style.backgroundColor = `rgb(227, 201, 26)`
+        } else if(mKey.id === intersection[x]) {
+            mKey.style.backgroundColor = `rgb(227, 201, 26)`
+        } else if(nKey.id === intersection[x]) {
+            nKey.style.backgroundColor = `rgb(227, 201, 26)`
+        } else if(oKey.id === intersection[x]) {
+            oKey.style.backgroundColor = `rgb(227, 201, 26)`
+        } else if(pKey.id === intersection[x]) {
+            pKey.style.backgroundColor = `rgb(227, 201, 26)`
+        } else if(qKey.id === intersection[x]) {
+            qKey.style.backgroundColor = `rgb(227, 201, 26)`
+        } else if(rKey.id === intersection[x]) {
+            rKey.style.backgroundColor = `rgb(227, 201, 26)`
+        } else if(sKey.id === intersection[x]) {
+            sKey.style.backgroundColor = `rgb(227, 201, 26)`
+        } else if(tKey.id === intersection[x]) {
+            tKey.style.backgroundColor = `rgb(227, 201, 26)`
+        } else if(uKey.id === intersection[x]) {
+            uKey.style.backgroundColor = `rgb(227, 201, 26)`
+        } else if(vKey.id === intersection[x]) {
+            vKey.style.backgroundColor = `rgb(227, 201, 26)`
+        } else if(wKey.id === intersection[x]) {
+            wKey.style.backgroundColor = `rgb(227, 201, 26)`
+        } else if(xKey.id === intersection[x]) {
+            xKey.style.backgroundColor = `rgb(227, 201, 26)`
+        } else if(yKey.id === intersection[x]) {
+            yKey.style.backgroundColor = `rgb(227, 201, 26)`
+        } else if(zKey.id === intersection[x]) {
+            zKey.style.backgroundColor = `rgb(227, 201, 26)`
+        }
+    }
+}
+
+console.log(aKey.id)
+console.log(word[0])
+
+function greenLight() {
+for(let z = 0; z < 5; z++) {
+    if(aKey.id === word[z]) {
+        aKey.style.backgroundColor = `green`
+    } else if(bKey.id === word[z]) {
+        bKey.style.backgroundColor = `green`
+    } else if(cKey.id === word[z]) {
+        cKey.style.backgroundColor = `green`
+    } else if(dKey.id === word[z]) {
+        dKey.style.backgroundColor = `green`
+    } else if(eKey.id === word[z]) {
+        eKey.style.backgroundColor = `green`
+    } else if(fKey.id === word[z]) {
+        fKey.style.backgroundColor = `green`
+    } else if(gKey.id === word[z]) {
+        gKey.style.backgroundColor = `green`
+    } else if(hKey.id === word[z]) {
+        hKey.style.backgroundColor = `green`
+    } else if(iKey.id === word[z]) {
+        iKey.style.backgroundColor = `green`
+    } else if(jKey.id === word[z]) {
+        jKey.style.backgroundColor = `green`
+    } else if(kKey.id === word[z]) {
+        kKey.style.backgroundColor = `green`
+    } else if(lKey.id === word[z]) {
+        lKey.style.backgroundColor = `green`
+    } else if(mKey.id === word[z]) {
+        mKey.style.backgroundColor = `green`
+    } else if(nKey.id === word[z]) {
+        nKey.style.backgroundColor = `green`
+    } else if(oKey.id === word[z]) {
+        oKey.style.backgroundColor = `green`
+    } else if(pKey.id === word[z]) {
+        pKey.style.backgroundColor = `green`
+    } else if(qKey.id === word[z]) {
+        qKey.style.backgroundColor = `green`
+    } else if(rKey.id === word[z]) {
+        rKey.style.backgroundColor = `green`
+    } else if(sKey.id === word[z]) {
+        sKey.style.backgroundColor = `green`
+    } else if(tKey.id === word[z]) {
+        tKey.style.backgroundColor = `green`
+    } else if(uKey.id === word[z]) {
+        uKey.style.backgroundColor = `green`
+    } else if(vKey.id === word[z]) {
+        vKey.style.backgroundColor = `green`
+    } else if(wKey.id === word[z]) {
+        wKey.style.backgroundColor = `green`
+    } else if(xKey.id === word[z]) {
+        xKey.style.backgroundColor = `green`
+    } else if(yKey.id === word[z]) {
+        yKey.style.backgroundColor = `green`
+    } else if(zKey.id === word[z]) {
+        zKey.style.backgroundColor = `green`
+    }
+}
+}
+
+
+// deleteBut.addEventListener(`click`, event => {
+// })
+
+function letA(box) {
+    if (!box.hasChildNodes()) {
+        box.insertAdjacentHTML(`beforeend`, aKey.id)
+        if (box.parentNode == rowOne) {
+            firstArr.push(aKey.id)
+        } else if(box.parentNode == rowTwo) {
+            secondArr.push(aKey.id)
+        } else if(box.parentNode == rowThree) {
+            thirdArr.push(aKey.id)
+        } else if(box.parentNode == rowFour) {
+            fourthArr.push(aKey.id)
+        } else if(box.parentNode == rowFive) {
+            fifthArr.push(aKey.id)
+        } else if(box.parentNode == rowSix) {
+            sixthArr.push(aKey.id)
+        }
+        moveNext()
+    }
+}
+
+aKey.addEventListener(`click`, event => {
+    letA(currentBox)
 })
-console.log(indKeys.id)
+
+function letB(box) {
+    if (!box.hasChildNodes()) {
+        box.insertAdjacentHTML(`beforeend`, bKey.id)
+        if (box.parentNode == rowOne) {
+            firstArr.push(bKey.id)
+        } else if(box.parentNode == rowTwo) {
+            secondArr.push(bKey.id)
+        } else if(box.parentNode == rowThree) {
+            thirdArr.push(bKey.id)
+        } else if(box.parentNode == rowFour) {
+            fourthArr.push(bKey.id)
+        } else if(box.parentNode == rowFive) {
+            fifthArr.push(bKey.id)
+        } else if(box.parentNode == rowSix) {
+            sixthArr.push(bKey.id)
+        }
+        moveNext()
+    }
+}
+
+bKey.addEventListener(`click`, event => {
+    letB(currentBox)
+})
+
+function letC(box) {
+    if (!box.hasChildNodes()) {
+        box.insertAdjacentHTML(`beforeend`, cKey.id)
+        if (box.parentNode == rowOne) {
+            firstArr.push(cKey.id)
+        } else if(box.parentNode == rowTwo) {
+            secondArr.push(cKey.id)
+        } else if(box.parentNode == rowThree) {
+            thirdArr.push(cKey.id)
+        } else if(box.parentNode == rowFour) {
+            fourthArr.push(cKey.id)
+        } else if(box.parentNode == rowFive) {
+            fifthArr.push(cKey.id)
+        } else if(box.parentNode == rowSix) {
+            sixthArr.push(cKey.id)
+        }
+        moveNext()
+    }
+}
+
+cKey.addEventListener(`click`, event => {
+    letC(currentBox)
+})
+
+function letD(box) {
+    if (!box.hasChildNodes()) {
+        box.insertAdjacentHTML(`beforeend`, dKey.id)
+        if (box.parentNode == rowOne) {
+            firstArr.push(dKey.id)
+        } else if(box.parentNode == rowTwo) {
+            secondArr.push(dKey.id)
+        } else if(box.parentNode == rowThree) {
+            thirdArr.push(dKey.id)
+        } else if(box.parentNode == rowFour) {
+            fourthArr.push(dKey.id)
+        } else if(box.parentNode == rowFive) {
+            fifthArr.push(dKey.id)
+        } else if(box.parentNode == rowSix) {
+            sixthArr.push(dKey.id)
+        }
+        moveNext()
+    }
+}
+
+dKey.addEventListener(`click`, event => {
+    letD(currentBox)
+})
+
+function letE(box) {
+    if (!box.hasChildNodes()) {
+        box.insertAdjacentHTML(`beforeend`, eKey.id)
+        if (box.parentNode == rowOne) {
+            firstArr.push(eKey.id)
+        } else if(box.parentNode == rowTwo) {
+            secondArr.push(eKey.id)
+        } else if(box.parentNode == rowThree) {
+            thirdArr.push(eKey.id)
+        } else if(box.parentNode == rowFour) {
+            fourthArr.push(eKey.id)
+        } else if(box.parentNode == rowFive) {
+            fifthArr.push(eKey.id)
+        } else if(box.parentNode == rowSix) {
+            sixthArr.push(eKey.id)
+        }
+        moveNext()
+    }
+}
+
+eKey.addEventListener(`click`, event => {
+    letE(currentBox)
+})
+
+function letF(box) {
+    if (!box.hasChildNodes()) {
+        box.insertAdjacentHTML(`beforeend`, fKey.id)
+        if (box.parentNode == rowOne) {
+            firstArr.push(fKey.id)
+        } else if(box.parentNode == rowTwo) {
+            secondArr.push(fKey.id)
+        } else if(box.parentNode == rowThree) {
+            thirdArr.push(fKey.id)
+        } else if(box.parentNode == rowFour) {
+            fourthArr.push(fKey.id)
+        } else if(box.parentNode == rowFive) {
+            fifthArr.push(fKey.id)
+        } else if(box.parentNode == rowSix) {
+            sixthArr.push(fKey.id)
+        }
+        moveNext()
+    }
+}
+
+fKey.addEventListener(`click`, event => {
+    letF(currentBox)
+})
+
+function letG(box) {
+    if (!box.hasChildNodes()) {
+        box.insertAdjacentHTML(`beforeend`, gKey.id)
+        if (box.parentNode == rowOne) {
+            firstArr.push(gKey.id)
+        } else if(box.parentNode == rowTwo) {
+            secondArr.push(gKey.id)
+        } else if(box.parentNode == rowThree) {
+            thirdArr.push(gKey.id)
+        } else if(box.parentNode == rowFour) {
+            fourthArr.push(gKey.id)
+        } else if(box.parentNode == rowFive) {
+            fifthArr.push(gKey.id)
+        } else if(box.parentNode == rowSix) {
+            sixthArr.push(gKey.id)
+        }
+        moveNext()
+    }
+}
+
+gKey.addEventListener(`click`, event => {
+    letG(currentBox)
+})
+
+function letH(box) {
+    if (!box.hasChildNodes()) {
+        box.insertAdjacentHTML(`beforeend`, hKey.id)
+        if (box.parentNode == rowOne) {
+            firstArr.push(hKey.id)
+        } else if(box.parentNode == rowTwo) {
+            secondArr.push(hKey.id)
+        } else if(box.parentNode == rowThree) {
+            thirdArr.push(hKey.id)
+        } else if(box.parentNode == rowFour) {
+            fourthArr.push(hKey.id)
+        } else if(box.parentNode == rowFive) {
+            fifthArr.push(hKey.id)
+        } else if(box.parentNode == rowSix) {
+            sixthArr.push(hKey.id)
+        }
+        moveNext()
+    }
+}
+
+hKey.addEventListener(`click`, event => {
+    letH(currentBox)
+})
+
+function letI(box) {
+    if (!box.hasChildNodes()) {
+        box.insertAdjacentHTML(`beforeend`, iKey.id)
+        if (box.parentNode == rowOne) {
+            firstArr.push(iKey.id)
+        } else if(box.parentNode == rowTwo) {
+            secondArr.push(iKey.id)
+        } else if(box.parentNode == rowThree) {
+            thirdArr.push(iKey.id)
+        } else if(box.parentNode == rowFour) {
+            fourthArr.push(iKey.id)
+        } else if(box.parentNode == rowFive) {
+            fifthArr.push(iKey.id)
+        } else if(box.parentNode == rowSix) {
+            sixthArr.push(iKey.id)
+        }
+        moveNext()
+    }
+}
+
+iKey.addEventListener(`click`, event => {
+    letI(currentBox)
+})
+
+function letJ(box) {
+    if (!box.hasChildNodes()) {
+        box.insertAdjacentHTML(`beforeend`, jKey.id)
+        if (box.parentNode == rowOne) {
+            firstArr.push(jKey.id)
+        } else if(box.parentNode == rowTwo) {
+            secondArr.push(jKey.id)
+        } else if(box.parentNode == rowThree) {
+            thirdArr.push(jKey.id)
+        } else if(box.parentNode == rowFour) {
+            fourthArr.push(jKey.id)
+        } else if(box.parentNode == rowFive) {
+            fifthArr.push(jKey.id)
+        } else if(box.parentNode == rowSix) {
+            sixthArr.push(jKey.id)
+        }
+        moveNext()
+    }
+}
+
+jKey.addEventListener(`click`, event => {
+    letJ(currentBox)
+})
+
+function letK(box) {
+    if (!box.hasChildNodes()) {
+        box.insertAdjacentHTML(`beforeend`, kKey.id)
+        if (box.parentNode == rowOne) {
+            firstArr.push(kKey.id)
+        } else if(box.parentNode == rowTwo) {
+            secondArr.push(kKey.id)
+        } else if(box.parentNode == rowThree) {
+            thirdArr.push(kKey.id)
+        } else if(box.parentNode == rowFour) {
+            fourthArr.push(kKey.id)
+        } else if(box.parentNode == rowFive) {
+            fifthArr.push(kKey.id)
+        } else if(box.parentNode == rowSix) {
+            sixthArr.push(kKey.id)
+        }
+        moveNext()
+    }
+}
+
+kKey.addEventListener(`click`, event => {
+    letK(currentBox)
+})
+
+function letL(box) {
+    if (!box.hasChildNodes()) {
+        box.insertAdjacentHTML(`beforeend`, lKey.id)
+        if (box.parentNode == rowOne) {
+            firstArr.push(lKey.id)
+        } else if(box.parentNode == rowTwo) {
+            secondArr.push(lKey.id)
+        } else if(box.parentNode == rowThree) {
+            thirdArr.push(lKey.id)
+        } else if(box.parentNode == rowFour) {
+            fourthArr.push(lKey.id)
+        } else if(box.parentNode == rowFive) {
+            fifthArr.push(lKey.id)
+        } else if(box.parentNode == rowSix) {
+            sixthArr.push(lKey.id)
+        }
+        moveNext()
+    }
+}
+
+lKey.addEventListener(`click`, event => {
+    letL(currentBox)
+})
+
+function letM(box) {
+    if (!box.hasChildNodes()) {
+        box.insertAdjacentHTML(`beforeend`, mKey.id)
+        if (box.parentNode == rowOne) {
+            firstArr.push(mKey.id)
+        } else if(box.parentNode == rowTwo) {
+            secondArr.push(mKey.id)
+        } else if(box.parentNode == rowThree) {
+            thirdArr.push(mKey.id)
+        } else if(box.parentNode == rowFour) {
+            fourthArr.push(mKey.id)
+        } else if(box.parentNode == rowFive) {
+            fifthArr.push(mKey.id)
+        } else if(box.parentNode == rowSix) {
+            sixthArr.push(mKey.id)
+        }
+        moveNext()
+    }
+}
+
+mKey.addEventListener(`click`, event => {
+    letM(currentBox)
+})
+
+function letN(box) {
+    if (!box.hasChildNodes()) {
+        box.insertAdjacentHTML(`beforeend`, nKey.id)
+        if (box.parentNode == rowOne) {
+            firstArr.push(nKey.id)
+        } else if(box.parentNode == rowTwo) {
+            secondArr.push(nKey.id)
+        } else if(box.parentNode == rowThree) {
+            thirdArr.push(nKey.id)
+        } else if(box.parentNode == rowFour) {
+            fourthArr.push(nKey.id)
+        } else if(box.parentNode == rowFive) {
+            fifthArr.push(nKey.id)
+        } else if(box.parentNode == rowSix) {
+            sixthArr.push(nKey.id)
+        }
+        moveNext()
+    }
+}
+
+nKey.addEventListener(`click`, event => {
+    letN(currentBox)
+})
+
+function letO(box) {
+    if (!box.hasChildNodes()) {
+        box.insertAdjacentHTML(`beforeend`, oKey.id)
+        if (box.parentNode == rowOne) {
+            firstArr.push(oKey.id)
+        } else if(box.parentNode == rowTwo) {
+            secondArr.push(oKey.id)
+        } else if(box.parentNode == rowThree) {
+            thirdArr.push(oKey.id)
+        } else if(box.parentNode == rowFour) {
+            fourthArr.push(oKey.id)
+        } else if(box.parentNode == rowFive) {
+            fifthArr.push(oKey.id)
+        } else if(box.parentNode == rowSix) {
+            sixthArr.push(oKey.id)
+        }
+        moveNext()
+    }
+}
+
+oKey.addEventListener(`click`, event => {
+    letO(currentBox)
+})
+
+function letP(box) {
+    if (!box.hasChildNodes()) {
+        box.insertAdjacentHTML(`beforeend`, pKey.id)
+        if (box.parentNode == rowOne) {
+            firstArr.push(pKey.id)
+        } else if(box.parentNode == rowTwo) {
+            secondArr.push(pKey.id)
+        } else if(box.parentNode == rowThree) {
+            thirdArr.push(pKey.id)
+        } else if(box.parentNode == rowFour) {
+            fourthArr.push(pKey.id)
+        } else if(box.parentNode == rowFive) {
+            fifthArr.push(pKey.id)
+        } else if(box.parentNode == rowSix) {
+            sixthArr.push(pKey.id)
+        }
+        moveNext()
+    }
+}
+
+pKey.addEventListener(`click`, event => {
+    letP(currentBox)
+})
+
+function letQ(box) {
+    if (!box.hasChildNodes()) {
+        box.insertAdjacentHTML(`beforeend`, qKey.id)
+        if (box.parentNode == rowOne) {
+            firstArr.push(qKey.id)
+        } else if(box.parentNode == rowTwo) {
+            secondArr.push(qKey.id)
+        } else if(box.parentNode == rowThree) {
+            thirdArr.push(qKey.id)
+        } else if(box.parentNode == rowFour) {
+            fourthArr.push(qKey.id)
+        } else if(box.parentNode == rowFive) {
+            fifthArr.push(qKey.id)
+        } else if(box.parentNode == rowSix) {
+            sixthArr.push(qKey.id)
+        }
+        moveNext()
+    }
+}
+
+qKey.addEventListener(`click`, event => {
+    letQ(currentBox)
+})
+
+function letR(box) {
+    if (!box.hasChildNodes()) {
+        box.insertAdjacentHTML(`beforeend`, rKey.id)
+        if (box.parentNode == rowOne) {
+            firstArr.push(rKey.id)
+        } else if(box.parentNode == rowTwo) {
+            secondArr.push(rKey.id)
+        } else if(box.parentNode == rowThree) {
+            thirdArr.push(rKey.id)
+        } else if(box.parentNode == rowFour) {
+            fourthArr.push(rKey.id)
+        } else if(box.parentNode == rowFive) {
+            fifthArr.push(rKey.id)
+        } else if(box.parentNode == rowSix) {
+            sixthArr.push(rKey.id)
+        }
+        moveNext()
+    }
+}
+
+rKey.addEventListener(`click`, event => {
+    letR(currentBox)
+})
+
+function letS(box) {
+    if (!box.hasChildNodes()) {
+        box.insertAdjacentHTML(`beforeend`, sKey.id)
+        if (box.parentNode == rowOne) {
+            firstArr.push(sKey.id)
+        } else if(box.parentNode == rowTwo) {
+            secondArr.push(sKey.id)
+        } else if(box.parentNode == rowThree) {
+            thirdArr.push(sKey.id)
+        } else if(box.parentNode == rowFour) {
+            fourthArr.push(sKey.id)
+        } else if(box.parentNode == rowFive) {
+            fifthArr.push(sKey.id)
+        } else if(box.parentNode == rowSix) {
+            sixthArr.push(sKey.id)
+        }
+        moveNext()
+    }
+}
+
+sKey.addEventListener(`click`, event => {
+    letS(currentBox)
+})
+
+function letT(box) {
+    if (!box.hasChildNodes()) {
+        box.insertAdjacentHTML(`beforeend`, tKey.id)
+        if (box.parentNode == rowOne) {
+            firstArr.push(tKey.id)
+        } else if(box.parentNode == rowTwo) {
+            secondArr.push(tKey.id)
+        } else if(box.parentNode == rowThree) {
+            thirdArr.push(tKey.id)
+        } else if(box.parentNode == rowFour) {
+            fourthArr.push(tKey.id)
+        } else if(box.parentNode == rowFive) {
+            fifthArr.push(tKey.id)
+        } else if(box.parentNode == rowSix) {
+            sixthArr.push(tKey.id)
+        }
+        moveNext()
+    }
+}
+
+tKey.addEventListener(`click`, event => {
+    letT(currentBox)
+})
+
+function letU(box) {
+    if (!box.hasChildNodes()) {
+        box.insertAdjacentHTML(`beforeend`, uKey.id)
+        if (box.parentNode == rowOne) {
+            firstArr.push(uKey.id)
+        } else if(box.parentNode == rowTwo) {
+            secondArr.push(uKey.id)
+        } else if(box.parentNode == rowThree) {
+            thirdArr.push(uKey.id)
+        } else if(box.parentNode == rowFour) {
+            fourthArr.push(uKey.id)
+        } else if(box.parentNode == rowFive) {
+            fifthArr.push(uKey.id)
+        } else if(box.parentNode == rowSix) {
+            sixthArr.push(uKey.id)
+        }
+        moveNext()
+    }
+}
+
+uKey.addEventListener(`click`, event => {
+    letU(currentBox)
+})
+
+function letV(box) {
+    if (!box.hasChildNodes()) {
+        box.insertAdjacentHTML(`beforeend`, vKey.id)
+        if (box.parentNode == rowOne) {
+            firstArr.push(vKey.id)
+        } else if(box.parentNode == rowTwo) {
+            secondArr.push(vKey.id)
+        } else if(box.parentNode == rowThree) {
+            thirdArr.push(vKey.id)
+        } else if(box.parentNode == rowFour) {
+            fourthArr.push(vKey.id)
+        } else if(box.parentNode == rowFive) {
+            fifthArr.push(vKey.id)
+        } else if(box.parentNode == rowSix) {
+            sixthArr.push(vKey.id)
+        }
+        moveNext()
+    }
+}
+
+vKey.addEventListener(`click`, event => {
+    letV(currentBox)
+})
+
+function letW(box) {
+    if (!box.hasChildNodes()) {
+        box.insertAdjacentHTML(`beforeend`, wKey.id)
+        if (box.parentNode == rowOne) {
+            firstArr.push(wKey.id)
+        } else if(box.parentNode == rowTwo) {
+            secondArr.push(wKey.id)
+        } else if(box.parentNode == rowThree) {
+            thirdArr.push(wKey.id)
+        } else if(box.parentNode == rowFour) {
+            fourthArr.push(wKey.id)
+        } else if(box.parentNode == rowFive) {
+            fifthArr.push(wKey.id)
+        } else if(box.parentNode == rowSix) {
+            sixthArr.push(wKey.id)
+        }
+        moveNext()
+    }
+}
+
+wKey.addEventListener(`click`, event => {
+    letW(currentBox)
+})
+
+function letX(box) {
+    if (!box.hasChildNodes()) {
+        box.insertAdjacentHTML(`beforeend`, xKey.id)
+        if (box.parentNode == rowOne) {
+            firstArr.push(xKey.id)
+        } else if(box.parentNode == rowTwo) {
+            secondArr.push(xKey.id)
+        } else if(box.parentNode == rowThree) {
+            thirdArr.push(xKey.id)
+        } else if(box.parentNode == rowFour) {
+            fourthArr.push(xKey.id)
+        } else if(box.parentNode == rowFive) {
+            fifthArr.push(xKey.id)
+        } else if(box.parentNode == rowSix) {
+            sixthArr.push(xKey.id)
+        }
+        moveNext()
+    }
+}
+
+xKey.addEventListener(`click`, event => {
+    letX(currentBox)
+})
+
+function letY(box) {
+    if (!box.hasChildNodes()) {
+        box.insertAdjacentHTML(`beforeend`, yKey.id)
+        if (box.parentNode == rowOne) {
+            firstArr.push(yKey.id)
+        } else if(box.parentNode == rowTwo) {
+            secondArr.push(yKey.id)
+        } else if(box.parentNode == rowThree) {
+            thirdArr.push(yKey.id)
+        } else if(box.parentNode == rowFour) {
+            fourthArr.push(yKey.id)
+        } else if(box.parentNode == rowFive) {
+            fifthArr.push(yKey.id)
+        } else if(box.parentNode == rowSix) {
+            sixthArr.push(yKey.id)
+        }
+        moveNext()
+    }
+}
+
+yKey.addEventListener(`click`, event => {
+    letY(currentBox)
+})
+
+function letZ(box) {
+    if (!box.hasChildNodes()) {
+        box.insertAdjacentHTML(`beforeend`, zKey.id)
+        if (box.parentNode == rowOne) {
+            firstArr.push(zKey.id)
+        } else if(box.parentNode == rowTwo) {
+            secondArr.push(zKey.id)
+        } else if(box.parentNode == rowThree) {
+            thirdArr.push(zKey.id)
+        } else if(box.parentNode == rowFour) {
+            fourthArr.push(zKey.id)
+        } else if(box.parentNode == rowFive) {
+            fifthArr.push(zKey.id)
+        } else if(box.parentNode == rowSix) {
+            sixthArr.push(zKey.id)
+        }
+        moveNext()
+    }
+}
+
+zKey.addEventListener(`click`, event => {
+    letZ(currentBox)
+})
+
 // first row, insert values from keyboard
 // once enter, lock row and compare inserted values to word and light up applicable letters
 // move onto next row and repeat
