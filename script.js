@@ -64,6 +64,8 @@ let currentBox = boxOne;
 let currentRow = wholeBoard.firstRow;
 let word = [`P`, `O`, `O`, `P`, `S`];
 
+let submit = false;
+
 function equalArr(a, b) {
     return Array.isArray(a) && Array.isArray(b) &&
     a.length === b.length &&
@@ -71,34 +73,35 @@ function equalArr(a, b) {
 }
 
 // function coloring(a, b) {
-//     for(let h = 0; h < 5; h++) {
-//     a.every((val, index) => {val === b[index]
-//     console.log(val, index)}
-//     )}}
-// console.log(coloring(word, testArr))
+//     return Array.isArray(a) && Array.isArray(b) &&
+//     a.every((val, index) => {val === b[index] 
+//     }
+//     )}
+// coloring(word, testArr)
 // let intersection = arr.filter(element => !word.includes(element)).filter((element, index, self) => self.indexOf(element) === index);
 
 
 // compare second array to master word array, first if any words are in the right spot, highlight green, else if any letters are in the array highlight yellow, else grey
 // check at the end of the row if array is a legitimate word
 
+
 function moveNext() {
     for(let j = 0; j < 5; j++) {
         if(currentRow === wholeBoard.firstRow) {
             if(currentBox.hasChildNodes()) {
                 if(currentBox === wholeBoard.firstRow[4]) {
+                    if(submit === true) {
                     if(equalArr(word, firstArr)) {
-                            boxOne.style.backgroundColor = `green`;
-                            boxTwo.style.backgroundColor = `green`;
-                            boxThree.style.backgroundColor = `green`;
-                            boxFour.style.backgroundColor = `green`;
-                            boxFive.style.backgroundColor = `green`;
+                            greenBoard()
                             greenLight()
                     } else {
-                        yellowLight(firstArr)
-                        greyLight(firstArr)    
+                        matchGreen(firstArr)
+                        // yellowLight(firstArr)
+                        // greyLight(firstArr)    
                         currentRow = wholeBoard.secondRow
+                        submit = false
                     }
+                }
                 }
                 currentBox = wholeBoard.firstRow[j]; 
             }
@@ -107,6 +110,7 @@ function moveNext() {
         if(currentRow === wholeBoard.secondRow) {
             if(currentBox.hasChildNodes()) {
                 if(currentBox === wholeBoard.secondRow[4]) {
+                    if(submit === true) {
                     if(equalArr(word, secondArr)) {
                             boxSix.style.backgroundColor = `green`;
                             boxSeven.style.backgroundColor = `green`;
@@ -115,10 +119,12 @@ function moveNext() {
                             boxTen.style.backgroundColor = `green`;
                             greenLight()
                     } else {
-                        yellowLight(secondArr)
-                        greyLight(secondArr)    
+                        matchGreen(secondArr)
+                        greyLight(secondArr)  
                         currentRow = wholeBoard.thirdRow
+                        submit = false
                     }
+                }
                 }
                 currentBox = wholeBoard.secondRow[j];
             }
@@ -127,6 +133,7 @@ function moveNext() {
         if(currentRow === wholeBoard.thirdRow) {
             if(currentBox.hasChildNodes()) {
                 if(currentBox === wholeBoard.thirdRow[4]) {
+                    if(submit === true) {
                     if(equalArr(word, thirdArr)) {
                             boxEleven.style.backgroundColor = `green`;
                             boxTwelve.style.backgroundColor = `green`;
@@ -138,7 +145,9 @@ function moveNext() {
                         yellowLight(thirdArr)
                         greyLight(thirdArr)    
                         currentRow = wholeBoard.fourthRow
+                        submit = false
                     }
+                }
                 }
                 currentBox = wholeBoard.thirdRow[j];
             }
@@ -147,6 +156,7 @@ function moveNext() {
         if(currentRow === wholeBoard.fourthRow) {
             if(currentBox.hasChildNodes()) {
                 if(currentBox === wholeBoard.fourthRow[4]) {
+                    if(submit === true) {
                     if(equalArr(word, fourthArr)) {
                             boxSixteen.style.backgroundColor = `green`;
                             boxSeventeen.style.backgroundColor = `green`;
@@ -158,7 +168,9 @@ function moveNext() {
                         yellowLight(fourthArr)
                         greyLight(fourthArr)    
                         currentRow = wholeBoard.fifthRow
+                        submit = false
                     }
+                }
                 }
                 currentBox = wholeBoard.fourthRow[j];
             }
@@ -167,6 +179,7 @@ function moveNext() {
         if(currentRow === wholeBoard.fifthRow) {
             if(currentBox.hasChildNodes()) {
                 if(currentBox === wholeBoard.fifthRow[4]) {
+                    if(submit === true) {
                     if(equalArr(word, fifthArr)) {
                             boxTwoOne.style.backgroundColor = `green`;
                             boxTwoTwo.style.backgroundColor = `green`;
@@ -178,7 +191,9 @@ function moveNext() {
                         yellowLight(fifthArr)
                         greyLight(fifthArr)    
                         currentRow = wholeBoard.sixthRow
+                        submit = false
                     }
+                }
                 }
                 currentBox = wholeBoard.fifthRow[j];
             }
@@ -187,6 +202,7 @@ function moveNext() {
         if(currentRow === wholeBoard.sixthRow) {
             if(currentBox.hasChildNodes()) {
                 if(currentBox === wholeBoard.sixthRow[4]) {
+                    if(submit === true) {
                     if(equalArr(word, sixthArr)) {
                             boxTwoSix.style.backgroundColor = `green`;
                             boxTwoSeven.style.backgroundColor = `green`;
@@ -199,6 +215,7 @@ function moveNext() {
                         greyLight(sixthArr)    
                         alert(`you lose`)
                     }
+                }
                 }
                 currentBox = wholeBoard.sixthRow[j];
             }
@@ -387,70 +404,248 @@ function yellowLight(arr) {
     }
 }
 
-console.log(aKey.id)
-console.log(word[0])
+function matchGreen(arr) {
+let intersection = word.filter(element => arr.includes(element)).filter((element, index, self) => self.indexOf(element) === index)
+    for(let y = 0; y < 5; y++) {
+        if(arr[y] === word[y]) {
+            if(arr = firstArr) {
+                checkBoxy(boxOne)
+                checkBoxy(boxTwo)
+                checkBoxy(boxThree)
+                checkBoxy(boxFour)
+                checkBoxy(boxFive)
+            }
+        } else if (word.includes(arr[y])) {
+            yellowLight(arr)
+        } else {
+            greyLight(arr)
+        }  
+        console.log(arr[y].indexOf() === word[y].indexOf())
+    }
+}
 
-function greenLight() {
+function checkBoxy(box) {
+    for(let f = 0; f < 5; f++) {
+        if(box.textContent === word[f]) {
+            box.style.backgroundColor = `green`
+            greenLight(firstArr)
+        }
+    }
+}
+
+// function greenLit(key) {
+//     for(let l = 0; l < 5; l++) {
+//         if()
+//     }
+// }
+
+function greenBoard() {
+    boxOne.style.backgroundColor = `green`;
+    boxTwo.style.backgroundColor = `green`;
+    boxThree.style.backgroundColor = `green`;
+    boxFour.style.backgroundColor = `green`;
+    boxFive.style.backgroundColor = `green`;
+    }
+
+function greenLight(arr) {
 for(let z = 0; z < 5; z++) {
-    if(aKey.id === word[z]) {
+    if(aKey.id === arr[z] && word[z]) {
         aKey.style.backgroundColor = `green`
-    } else if(bKey.id === word[z]) {
+    } else if(bKey.id === arr[z] && word[z]) {
         bKey.style.backgroundColor = `green`
-    } else if(cKey.id === word[z]) {
+    } else if(cKey.id === arr[z] && word[z]) {
         cKey.style.backgroundColor = `green`
-    } else if(dKey.id === word[z]) {
+    } else if(dKey.id === arr[z] && word[z]) {
         dKey.style.backgroundColor = `green`
-    } else if(eKey.id === word[z]) {
+    } else if(eKey.id === arr[z] && word[z]) {
         eKey.style.backgroundColor = `green`
-    } else if(fKey.id === word[z]) {
+    } else if(fKey.id === arr[z] && word[z]) {
         fKey.style.backgroundColor = `green`
-    } else if(gKey.id === word[z]) {
+    } else if(gKey.id === arr[z] && word[z]) {
         gKey.style.backgroundColor = `green`
-    } else if(hKey.id === word[z]) {
+    } else if(hKey.id === arr[z] && word[z]) {
         hKey.style.backgroundColor = `green`
-    } else if(iKey.id === word[z]) {
+    } else if(iKey.id === arr[z] && word[z]) {
         iKey.style.backgroundColor = `green`
-    } else if(jKey.id === word[z]) {
+    } else if(jKey.id === arr[z] && word[z]) {
         jKey.style.backgroundColor = `green`
-    } else if(kKey.id === word[z]) {
+    } else if(kKey.id === arr[z] && word[z]) {
         kKey.style.backgroundColor = `green`
-    } else if(lKey.id === word[z]) {
+    } else if(lKey.id === arr[z] && word[z]) {
         lKey.style.backgroundColor = `green`
-    } else if(mKey.id === word[z]) {
+    } else if(mKey.id === arr[z] && word[z]) {
         mKey.style.backgroundColor = `green`
-    } else if(nKey.id === word[z]) {
+    } else if(nKey.id === arr[z] && word[z]) {
         nKey.style.backgroundColor = `green`
-    } else if(oKey.id === word[z]) {
+    } else if(oKey.id === arr[z] && word[z]) {
         oKey.style.backgroundColor = `green`
-    } else if(pKey.id === word[z]) {
+    } else if(pKey.id === arr[z] && word[z]) {
         pKey.style.backgroundColor = `green`
-    } else if(qKey.id === word[z]) {
+    } else if(qKey.id === arr[z] && word[z]) {
         qKey.style.backgroundColor = `green`
-    } else if(rKey.id === word[z]) {
+    } else if(rKey.id === arr[z] && word[z]) {
         rKey.style.backgroundColor = `green`
-    } else if(sKey.id === word[z]) {
+    } else if(sKey.id === arr[z] && word[z]) {
         sKey.style.backgroundColor = `green`
-    } else if(tKey.id === word[z]) {
+    } else if(tKey.id === arr[z] && word[z]) {
         tKey.style.backgroundColor = `green`
-    } else if(uKey.id === word[z]) {
+    } else if(uKey.id === arr[z] && word[z]) {
         uKey.style.backgroundColor = `green`
-    } else if(vKey.id === word[z]) {
+    } else if(vKey.id === arr[z] && word[z]) {
         vKey.style.backgroundColor = `green`
-    } else if(wKey.id === word[z]) {
+    } else if(wKey.id === arr[z] && word[z]) {
         wKey.style.backgroundColor = `green`
-    } else if(xKey.id === word[z]) {
+    } else if(xKey.id === arr[z] && word[z]) {
         xKey.style.backgroundColor = `green`
-    } else if(yKey.id === word[z]) {
+    } else if(yKey.id === arr[z] && word[z]) {
         yKey.style.backgroundColor = `green`
-    } else if(zKey.id === word[z]) {
+    } else if(zKey.id === arr[z] && word[z]) {
         zKey.style.backgroundColor = `green`
     }
 }
 }
 
 
-// deleteBut.addEventListener(`click`, event => {
-// })
+deleteBut.addEventListener(`click`, event => { 
+    moveBack()
+})
+
+function moveBack() {
+    if(currentBox.hasChildNodes()) {
+        if(currentBox === wholeBoard.firstRow[4]) {
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.firstRow[3]) {
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.firstRow[2]) {
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.firstRow[1]) {
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.secondRow[4]) {
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.secondRow[3]) {
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.secondRow[2]) {
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.secondRow[1]) {
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.thirdRow[4]) {
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.thirdRow[3]) {
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.thirdRow[2]) {
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.thirdRow[1]) {
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.fourthRow[4]) {
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.fourthRow[3]) {
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.fourthRow[2]) {
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.fourthRow[1]) {
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.fifthRow[4]) {
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.fifthRow[3]) {
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.fifthRow[2]) {
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.fifthRow[1]) {
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.sixthRow[4]) {
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.sixthRow[3]) {
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.sixthRow[2]) {
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.sixthRow[1]) {
+            currentBox.removeChild(currentBox.firstChild)
+        } 
+    } else {
+        if(currentBox === wholeBoard.firstRow[4]) {
+            currentBox = wholeBoard.firstRow[4-1]
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.firstRow[3]) {
+            currentBox = wholeBoard.firstRow[3-1]
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.firstRow[2]) {
+            currentBox = wholeBoard.firstRow[2-1]
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.firstRow[1]) {
+            currentBox = wholeBoard.firstRow[1-1]
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.secondRow[4]) {
+            currentBox = wholeBoard.secondRow[4-1]
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.secondRow[3]) {
+            currentBox = wholeBoard.secondRow[3-1]
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.secondRow[2]) {
+            currentBox = wholeBoard.secondRow[2-1]
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.secondRow[1]) {
+            currentBox = wholeBoard.secondRow[1-1]
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.thirdRow[4]) {
+            currentBox = wholeBoard.thirdRow[4-1]
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.thirdRow[3]) {
+            currentBox = wholeBoard.thirdRow[3-1]
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.thirdRow[2]) {
+            currentBox = wholeBoard.thirdRow[2-1]
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.thirdRow[1]) {
+            currentBox = wholeBoard.thirdRow[1-1]
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.fourthRow[4]) {
+            currentBox = wholeBoard.fourthRow[4-1]
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.fourthRow[3]) {
+            currentBox = wholeBoard.fourthRow[3-1]
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.fourthRow[2]) {
+            currentBox = wholeBoard.fourthRow[2-1]
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.fourthRow[1]) {
+            currentBox = wholeBoard.fourthRow[1-1]
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.fifthRow[4]) {
+            currentBox = wholeBoard.fifthRow[4-1]
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.fifthRow[3]) {
+            currentBox = wholeBoard.fifthRow[3-1]
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.fifthRow[2]) {
+            currentBox = wholeBoard.fifthRow[2-1]
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.fifthRow[1]) {
+            currentBox = wholeBoard.sixthRow[1-1]
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.sixthRow[4]) {
+            currentBox = wholeBoard.sixthRow[4-1]
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.sixthRow[3]) {
+            currentBox = wholeBoard.sixthRow[3-1]
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.sixthRow[2]) {
+            currentBox = wholeBoard.sixthRow[2-1]
+            currentBox.removeChild(currentBox.firstChild)
+        } else if(currentBox === wholeBoard.sixthRow[1]) {
+            currentBox = wholeBoard.sixthRow[1-1]
+            currentBox.removeChild(currentBox.firstChild)
+        } 
+    }
+}
+
+enterBut.addEventListener(`click`, event => {
+    enterFunc()
+    moveNext()
+})
+
+function enterFunc() {
+    submit = true
+}
 
 function letA(box) {
     if (!box.hasChildNodes()) {
