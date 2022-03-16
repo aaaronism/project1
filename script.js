@@ -1,5 +1,3 @@
-
-
 // set word from api
 
 
@@ -95,9 +93,10 @@ function moveNext() {
                             greenBoard()
                             greenLight()
                     } else {
-                        matchGreen(firstArr)
-                        // yellowLight(firstArr)
-                        // greyLight(firstArr)    
+                        rowOneCheck()
+                        // matchGreen(firstArr)
+                        yellowLight(firstArr)
+                        greyLight(firstArr)    
                         currentRow = wholeBoard.secondRow
                         submit = false
                     }
@@ -119,7 +118,8 @@ function moveNext() {
                             boxTen.style.backgroundColor = `green`;
                             greenLight()
                     } else {
-                        matchGreen(secondArr)
+                        rowTwoCheck()
+                        // matchGreen(secondArr)
                         greyLight(secondArr)  
                         currentRow = wholeBoard.thirdRow
                         submit = false
@@ -142,7 +142,8 @@ function moveNext() {
                             boxFifteen.style.backgroundColor = `green`;
                             greenLight()
                     } else {
-                        yellowLight(thirdArr)
+                        rowThreeCheck()
+                        // yellowLight(thirdArr)
                         greyLight(thirdArr)    
                         currentRow = wholeBoard.fourthRow
                         submit = false
@@ -165,7 +166,8 @@ function moveNext() {
                             boxTwenty.style.backgroundColor = `green`;
                             greenLight()
                     } else {
-                        yellowLight(fourthArr)
+                        rowFourCheck()
+                        // yellowLight(fourthArr)
                         greyLight(fourthArr)    
                         currentRow = wholeBoard.fifthRow
                         submit = false
@@ -188,7 +190,8 @@ function moveNext() {
                             boxTwoFive.style.backgroundColor = `green`;
                             greenLight()
                     } else {
-                        yellowLight(fifthArr)
+                        rowFiveCheck()
+                        // yellowLight(fifthArr)
                         greyLight(fifthArr)    
                         currentRow = wholeBoard.sixthRow
                         submit = false
@@ -211,7 +214,8 @@ function moveNext() {
                             boxThirty.style.backgroundColor = `green`;
                             greenLight()
                     } else {
-                        yellowLight(sixthArr)
+                        rowSixCheck()
+                        // yellowLight(sixthArr)
                         greyLight(sixthArr)    
                         alert(`you lose`)
                     }
@@ -514,137 +518,193 @@ function moveBack() {
     if(currentBox.hasChildNodes()) {
         if(currentBox === wholeBoard.firstRow[4]) {
             currentBox.removeChild(currentBox.firstChild)
+            firstArr.pop()
         } else if(currentBox === wholeBoard.firstRow[3]) {
             currentBox.removeChild(currentBox.firstChild)
+            firstArr.pop()
         } else if(currentBox === wholeBoard.firstRow[2]) {
             currentBox.removeChild(currentBox.firstChild)
+            firstArr.pop()
         } else if(currentBox === wholeBoard.firstRow[1]) {
             currentBox.removeChild(currentBox.firstChild)
+            firstArr.pop()
         } else if(currentBox === wholeBoard.secondRow[4]) {
             currentBox.removeChild(currentBox.firstChild)
+            sixthArr.pop()
         } else if(currentBox === wholeBoard.secondRow[3]) {
             currentBox.removeChild(currentBox.firstChild)
+            sixthArr.pop()
         } else if(currentBox === wholeBoard.secondRow[2]) {
             currentBox.removeChild(currentBox.firstChild)
+            sixthArr.pop()
         } else if(currentBox === wholeBoard.secondRow[1]) {
             currentBox.removeChild(currentBox.firstChild)
+            sixthArr.pop()
         } else if(currentBox === wholeBoard.thirdRow[4]) {
             currentBox.removeChild(currentBox.firstChild)
+            thirdArr.pop()
         } else if(currentBox === wholeBoard.thirdRow[3]) {
             currentBox.removeChild(currentBox.firstChild)
+            thirdArr.pop()
         } else if(currentBox === wholeBoard.thirdRow[2]) {
             currentBox.removeChild(currentBox.firstChild)
+            thirdArr.pop()
         } else if(currentBox === wholeBoard.thirdRow[1]) {
             currentBox.removeChild(currentBox.firstChild)
+            thirdArr.pop()
         } else if(currentBox === wholeBoard.fourthRow[4]) {
             currentBox.removeChild(currentBox.firstChild)
+            fourthArr.pop()
         } else if(currentBox === wholeBoard.fourthRow[3]) {
             currentBox.removeChild(currentBox.firstChild)
+            fourthArr.pop()
         } else if(currentBox === wholeBoard.fourthRow[2]) {
             currentBox.removeChild(currentBox.firstChild)
+            fourthArr.pop()
         } else if(currentBox === wholeBoard.fourthRow[1]) {
             currentBox.removeChild(currentBox.firstChild)
+            fourthArr.pop()
         } else if(currentBox === wholeBoard.fifthRow[4]) {
             currentBox.removeChild(currentBox.firstChild)
+            fifthArr.pop()
         } else if(currentBox === wholeBoard.fifthRow[3]) {
             currentBox.removeChild(currentBox.firstChild)
+            fifthArr.pop()
         } else if(currentBox === wholeBoard.fifthRow[2]) {
             currentBox.removeChild(currentBox.firstChild)
+            fifthArr.pop()
         } else if(currentBox === wholeBoard.fifthRow[1]) {
             currentBox.removeChild(currentBox.firstChild)
+            fifthArr.pop()
         } else if(currentBox === wholeBoard.sixthRow[4]) {
             currentBox.removeChild(currentBox.firstChild)
+            sixthArr.pop()
         } else if(currentBox === wholeBoard.sixthRow[3]) {
             currentBox.removeChild(currentBox.firstChild)
+            sixthArr.pop()
         } else if(currentBox === wholeBoard.sixthRow[2]) {
             currentBox.removeChild(currentBox.firstChild)
+            sixthArr.pop()
         } else if(currentBox === wholeBoard.sixthRow[1]) {
             currentBox.removeChild(currentBox.firstChild)
+            sixthArr.pop()
         } 
     } else {
         if(currentBox === wholeBoard.firstRow[4]) {
             currentBox = wholeBoard.firstRow[4-1]
             currentBox.removeChild(currentBox.firstChild)
+            firstArr.pop()
         } else if(currentBox === wholeBoard.firstRow[3]) {
             currentBox = wholeBoard.firstRow[3-1]
             currentBox.removeChild(currentBox.firstChild)
+            firstArr.pop()
         } else if(currentBox === wholeBoard.firstRow[2]) {
             currentBox = wholeBoard.firstRow[2-1]
             currentBox.removeChild(currentBox.firstChild)
+            firstArr.pop()
         } else if(currentBox === wholeBoard.firstRow[1]) {
             currentBox = wholeBoard.firstRow[1-1]
             currentBox.removeChild(currentBox.firstChild)
+            firstArr.pop()
         } else if(currentBox === wholeBoard.secondRow[4]) {
             currentBox = wholeBoard.secondRow[4-1]
             currentBox.removeChild(currentBox.firstChild)
+            sixthArr.pop()
         } else if(currentBox === wholeBoard.secondRow[3]) {
             currentBox = wholeBoard.secondRow[3-1]
             currentBox.removeChild(currentBox.firstChild)
+            sixthArr.pop()
         } else if(currentBox === wholeBoard.secondRow[2]) {
             currentBox = wholeBoard.secondRow[2-1]
             currentBox.removeChild(currentBox.firstChild)
+            sixthArr.pop()
         } else if(currentBox === wholeBoard.secondRow[1]) {
             currentBox = wholeBoard.secondRow[1-1]
             currentBox.removeChild(currentBox.firstChild)
+            sixthArr.pop()
         } else if(currentBox === wholeBoard.thirdRow[4]) {
             currentBox = wholeBoard.thirdRow[4-1]
             currentBox.removeChild(currentBox.firstChild)
+            thirdArr.pop()
         } else if(currentBox === wholeBoard.thirdRow[3]) {
             currentBox = wholeBoard.thirdRow[3-1]
             currentBox.removeChild(currentBox.firstChild)
+            thirdArr.pop()
         } else if(currentBox === wholeBoard.thirdRow[2]) {
             currentBox = wholeBoard.thirdRow[2-1]
             currentBox.removeChild(currentBox.firstChild)
+            thirdArr.pop()
         } else if(currentBox === wholeBoard.thirdRow[1]) {
             currentBox = wholeBoard.thirdRow[1-1]
             currentBox.removeChild(currentBox.firstChild)
+            thirdArr.pop()
         } else if(currentBox === wholeBoard.fourthRow[4]) {
             currentBox = wholeBoard.fourthRow[4-1]
             currentBox.removeChild(currentBox.firstChild)
+            fourthArr.pop()
         } else if(currentBox === wholeBoard.fourthRow[3]) {
             currentBox = wholeBoard.fourthRow[3-1]
             currentBox.removeChild(currentBox.firstChild)
+            fourthArr.pop()
         } else if(currentBox === wholeBoard.fourthRow[2]) {
             currentBox = wholeBoard.fourthRow[2-1]
             currentBox.removeChild(currentBox.firstChild)
+            fourthArr.pop()
         } else if(currentBox === wholeBoard.fourthRow[1]) {
             currentBox = wholeBoard.fourthRow[1-1]
             currentBox.removeChild(currentBox.firstChild)
+            fourthArr.pop()
         } else if(currentBox === wholeBoard.fifthRow[4]) {
             currentBox = wholeBoard.fifthRow[4-1]
             currentBox.removeChild(currentBox.firstChild)
+            fifthArr.pop()
         } else if(currentBox === wholeBoard.fifthRow[3]) {
             currentBox = wholeBoard.fifthRow[3-1]
             currentBox.removeChild(currentBox.firstChild)
+            fifthArr.pop()
         } else if(currentBox === wholeBoard.fifthRow[2]) {
             currentBox = wholeBoard.fifthRow[2-1]
             currentBox.removeChild(currentBox.firstChild)
+            fifthArr.pop()
         } else if(currentBox === wholeBoard.fifthRow[1]) {
             currentBox = wholeBoard.sixthRow[1-1]
             currentBox.removeChild(currentBox.firstChild)
+            fifthArr.pop()
         } else if(currentBox === wholeBoard.sixthRow[4]) {
             currentBox = wholeBoard.sixthRow[4-1]
             currentBox.removeChild(currentBox.firstChild)
+            sixthArr.pop()
         } else if(currentBox === wholeBoard.sixthRow[3]) {
             currentBox = wholeBoard.sixthRow[3-1]
             currentBox.removeChild(currentBox.firstChild)
+            sixthArr.pop()
         } else if(currentBox === wholeBoard.sixthRow[2]) {
             currentBox = wholeBoard.sixthRow[2-1]
             currentBox.removeChild(currentBox.firstChild)
+            sixthArr.pop()
         } else if(currentBox === wholeBoard.sixthRow[1]) {
             currentBox = wholeBoard.sixthRow[1-1]
             currentBox.removeChild(currentBox.firstChild)
+            sixthArr.pop()
         } 
     }
 }
 
+
 enterBut.addEventListener(`click`, event => {
-    enterFunc()
+    enterFunc(wholeBoard.firstRow)
+    enterFunc(wholeBoard.secondRow)
+    enterFunc(wholeBoard.thirdRow)
+    enterFunc(wholeBoard.fourthRow)
+    enterFunc(wholeBoard.fifthRow)
+    enterFunc(wholeBoard.sixthRow)
     moveNext()
 })
 
-function enterFunc() {
+function enterFunc(row) {
+    if(currentBox === row[4]) {
     submit = true
+    }
 }
 
 function letA(box) {
@@ -1270,6 +1330,528 @@ function letZ(box) {
 zKey.addEventListener(`click`, event => {
     letZ(currentBox)
 })
+
+
+function rowOneCheck() {
+    // if (letter is in the array already)
+    if (firstArr[0] === word[0]) {
+        boxOne.style.background = 'green'
+    } else if (firstArr[1] === word[1]) {
+        boxTwo.style.background = 'green'
+    } else if (firstArr[2] === word[2]) {
+        boxThree.style.background = 'green'
+    } else if (firstArr[3] === word[3]) {
+        boxFour.style.background = 'green'
+    } else if (firstArr[4] === word[4]) {
+        boxFive.style.background = 'green'
+    }
+    if (firstArr[0] === word[0]) {
+        boxOne.style.background = 'green'
+    } else if (firstArr[0] === word[1]) {
+         boxOne.style.background = 'yellow'
+    } else if (firstArr[0] === word[2]) {
+        boxOne.style.background = 'yellow'
+    } else if (firstArr[0] === word[3]) {
+        boxOne.style.background = 'yellow'
+    } else if (firstArr[0] === word[4]) {
+        boxOne.style.background = 'yellow'
+    } else {
+         boxOne.style.background = `rgb(80, 80, 80)`
+    }
+    if (firstArr[1] === word[1]) {
+        boxTwo.style.background = 'green'
+    } else if (firstArr[1] === word[0] && boxOne.style.background === 'green') {
+         boxTwo.style.background = `rgb(80, 80, 80)`
+         if (firstArr[1] === word[0] && boxOne.style.background !== 'green') {
+             boxTwo.style.background = 'yellow'
+         }
+    } else if (firstArr[1] === word[2]) {
+        boxTwo.style.background = 'yellow'
+    } else if (firstArr[1] === word[3]) {
+       boxTwo.style.background = 'yellow'
+    } else if (firstArr[1] === word[4]) {
+       boxTwo.style.background = 'yellow'
+    } else {
+         boxTwo.style.background = `rgb(80, 80, 80)`
+    }
+    if (firstArr[2] === word[2]) {
+        boxThree.style.background = 'green'
+    } else if (firstArr[2] === word[0] && boxOne.style.background === 'green') {
+        boxThree.style.background = `rgb(80, 80, 80)`
+    } else if (firstArr[2] === word[0] && firstArr[2] === firstArr[1]) {
+            boxThree.style.background = `rgb(80, 80, 80)`
+            if (firstArr[2] === word[0] && boxOne.style.background !== 'green' && firstArr[2] !== firstArr[1]) {
+                boxThree.style.background = 'yellow'
+            }
+    } else if (firstArr[2] === word[1] && boxTwo.style.background === 'green') {
+        boxThree.style.background = `rgb(80, 80, 80)`
+        if (firstArr[2] === word[1] && boxTwo.style.background !== 'green') {
+            boxThree.style.background = 'yellow'
+        }
+    } else if (firstArr[2] === word[3]) {
+        boxThree.style.background = 'yellow'
+    } else if (firstArr[2] === word[4]) {
+        boxThree.style.background = 'yellow'
+    } else {
+        boxThree.style.background = `rgb(80, 80, 80)`
+    }
+    if (firstArr[3] === word[3]) {
+        boxFour.style.background = 'green'
+    } else if (firstArr[3] === word[0] && boxOne.style.background === 'green') {
+        boxFour.style.background = `rgb(80, 80, 80)`
+    } else if (firstArr[3] === word[0] && firstArr[3] === firstArr[1]) {
+        boxFour.style.background = `rgb(80, 80, 80)`
+    } else if (firstArr[3] === word[0] && firstArr[3] === firstArr[2]) {
+        boxFour.style.background = `rgb(80, 80, 80)`
+        if (firstArr[3] === word[0] && boxOne.style.background !== 'green' && firstArr[3] !== firstArr[1] && firstArr[3] !== firstArr[2]) {
+            boxThree.style.background = 'yellow'
+        }
+    } else if (firstArr[3] === word[1] && boxTwo.style.background === 'green') {
+        boxFour.style.background = `rgb(80, 80, 80)`
+    } else if (firstArr[3] === word[1] && firstArr[3] === firstArr[2]) {
+        boxFour.style.background = `rgb(80, 80, 80)`
+        if(firstArr[3] === word[1] && boxTwo.style.background !== 'green' && firstArr[3] !== firstArr[2]) {
+            boxFour.style.background = 'yellow'
+        }
+    } else if (firstArr[3] === word[2] && boxThree.style.background !== 'green') {
+        boxFour.style.background = `rgb(80, 80, 80)`
+        
+    } else if (firstArr[3] === word[4]) {
+        boxFour.style.background = 'yellow'
+    } else {
+        boxFour.style.background = `rgb(80, 80, 80)`
+    }
+    if (firstArr[4] === word[4]) {
+        boxFive.style.background = 'green'
+    } else if (firstArr[4] === word[0] && boxOne.style.background === 'green') {
+        boxFive.style.background = `rgb(80, 80, 80)`
+    } else if (firstArr[4] === word[0] && firstArr[4] === firstArr[1]) {
+        boxFive.style.background = `rgb(80, 80, 80)`
+    } else if (firstArr[4] === word[0] && firstArr[4] === firstArr[2]) {
+        boxFive.style.background = `rgb(80, 80, 80)`
+    } else if (firstArr[4] === word[0] && firstArr[4] === firstArr[3]) {
+        boxFive.style.background = `rgb(80, 80, 80)`
+        if (firstArr[4] === word[0] && boxOne.style.background !== 'green' && firstArr[4] !== firstArr[1] && firstArr[4] !== firstArr[2] && firstArr[4] !== firstArr[3]) {
+            boxFive.style.background = `rgb(80, 80, 80)`
+        } 
+    } else if (firstArr[4] === word[1] && boxTwo.style.background === 'green') {
+        boxFive.style.background = `rgb(80, 80, 80)`
+    } else if (firstArr[4] === word[1] && firstArr[4] === firstArr[2]) {
+        boxFive.style.background = `rgb(80, 80, 80)`
+    } else if (firstArr[4] === word[1] && firstArr[4] === firstArr[3]) {
+        boxFive.style.background = `rgb(80, 80, 80)`
+        if (firstArr[4] === word[1] && firstArr[4] !== firstArr[2] && firstArr[4] !== firstArr[3]) {
+            boxFive.style.background = 'yellow'
+        }
+    } else if (firstArr[4] === word[2]) {
+        boxFive.style.background = 'yellow'
+    } else if (firstArr[4] === word[3]) {
+        boxFive.style.background = 'yellow'
+    } else {
+        boxFive.style.background = `rgb(80, 80, 80)`
+    }
+}
+    //     if (firstArr[0] === word[0]) {
+//         boxOne.style.background = 'green'
+//     } else if (firstArr[0] === word[1]) {
+//          boxOne.style.background = 'yellow'
+//     } else if (firstArr[0] === word[2]) {
+//         boxOne.style.background = 'yellow'
+//     } else if (firstArr[0] === word[3]) {
+//         boxOne.style.background = 'yellow'
+//     } else if (firstArr[0] === word[4]) {
+//         boxOne.style.background = 'yellow'
+//     } else {
+//          boxOne.style.background = `rgb(80, 80, 80)`
+//     }
+//     if (firstArr[1] === word[1]) {
+//         boxTwo.style.background = 'green'
+//     } else if (firstArr[1] === word[0]) {
+//          boxTwo.style.background = 'yellow'
+//     } else if (firstArr[1] === word[2]) {
+//         boxTwo.style.background = 'yellow'
+//     } else if (firstArr[1] === word[3]) {
+//        boxTwo.style.background = 'yellow'
+//     } else if (firstArr[1] === word[4]) {
+//        boxTwo.style.background = 'yellow'
+//     } else {
+//          boxTwo.style.background = `rgb(80, 80, 80)`
+//     }
+//     if (firstArr[2] === word[2]) {
+//         boxThree.style.background = 'green'
+//     } else if (firstArr[2] === word[0]) {
+//         boxThree.style.background = 'yellow'
+//     } else if (firstArr[2] === word[1]) {
+//         boxThree.style.background = 'yellow'
+//     } else if (firstArr[2] === word[3]) {
+//         boxThree.style.background = 'yellow'
+//     } else if (firstArr[2] === word[4]) {
+//         boxThree.style.background = 'yellow'
+//     } else {
+//         boxThree.style.background = `rgb(80, 80, 80)`
+//     }
+//     if (firstArr[3] === word[3]) {
+//         boxFour.style.background = 'green'
+//     } else if (firstArr[3] === word[0]) {
+//         boxFour.style.background = 'yellow'
+//     } else if (firstArr[3] === word[1]) {
+//         boxFour.style.background = 'yellow'
+//     } else if (firstArr[3] === word[2]) {
+//         boxFour.style.background = 'yellow'
+//     } else if (firstArr[3] === word[4]) {
+//         boxFour.style.background = 'yellow'
+//     } else {
+//         boxFour.style.background = `rgb(80, 80, 80)`
+//     }
+//     if (firstArr[4] === word[4]) {
+//         boxFive.style.background = 'green'
+//     } else if (firstArr[4] === word[0]) {
+//         boxFive.style.background = 'yellow'
+//     } else if (firstArr[4] === word[1]) {
+//         boxFive.style.background = 'yellow'
+//     } else if (firstArr[4] === word[2]) {
+//         boxFive.style.background = 'yellow'
+//     } else if (firstArr[4] === word[3]) {
+//         boxFive.style.background = 'yellow'
+//     } else {
+//         boxFive.style.background = `rgb(80, 80, 80)`
+//     }
+// }
+function rowTwoCheck() {
+    if (secondArr[0] === word[0]) {
+        boxSix.style.background = 'green'
+    } else if (secondArr[0] === word[1]) {
+         boxSix.style.background = 'yellow'
+    } else if (secondArr[0] === word[2]) {
+        boxSix.style.background = 'yellow'
+    } else if (secondArr[0] === word[3]) {
+        boxSix.style.background = 'yellow'
+    } else if (secondArr[0] === word[4]) {
+        boxSix.style.background = 'yellow'
+    } else {
+         boxSix.style.background = `rgb(80, 80, 80)`
+    }
+    if (secondArr[1] === word[1]) {
+        boxSeven.style.background = 'green'
+    } else if (secondArr[1] === word[0]) {
+         boxSeven.style.background = 'yellow'
+    } else if (secondArr[1] === word[2]) {
+        boxSeven.style.background = 'yellow'
+    } else if (secondArr[1] === word[3]) {
+       boxSeven.style.background = 'yellow'
+    } else if (secondArr[1] === word[4]) {
+       boxSeven.style.background = 'yellow'
+    } else {
+         boxSeven.style.background = `rgb(80, 80, 80)`
+    }
+    if (secondArr[2] === word[2]) {
+        boxEight.style.background = 'green'
+    } else if (secondArr[2] === word[0]) {
+        boxEight.style.background = 'yellow'
+    } else if (secondArr[2] === word[1]) {
+        boxEight.style.background = 'yellow'
+    } else if (secondArr[2] === word[3]) {
+        boxEight.style.background = 'yellow'
+    } else if (secondArr[2] === word[4]) {
+        boxEight.style.background = 'yellow'
+    } else {
+        boxEight.style.background = `rgb(80, 80, 80)`
+    }
+    if (secondArr[3] === word[3]) {
+        boxNine.style.background = 'green'
+    } else if (secondArr[3] === word[0]) {
+        boxNine.style.background = 'yellow'
+    } else if (secondArr[3] === word[1]) {
+        boxNine.style.background = 'yellow'
+    } else if (secondArr[3] === word[2]) {
+        boxNine.style.background = 'yellow'
+    } else if (secondArr[3] === word[4]) {
+        boxNine.style.background = 'yellow'
+    } else {
+        boxNine.style.background = `rgb(80, 80, 80)`
+    }
+    if (secondArr[4] === word[4]) {
+        boxTen.style.background = 'green'
+    } else if (secondArr[4] === word[0]) {
+        boxTen.style.background = 'yellow'
+    } else if (secondArr[4] === word[1]) {
+        boxTen.style.background = 'yellow'
+    } else if (secondArr[4] === word[2]) {
+        boxTen.style.background = 'yellow'
+    } else if (secondArr[4] === word[3]) {
+        boxTen.style.background = 'yellow'
+    } else {
+        boxTen.style.background = `rgb(80, 80, 80)`
+    }
+}
+function rowThreeCheck() {
+    if (thirdArr[0] === word[0]) {
+        boxEleven.style.background = 'green'
+    } else if (thirdArr[0] === word[1]) {
+         boxEleven.style.background = 'yellow'
+    } else if (thirdArr[0] === word[2]) {
+        boxEleven.style.background = 'yellow'
+    } else if (thirdArr[0] === word[3]) {
+        boxEleven.style.background = 'yellow'
+    } else if (thirdArr[0] === word[4]) {
+        boxEleven.style.background = 'yellow'
+    } else {
+         boxEleven.style.background = `rgb(80, 80, 80)`
+    }
+    if (thirdArr[1] === word[1]) {
+        boxTwelve.style.background = 'green'
+    } else if (thirdArr[1] === word[0]) {
+         boxTwelve.style.background = 'yellow'
+    } else if (thirdArr[1] === word[2]) {
+        boxTwelve.style.background = 'yellow'
+    } else if (thirdArr[1] === word[3]) {
+       boxTwelve.style.background = 'yellow'
+    } else if (thirdArr[1] === word[4]) {
+       boxTwelve.style.background = 'yellow'
+    } else {
+         boxTwelve.style.background = `rgb(80, 80, 80)`
+    }
+    if (thirdArr[2] === word[2]) {
+        boxThirteen.style.background = 'green'
+    } else if (thirdArr[2] === word[0]) {
+        boxThirteen.style.background = 'yellow'
+    } else if (thirdArr[2] === word[1]) {
+        boxThirteen.style.background = 'yellow'
+    } else if (thirdArr[2] === word[3]) {
+        boxThirteen.style.background = 'yellow'
+    } else if (thirdArr[2] === word[4]) {
+        boxThirteen.style.background = 'yellow'
+    } else {
+        boxThirteen.style.background = `rgb(80, 80, 80)`
+    }
+    if (thirdArr[3] === word[3]) {
+        boxFourteen.style.background = 'green'
+    } else if (thirdArr[3] === word[0]) {
+        boxFourteen.style.background = 'yellow'
+    } else if (thirdArr[3] === word[1]) {
+        boxFourteen.style.background = 'yellow'
+    } else if (thirdArr[3] === word[2]) {
+        boxFourteen.style.background = 'yellow'
+    } else if (thirdArr[3] === word[4]) {
+        boxFourteen.style.background = 'yellow'
+    } else {
+        boxFourteen.style.background = `rgb(80, 80, 80)`
+    }
+    if (thirdArr[4] === word[4]) {
+        boxFifteen.style.background = 'green'
+    } else if (thirdArr[4] === word[0]) {
+        boxFifteen.style.background = 'yellow'
+    } else if (thirdArr[4] === word[1]) {
+        boxFifteen.style.background = 'yellow'
+    } else if (thirdArr[4] === word[2]) {
+        boxFifteen.style.background = 'yellow'
+    } else if (thirdArr[4] === word[3]) {
+        boxFifteen.style.background = 'yellow'
+    } else {
+        boxFifteen.style.background = `rgb(80, 80, 80)`
+    }
+}
+function rowFourCheck() {
+    if (fourthArr[0] === word[0]) {
+        boxSixteen.style.background = 'green'
+    } else if (fourthArr[0] === word[1]) {
+         boxSixteen.style.background = 'yellow'
+    } else if (fourthArr[0] === word[2]) {
+        boxSixteen.style.background = 'yellow'
+    } else if (fourthArr[0] === word[3]) {
+        boxSixteen.style.background = 'yellow'
+    } else if (fourthArr[0] === word[4]) {
+        boxSixteen.style.background = 'yellow'
+    } else {
+         boxSixteen.style.background = `rgb(80, 80, 80)`
+    }
+    if (fourthArr[1] === word[1]) {
+        boxSeventeen.style.background = 'green'
+    } else if (fourthArr[1] === word[0]) {
+         boxSeventeen.style.background = 'yellow'
+    } else if (fourthArr[1] === word[2]) {
+        boxSeventeen.style.background = 'yellow'
+    } else if (fourthArr[1] === word[3]) {
+       boxSeventeen.style.background = 'yellow'
+    } else if (fourthArr[1] === word[4]) {
+       boxSeventeen.style.background = 'yellow'
+    } else {
+         boxSeventeen.style.background = `rgb(80, 80, 80)`
+    }
+    if (fourthArr[2] === word[2]) {
+        boxEighteen.style.background = 'green'
+    } else if (fourthArr[2] === word[0]) {
+        boxEighteen.style.background = 'yellow'
+    } else if (fourthArr[2] === word[1]) {
+        boxEighteen.style.background = 'yellow'
+    } else if (fourthArr[2] === word[3]) {
+        boxEighteen.style.background = 'yellow'
+    } else if (fourthArr[2] === word[4]) {
+        boxEighteen.style.background = 'yellow'
+    } else {
+        boxEighteen.style.background = `rgb(80, 80, 80)`
+    }
+    if (fourthArr[3] === word[3]) {
+        boxNineteen.style.background = 'green'
+    } else if (fourthArr[3] === word[0]) {
+        boxNineteen.style.background = 'yellow'
+    } else if (fourthArr[3] === word[1]) {
+        boxNineteen.style.background = 'yellow'
+    } else if (fourthArr[3] === word[2]) {
+        boxNineteen.style.background = 'yellow'
+    } else if (fourthArr[3] === word[4]) {
+        boxNineteen.style.background = 'yellow'
+    } else {
+        boxNineteen.style.background = `rgb(80, 80, 80)`
+    }
+    if (fourthArr[4] === word[4]) {
+        boxTwenty.style.background = 'green'
+    } else if (fourthArr[4] === word[0]) {
+        boxTwenty.style.background = 'yellow'
+    } else if (fourthArr[4] === word[1]) {
+        boxTwenty.style.background = 'yellow'
+    } else if (fourthArr[4] === word[2]) {
+        boxTwenty.style.background = 'yellow'
+    } else if (fourthArr[4] === word[3]) {
+        boxTwenty.style.background = 'yellow'
+    } else {
+        boxTwenty.style.background = `rgb(80, 80, 80)`
+    }
+}
+function rowFiveCheck() {
+    if (fifthArr[0] === word[0]) {
+        boxTwoOne.style.background = 'green'
+    } else if (fifthArr[0] === word[1]) {
+         boxTwoOne.style.background = 'yellow'
+    } else if (fifthArr[0] === word[2]) {
+        boxTwoOne.style.background = 'yellow'
+    } else if (fifthArr[0] === word[3]) {
+        boxTwoOne.style.background = 'yellow'
+    } else if (fifthArr[0] === word[4]) {
+        boxTwoOne.style.background = 'yellow'
+    } else {
+         boxTwoOne.style.background = `rgb(80, 80, 80)`
+    }
+    if (fifthArr[1] === word[1]) {
+        boxTwoTwo.style.background = 'green'
+    } else if (fifthArr[1] === word[0]) {
+         boxTwoTwo.style.background = 'yellow'
+    } else if (fifthArr[1] === word[2]) {
+        boxTwoTwo.style.background = 'yellow'
+    } else if (fifthArr[1] === word[3]) {
+       boxTwoTwo.style.background = 'yellow'
+    } else if (fifthArr[1] === word[4]) {
+       boxTwoTwo.style.background = 'yellow'
+    } else {
+         boxTwoTwo.style.background = `rgb(80, 80, 80)`
+    }
+    if (fifthArr[2] === word[2]) {
+        boxTwoThree.style.background = 'green'
+    } else if (fifthArr[2] === word[0]) {
+        boxTwoThree.style.background = 'yellow'
+    } else if (fifthArr[2] === word[1]) {
+        boxTwoThree.style.background = 'yellow'
+    } else if (fifthArr[2] === word[3]) {
+        boxTwoThree.style.background = 'yellow'
+    } else if (fifthArr[2] === word[4]) {
+        boxTwoThree.style.background = 'yellow'
+    } else {
+        boxTwoThree.style.background = `rgb(80, 80, 80)`
+    }
+    if (fifthArr[3] === word[3]) {
+        boxTwoFour.style.background = 'green'
+    } else if (fifthArr[3] === word[0]) {
+        boxTwoFour.style.background = 'yellow'
+    } else if (fifthArr[3] === word[1]) {
+        boxTwoFour.style.background = 'yellow'
+    } else if (fifthArr[3] === word[2]) {
+        boxTwoFour.style.background = 'yellow'
+    } else if (fifthArr[3] === word[4]) {
+        boxTwoFour.style.background = 'yellow'
+    } else {
+        boxTwoFour.style.background = `rgb(80, 80, 80)`
+    }
+    if (fifthArr[4] === word[4]) {
+        boxTwoFive.style.background = 'green'
+    } else if (fifthArr[4] === word[0]) {
+        boxTwoFive.style.background = 'yellow'
+    } else if (fifthArr[4] === word[1]) {
+        boxTwoFive.style.background = 'yellow'
+    } else if (fifthArr[4] === word[2]) {
+        boxTwoFive.style.background = 'yellow'
+    } else if (fifthArr[4] === word[3]) {
+        boxTwoFive.style.background = 'yellow'
+    } else {
+        boxTwoFive.style.background = `rgb(80, 80, 80)`
+    }
+}
+function rowSixCheck() {
+    if (sixthArr[0] === word[0]) {
+        boxTwoSix.style.background = 'green'
+    } else if (sixthArr[0] === word[1]) {
+         boxTwoSix.style.background = 'yellow'
+    } else if (sixthArr[0] === word[2]) {
+        boxTwoSix.style.background = 'yellow'
+    } else if (sixthArr[0] === word[3]) {
+        boxTwoSix.style.background = 'yellow'
+    } else if (sixthArr[0] === word[4]) {
+        boxTwoSix.style.background = 'yellow'
+    } else {
+         boxTwoSix.style.background = `rgb(80, 80, 80)`
+    }
+    if (sixthArr[1] === word[1]) {
+        boxTwoSeven.style.background = 'green'
+    } else if (sixthArr[1] === word[0]) {
+         boxTwoSeven.style.background = 'yellow'
+    } else if (sixthArr[1] === word[2]) {
+        boxTwoSeven.style.background = 'yellow'
+    } else if (sixthArr[1] === word[3]) {
+       boxTwoSeven.style.background = 'yellow'
+    } else if (sixthArr[1] === word[4]) {
+       boxTwoSeven.style.background = 'yellow'
+    } else {
+         boxTwoSeven.style.background = `rgb(80, 80, 80)`
+    }
+    if (sixthArr[2] === word[2]) {
+        boxTwoEight.style.background = 'green'
+    } else if (sixthArr[2] === word[0]) {
+        boxTwoEight.style.background = 'yellow'
+    } else if (sixthArr[2] === word[1]) {
+        boxTwoEight.style.background = 'yellow'
+    } else if (sixthArr[2] === word[3]) {
+        boxTwoEight.style.background = 'yellow'
+    } else if (sixthArr[2] === word[4]) {
+        boxTwoEight.style.background = 'yellow'
+    } else {
+        boxTwoEight.style.background = `rgb(80, 80, 80)`
+    }
+    if (sixthArr[3] === word[3]) {
+        boxTwoNine.style.background = 'green'
+    } else if (sixthArr[3] === word[0]) {
+        boxTwoNine.style.background = 'yellow'
+    } else if (sixthArr[3] === word[1]) {
+        boxTwoNine.style.background = 'yellow'
+    } else if (sixthArr[3] === word[2]) {
+        boxTwoNine.style.background = 'yellow'
+    } else if (sixthArr[3] === word[4]) {
+        boxTwoNine.style.background = 'yellow'
+    } else {
+        boxTwoNine.style.background = `rgb(80, 80, 80)`
+    }
+    if (sixthArr[4] === word[4]) {
+        boxThirty.style.background = 'green'
+    } else if (sixthArr[4] === word[0]) {
+        boxThirty.style.background = 'yellow'
+    } else if (sixthArr[4] === word[1]) {
+        boxThirty.style.background = 'yellow'
+    } else if (sixthArr[4] === word[2]) {
+        boxThirty.style.background = 'yellow'
+    } else if (sixthArr[4] === word[3]) {
+        boxThirty.style.background = 'yellow'
+    } else {
+        boxThirty.style.background = `rgb(80, 80, 80)`
+    }
+}
 
 // first row, insert values from keyboard
 // once enter, lock row and compare inserted values to word and light up applicable letters
