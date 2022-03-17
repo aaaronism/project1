@@ -16,10 +16,15 @@ h1 {
 .board {
     display: grid;
     justify-content: center;
-    padding: 20px 0 0 0;
+    padding: 115.5px 0 0 0;
     text-align: center;
     font-size: 40px;
     font-family: 'Poppins', sans-serif;
+    z-index: 2;
+    right: 0;
+    left: 0;
+    top: 0;
+    position: absolute;
 }
 
 #row1 {
@@ -68,8 +73,133 @@ h1 {
     line-height: 85px
 }
 
+.boardback {
+    position: absolute;
+    display: grid;
+    justify-content: center;
+    padding: 115.5px 0 0 0;
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Poppins', sans-serif;
+    right: 0;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+#row1back {
+    display: grid;
+    grid-template-columns: repeat(5, 100px);
+    padding: 0 5px 10px 0;
+}
+
+#row2back {
+    display: grid;
+    grid-template-columns: repeat(5, 100px);
+    padding: 0 5px 10px 0;
+}
+
+#row3back {
+    display: grid;
+    grid-template-columns: repeat(5, 100px);
+    padding: 0 5px 10px 0;
+}
+
+#row4back {
+    display: grid;
+    grid-template-columns: repeat(5, 100px);
+    padding: 0 5px 10px 0;
+}
+
+#row5back {
+    display: grid;
+    grid-template-columns: repeat(5, 100px);
+    padding: 0 5px 10px 0;
+}
+
+#row6back {
+    display: grid;
+    grid-template-columns: repeat(5, 100px);
+    padding: 0 5px 5px 0;
+}
+
+.back {
+    height: 85px;
+    width: 90px;
+    border: 2px solid grey;
+    background-color: black;
+    border-radius: 4px;
+    color: white;
+    line-height: 85px
+}
+
+#box1 {
+    transition: 0.4s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+#box2 {
+    transition: 0.8s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+#box3 {
+    transition: 1.6s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+#box4 {
+    transition: 2.1s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+#box5 {
+    transition: 2.6s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+#back1 {
+    transition: 0.4s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: rotateX(-180deg);
+}
+
+#back2 {
+    transition: 0.8s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: rotateX(-180deg);
+}
+
+#back3 {
+    transition: 1.6s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: rotateX(-180deg);
+}
+
+#back4 {
+    transition: 2.1s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: rotateX(-180deg);
+}
+
+#back5 {
+    transition: 2.6s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: rotateX(-180deg);
+}
+
 .keyboard {
-    margin: 0 10px 0 10px;
+    margin: 610px 10px 0 10px;
 }
 
 #key1 {

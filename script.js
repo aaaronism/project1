@@ -94,6 +94,16 @@ function moveNext() {
                             // greenLight()
                             rowOneCheck()
                     } else {
+                        document.querySelector(`#box1`).style.transform = `rotateX(360deg)`
+                        document.querySelector(`#box2`).style.transform = `rotateX(360deg)`
+                        document.querySelector(`#box3`).style.transform = `rotateX(360deg)`
+                        document.querySelector(`#box4`).style.transform = `rotateX(360deg)`
+                        document.querySelector(`#box5`).style.transform = `rotateX(360deg)`
+                        document.querySelector(`#back1`).style.transform = `rotateX(180deg)`
+                        document.querySelector(`#back2`).style.transform = `rotateX(180deg)`
+                        document.querySelector(`#back3`).style.transform = `rotateX(180deg)`
+                        document.querySelector(`#back4`).style.transform = `rotateX(180deg)`
+                        document.querySelector(`#back5`).style.transform = `rotateX(180deg)`
                         rowOneCheck()
                         // matchGreen(firstArr)
                         // yellowLight(firstArr)
