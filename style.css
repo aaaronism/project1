@@ -1,5 +1,6 @@
 html {
     background-color: black;
+    zoom: .82;
 }
 header {
     border-bottom: 2.5px solid grey;
@@ -11,6 +12,10 @@ h1 {
     margin: 5px 0 5px 0;
     color: white;
     font-family: 'Arvo', serif;
+}
+
+dialog {
+    z-index: 3;
 }
 
 .board {
@@ -134,31 +139,31 @@ h1 {
 }
 
 #box1 {
-    transition: 0.4s;
+    transition: transform 0.4s, box-shadow 0.4s, border 0.4s;
     transform-style: preserve-3d;
     backface-visibility: hidden;
 }
 
 #box2 {
-    transition: 0.8s;
+    transition: transform 0.8s, box-shadow 0.4s, border 0.4s;
     transform-style: preserve-3d;
     backface-visibility: hidden;
 }
 
 #box3 {
-    transition: 1.6s;
+    transition: transform 1.6s, box-shadow 0.4s, border 0.4s;
     transform-style: preserve-3d;
     backface-visibility: hidden;
 }
 
 #box4 {
-    transition: 2.1s;
+    transition: transform 2.1s, box-shadow 0.4s, border 0.4s;
     transform-style: preserve-3d;
     backface-visibility: hidden;
 }
 
 #box5 {
-    transition: 2.6s;
+    transition: transform 2.6s, box-shadow 0.4s, border 0.4s;
     transform-style: preserve-3d;
     backface-visibility: hidden;
 }
@@ -192,6 +197,331 @@ h1 {
 }
 
 #back5 {
+    transition: 2.6s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: rotateX(-180deg);
+}
+
+#box6 {
+    transition: transform 0.4s, box-shadow 0.4s, border 0.4s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+#box7 {
+    transition: transform 0.8s, box-shadow 0.4s, border 0.4s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+#box8 {
+    transition: transform 1.6s, box-shadow 0.4s, border 0.4s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+#box9 {
+    transition: transform 2.1s, box-shadow 0.4s, border 0.4s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+#box10 {
+    transition: transform 2.6s, box-shadow 0.4s, border 0.4s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+#back6 {
+    transition: 0.4s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: rotateX(-180deg);
+}
+
+#back7 {
+    transition: 0.8s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: rotateX(-180deg);
+}
+
+#back8 {
+    transition: 1.6s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: rotateX(-180deg);
+}
+
+#back9 {
+    transition: 2.1s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: rotateX(-180deg);
+}
+
+#back10 {
+    transition: 2.6s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: rotateX(-180deg);
+}
+
+#box11 {
+    transition: transform 0.4s, box-shadow 0.4s, border 0.4s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+#box12 {
+    transition: transform 0.8s, box-shadow 0.4s, border 0.4s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+#box13 {
+    transition: transform 1.6s, box-shadow 0.4s, border 0.4s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+#box14 {
+    transition: transform 2.1s, box-shadow 0.4s, border 0.4s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+#box15 {
+    transition: transform 2.6s, box-shadow 0.4s, border 0.4s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+#back11 {
+    transition: 0.4s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: rotateX(-180deg);
+}
+
+#back12 {
+    transition: 0.8s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: rotateX(-180deg);
+}
+
+#back13 {
+    transition: 1.6s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: rotateX(-180deg);
+}
+
+#back14 {
+    transition: 2.1s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: rotateX(-180deg);
+}
+
+#back15 {
+    transition: 2.6s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: rotateX(-180deg);
+}
+
+#box16 {
+    transition: transform 0.4s, box-shadow 0.4s, border 0.4s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+#box17 {
+    transition: transform 0.8s, box-shadow 0.4s, border 0.4s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+#box18 {
+    transition: transform 1.6s, box-shadow 0.4s, border 0.4s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+#box19 {
+    transition: transform 2.1s, box-shadow 0.4s, border 0.4s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+#box20 {
+    transition: transform 2.6s, box-shadow 0.4s, border 0.4s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+#back16 {
+    transition: 0.4s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: rotateX(-180deg);
+}
+
+#back17 {
+    transition: 0.8s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: rotateX(-180deg);
+}
+
+#back18 {
+    transition: 1.6s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: rotateX(-180deg);
+}
+
+#back19 {
+    transition: 2.1s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: rotateX(-180deg);
+}
+
+#back20 {
+    transition: 2.6s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: rotateX(-180deg);
+}
+
+#box21 {
+    transition: transform 0.4s, box-shadow 0.4s, border 0.4s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+#box22 {
+    transition: transform 0.8s, box-shadow 0.4s, border 0.4s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+#box23 {
+    transition: transform 1.6s, box-shadow 0.4s, border 0.4s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+#box24 {
+    transition: transform 2.1s, box-shadow 0.4s, border 0.4s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+#box25 {
+    transition: transform 2.6s, box-shadow 0.4s, border 0.4s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+#back21 {
+    transition: 0.4s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: rotateX(-180deg);
+}
+
+#back22 {
+    transition: 0.8s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: rotateX(-180deg);
+}
+
+#back23 {
+    transition: 1.6s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: rotateX(-180deg);
+}
+
+#back24 {
+    transition: 2.1s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: rotateX(-180deg);
+}
+
+#back25 {
+    transition: transform 2.6s, box-shadow 0.4s, border 0.4s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: rotateX(-180deg);
+}
+
+#box26 {
+    transition: transform 0.4s, box-shadow 0.4s, border 0.4s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+#box27 {
+    transition: transform 0.8s, box-shadow 0.4s, border 0.4s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+#box28 {
+    transition: transform 1.6s, box-shadow 0.4s, border 0.4s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+#box29 {
+    transition: transform 2.1s, box-shadow 0.4s, border 0.4s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+#box30 {
+    transition: transform 2.6s, box-shadow 0.4s, border 0.4s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+#back26 {
+    transition: 0.4s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: rotateX(-180deg);
+}
+
+#back27 {
+    transition: 0.8s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: rotateX(-180deg);
+}
+
+#back28 {
+    transition: 1.6s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: rotateX(-180deg);
+}
+
+#back29 {
+    transition: 2.1s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: rotateX(-180deg);
+}
+
+#back30 {
     transition: 2.6s;
     transform-style: preserve-3d;
     backface-visibility: hidden;

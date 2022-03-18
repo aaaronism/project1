@@ -1,5 +1,54 @@
-// set word from api
+// let wordArray;
 
+// function wordArrayay() {
+//     if (submit === true) {
+//     let wordArray = firstArr.join('').toLowerCase()
+// }
+// }
+
+    // const dictionary = `https://www.dictionaryapi.com/api/v3/references/collegiate/json/${wordArray}?key=83ee062c-e272-485c-a466-453bdc1ebacd`
+    // console.log(wordArray)
+    // console.log(dictionary)
+
+    // fetch(dictionary)
+    // .then(res => {
+    //     return res.json()
+    // })
+    // .then(res => {
+    //     console.log("success!", res[0])
+    // })
+    // .catch(error => {
+    //     console.log("Error!", error)
+    // })
+
+let word
+
+function wordSelector () {
+const url = "https://random-words-api.vercel.app/word"
+fetch(url)
+    .then(res => {
+        return res.json()
+    })
+    .then(res => {
+        console.log("success!", res[0].word)
+        if (res[0].word.length === 5) {
+            wordDay = res[0].word.toUpperCase().split('')
+            word = wordDay
+        } else {
+            location.reload()
+        }
+    })
+    .catch(error => {
+        console.log("Error!", error)
+    })
+}
+wordSelector()
+
+// set word from api
+// let apoop = ['W', 'O', 'R', 'D', 'S']
+// let ar = apoop.join('').toLowerCase()
+// let ab = ar.split('')
+// console.log(ar)
 
 // grid functionality
 let wordGrid = document.querySelector(`.board`)
@@ -60,7 +109,7 @@ const testArr = [`P`, `E`, `A`, `R`, `S`]
 
 let currentBox = boxOne;
 let currentRow = wholeBoard.firstRow;
-let word = [`P`, `O`, `O`, `P`, `S`];
+// let word = [`P`, `O`, `O`, `P`, `S`];
 
 let submit = false;
 
@@ -92,6 +141,16 @@ function moveNext() {
                     if(equalArr(word, firstArr)) {
                             // greenBoard()
                             // greenLight()
+                            document.querySelector(`#box1`).style.transform = `rotateX(360deg)`
+                            document.querySelector(`#box2`).style.transform = `rotateX(360deg)`
+                            document.querySelector(`#box3`).style.transform = `rotateX(360deg)`
+                            document.querySelector(`#box4`).style.transform = `rotateX(360deg)`
+                            document.querySelector(`#box5`).style.transform = `rotateX(360deg)`
+                            document.querySelector(`#back1`).style.transform = `rotateX(180deg)`
+                            document.querySelector(`#back2`).style.transform = `rotateX(180deg)`
+                            document.querySelector(`#back3`).style.transform = `rotateX(180deg)`
+                            document.querySelector(`#back4`).style.transform = `rotateX(180deg)`
+                            document.querySelector(`#back5`).style.transform = `rotateX(180deg)`
                             rowOneCheck()
                     } else {
                         document.querySelector(`#box1`).style.transform = `rotateX(360deg)`
@@ -129,8 +188,28 @@ function moveNext() {
                             // boxNine.style.backgroundColor = `green`;
                             // boxTen.style.backgroundColor = `green`;
                             // greenLight()
+                            document.querySelector(`#box6`).style.transform = `rotateX(360deg)`
+                            document.querySelector(`#box7`).style.transform = `rotateX(360deg)`
+                            document.querySelector(`#box8`).style.transform = `rotateX(360deg)`
+                            document.querySelector(`#box9`).style.transform = `rotateX(360deg)`
+                            document.querySelector(`#box10`).style.transform = `rotateX(360deg)`
+                            document.querySelector(`#back6`).style.transform = `rotateX(180deg)`
+                            document.querySelector(`#back7`).style.transform = `rotateX(180deg)`
+                            document.querySelector(`#back8`).style.transform = `rotateX(180deg)`
+                            document.querySelector(`#back9`).style.transform = `rotateX(180deg)`
+                            document.querySelector(`#back10`).style.transform = `rotateX(180deg)`
                             rowTwoCheck()
                     } else {
+                        document.querySelector(`#box6`).style.transform = `rotateX(360deg)`
+                        document.querySelector(`#box7`).style.transform = `rotateX(360deg)`
+                        document.querySelector(`#box8`).style.transform = `rotateX(360deg)`
+                        document.querySelector(`#box9`).style.transform = `rotateX(360deg)`
+                        document.querySelector(`#box10`).style.transform = `rotateX(360deg)`
+                        document.querySelector(`#back6`).style.transform = `rotateX(180deg)`
+                        document.querySelector(`#back7`).style.transform = `rotateX(180deg)`
+                        document.querySelector(`#back8`).style.transform = `rotateX(180deg)`
+                        document.querySelector(`#back9`).style.transform = `rotateX(180deg)`
+                        document.querySelector(`#back10`).style.transform = `rotateX(180deg)`
                         rowTwoCheck()
                         // matchGreen(secondArr)
                         greyLight(secondArr)  
@@ -155,8 +234,28 @@ function moveNext() {
                             // boxFourteen.style.backgroundColor = `green`;
                             // boxFifteen.style.backgroundColor = `green`;
                             // greenLight()
+                            document.querySelector(`#box11`).style.transform = `rotateX(360deg)`
+                            document.querySelector(`#box12`).style.transform = `rotateX(360deg)`
+                            document.querySelector(`#box13`).style.transform = `rotateX(360deg)`
+                            document.querySelector(`#box14`).style.transform = `rotateX(360deg)`
+                            document.querySelector(`#box15`).style.transform = `rotateX(360deg)`
+                            document.querySelector(`#back11`).style.transform = `rotateX(180deg)`
+                            document.querySelector(`#back12`).style.transform = `rotateX(180deg)`
+                            document.querySelector(`#back13`).style.transform = `rotateX(180deg)`
+                            document.querySelector(`#back14`).style.transform = `rotateX(180deg)`
+                            document.querySelector(`#back15`).style.transform = `rotateX(180deg)`
                             rowThreeCheck()
                     } else {
+                        document.querySelector(`#box11`).style.transform = `rotateX(360deg)`
+                        document.querySelector(`#box12`).style.transform = `rotateX(360deg)`
+                        document.querySelector(`#box13`).style.transform = `rotateX(360deg)`
+                        document.querySelector(`#box14`).style.transform = `rotateX(360deg)`
+                        document.querySelector(`#box15`).style.transform = `rotateX(360deg)`
+                        document.querySelector(`#back11`).style.transform = `rotateX(180deg)`
+                        document.querySelector(`#back12`).style.transform = `rotateX(180deg)`
+                        document.querySelector(`#back13`).style.transform = `rotateX(180deg)`
+                        document.querySelector(`#back14`).style.transform = `rotateX(180deg)`
+                        document.querySelector(`#back15`).style.transform = `rotateX(180deg)`
                         rowThreeCheck()
                         // yellowLight(thirdArr)
                         greyLight(thirdArr)    
@@ -181,8 +280,28 @@ function moveNext() {
                             // boxNineteen.style.backgroundColor = `green`;
                             // boxTwenty.style.backgroundColor = `green`;
                             // greenLight()
+                            document.querySelector(`#box16`).style.transform = `rotateX(360deg)`
+                            document.querySelector(`#box17`).style.transform = `rotateX(360deg)`
+                            document.querySelector(`#box18`).style.transform = `rotateX(360deg)`
+                            document.querySelector(`#box19`).style.transform = `rotateX(360deg)`
+                            document.querySelector(`#box20`).style.transform = `rotateX(360deg)`
+                            document.querySelector(`#back16`).style.transform = `rotateX(180deg)`
+                            document.querySelector(`#back17`).style.transform = `rotateX(180deg)`
+                            document.querySelector(`#back18`).style.transform = `rotateX(180deg)`
+                            document.querySelector(`#back19`).style.transform = `rotateX(180deg)`
+                            document.querySelector(`#back20`).style.transform = `rotateX(180deg)`
                             rowFourCheck()
                     } else {
+                        document.querySelector(`#box16`).style.transform = `rotateX(360deg)`
+                        document.querySelector(`#box17`).style.transform = `rotateX(360deg)`
+                        document.querySelector(`#box18`).style.transform = `rotateX(360deg)`
+                        document.querySelector(`#box19`).style.transform = `rotateX(360deg)`
+                        document.querySelector(`#box20`).style.transform = `rotateX(360deg)`
+                        document.querySelector(`#back16`).style.transform = `rotateX(180deg)`
+                        document.querySelector(`#back17`).style.transform = `rotateX(180deg)`
+                        document.querySelector(`#back18`).style.transform = `rotateX(180deg)`
+                        document.querySelector(`#back19`).style.transform = `rotateX(180deg)`
+                        document.querySelector(`#back20`).style.transform = `rotateX(180deg)`
                         rowFourCheck()
                         // yellowLight(fourthArr)
                         greyLight(fourthArr)    
@@ -207,8 +326,28 @@ function moveNext() {
                             // boxTwoFour.style.backgroundColor = `green`;
                             // boxTwoFive.style.backgroundColor = `green`;
                             // greenLight()
+                            document.querySelector(`#box21`).style.transform = `rotateX(360deg)`
+                            document.querySelector(`#box22`).style.transform = `rotateX(360deg)`
+                            document.querySelector(`#box23`).style.transform = `rotateX(360deg)`
+                            document.querySelector(`#box24`).style.transform = `rotateX(360deg)`
+                            document.querySelector(`#box25`).style.transform = `rotateX(360deg)`
+                            document.querySelector(`#back21`).style.transform = `rotateX(180deg)`
+                            document.querySelector(`#back22`).style.transform = `rotateX(180deg)`
+                            document.querySelector(`#back23`).style.transform = `rotateX(180deg)`
+                            document.querySelector(`#back24`).style.transform = `rotateX(180deg)`
+                            document.querySelector(`#back25`).style.transform = `rotateX(180deg)`
                             rowFiveCheck()
                     } else {
+                        document.querySelector(`#box21`).style.transform = `rotateX(360deg)`
+                        document.querySelector(`#box22`).style.transform = `rotateX(360deg)`
+                        document.querySelector(`#box23`).style.transform = `rotateX(360deg)`
+                        document.querySelector(`#box24`).style.transform = `rotateX(360deg)`
+                        document.querySelector(`#box25`).style.transform = `rotateX(360deg)`
+                        document.querySelector(`#back21`).style.transform = `rotateX(180deg)`
+                        document.querySelector(`#back22`).style.transform = `rotateX(180deg)`
+                        document.querySelector(`#back23`).style.transform = `rotateX(180deg)`
+                        document.querySelector(`#back24`).style.transform = `rotateX(180deg)`
+                        document.querySelector(`#back25`).style.transform = `rotateX(180deg)`
                         rowFiveCheck()
                         // yellowLight(fifthArr)
                         greyLight(fifthArr)    
@@ -233,8 +372,28 @@ function moveNext() {
                             // boxTwoNine.style.backgroundColor = `green`;
                             // boxThirty.style.backgroundColor = `green`;
                             // greenLight()
+                            document.querySelector(`#box26`).style.transform = `rotateX(360deg)`
+                            document.querySelector(`#box27`).style.transform = `rotateX(360deg)`
+                            document.querySelector(`#box28`).style.transform = `rotateX(360deg)`
+                            document.querySelector(`#box29`).style.transform = `rotateX(360deg)`
+                            document.querySelector(`#box30`).style.transform = `rotateX(360deg)`
+                            document.querySelector(`#back26`).style.transform = `rotateX(180deg)`
+                            document.querySelector(`#back27`).style.transform = `rotateX(180deg)`
+                            document.querySelector(`#back28`).style.transform = `rotateX(180deg)`
+                            document.querySelector(`#back29`).style.transform = `rotateX(180deg)`
+                            document.querySelector(`#back30`).style.transform = `rotateX(180deg)`
                             rowSixCheck()
                     } else {
+                        document.querySelector(`#box26`).style.transform = `rotateX(360deg)`
+                        document.querySelector(`#box27`).style.transform = `rotateX(360deg)`
+                        document.querySelector(`#box28`).style.transform = `rotateX(360deg)`
+                        document.querySelector(`#box29`).style.transform = `rotateX(360deg)`
+                        document.querySelector(`#box30`).style.transform = `rotateX(360deg)`
+                        document.querySelector(`#back26`).style.transform = `rotateX(180deg)`
+                        document.querySelector(`#back27`).style.transform = `rotateX(180deg)`
+                        document.querySelector(`#back28`).style.transform = `rotateX(180deg)`
+                        document.querySelector(`#back29`).style.transform = `rotateX(180deg)`
+                        document.querySelector(`#back30`).style.transform = `rotateX(180deg)`
                         rowSixCheck()
                         // yellowLight(sixthArr)
                         greyLight(sixthArr)    
@@ -540,173 +699,269 @@ function moveBack() {
     if(currentBox.hasChildNodes()) {
         if(currentBox === wholeBoard.firstRow[4]) {
             currentBox.removeChild(currentBox.firstChild)
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
             firstArr.pop()
         } else if(currentBox === wholeBoard.firstRow[3]) {
             currentBox.removeChild(currentBox.firstChild)
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
             firstArr.pop()
         } else if(currentBox === wholeBoard.firstRow[2]) {
             currentBox.removeChild(currentBox.firstChild)
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
             firstArr.pop()
         } else if(currentBox === wholeBoard.firstRow[1]) {
             currentBox.removeChild(currentBox.firstChild)
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
             firstArr.pop()
         } else if(currentBox === wholeBoard.secondRow[4]) {
             currentBox.removeChild(currentBox.firstChild)
-            sixthArr.pop()
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
+            secondArr.pop()
         } else if(currentBox === wholeBoard.secondRow[3]) {
             currentBox.removeChild(currentBox.firstChild)
-            sixthArr.pop()
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
+            secondArr.pop()
         } else if(currentBox === wholeBoard.secondRow[2]) {
             currentBox.removeChild(currentBox.firstChild)
-            sixthArr.pop()
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
+            secondArr.pop()
         } else if(currentBox === wholeBoard.secondRow[1]) {
             currentBox.removeChild(currentBox.firstChild)
-            sixthArr.pop()
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
+            secondArr.pop()
         } else if(currentBox === wholeBoard.thirdRow[4]) {
             currentBox.removeChild(currentBox.firstChild)
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
             thirdArr.pop()
         } else if(currentBox === wholeBoard.thirdRow[3]) {
             currentBox.removeChild(currentBox.firstChild)
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
             thirdArr.pop()
         } else if(currentBox === wholeBoard.thirdRow[2]) {
             currentBox.removeChild(currentBox.firstChild)
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
             thirdArr.pop()
         } else if(currentBox === wholeBoard.thirdRow[1]) {
             currentBox.removeChild(currentBox.firstChild)
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
             thirdArr.pop()
         } else if(currentBox === wholeBoard.fourthRow[4]) {
             currentBox.removeChild(currentBox.firstChild)
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
             fourthArr.pop()
         } else if(currentBox === wholeBoard.fourthRow[3]) {
             currentBox.removeChild(currentBox.firstChild)
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
             fourthArr.pop()
         } else if(currentBox === wholeBoard.fourthRow[2]) {
             currentBox.removeChild(currentBox.firstChild)
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
             fourthArr.pop()
         } else if(currentBox === wholeBoard.fourthRow[1]) {
             currentBox.removeChild(currentBox.firstChild)
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
             fourthArr.pop()
         } else if(currentBox === wholeBoard.fifthRow[4]) {
             currentBox.removeChild(currentBox.firstChild)
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
             fifthArr.pop()
         } else if(currentBox === wholeBoard.fifthRow[3]) {
             currentBox.removeChild(currentBox.firstChild)
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
             fifthArr.pop()
         } else if(currentBox === wholeBoard.fifthRow[2]) {
             currentBox.removeChild(currentBox.firstChild)
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
             fifthArr.pop()
         } else if(currentBox === wholeBoard.fifthRow[1]) {
             currentBox.removeChild(currentBox.firstChild)
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
             fifthArr.pop()
         } else if(currentBox === wholeBoard.sixthRow[4]) {
             currentBox.removeChild(currentBox.firstChild)
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
             sixthArr.pop()
         } else if(currentBox === wholeBoard.sixthRow[3]) {
             currentBox.removeChild(currentBox.firstChild)
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
             sixthArr.pop()
         } else if(currentBox === wholeBoard.sixthRow[2]) {
             currentBox.removeChild(currentBox.firstChild)
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
             sixthArr.pop()
         } else if(currentBox === wholeBoard.sixthRow[1]) {
             currentBox.removeChild(currentBox.firstChild)
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
             sixthArr.pop()
         } 
     } else {
         if(currentBox === wholeBoard.firstRow[4]) {
             currentBox = wholeBoard.firstRow[4-1]
             currentBox.removeChild(currentBox.firstChild)
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
             firstArr.pop()
         } else if(currentBox === wholeBoard.firstRow[3]) {
             currentBox = wholeBoard.firstRow[3-1]
             currentBox.removeChild(currentBox.firstChild)
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
             firstArr.pop()
         } else if(currentBox === wholeBoard.firstRow[2]) {
             currentBox = wholeBoard.firstRow[2-1]
             currentBox.removeChild(currentBox.firstChild)
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
             firstArr.pop()
         } else if(currentBox === wholeBoard.firstRow[1]) {
             currentBox = wholeBoard.firstRow[1-1]
             currentBox.removeChild(currentBox.firstChild)
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
             firstArr.pop()
         } else if(currentBox === wholeBoard.secondRow[4]) {
             currentBox = wholeBoard.secondRow[4-1]
             currentBox.removeChild(currentBox.firstChild)
-            sixthArr.pop()
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
+            secondArr.pop()
         } else if(currentBox === wholeBoard.secondRow[3]) {
             currentBox = wholeBoard.secondRow[3-1]
             currentBox.removeChild(currentBox.firstChild)
-            sixthArr.pop()
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
+            secondArr.pop()
         } else if(currentBox === wholeBoard.secondRow[2]) {
             currentBox = wholeBoard.secondRow[2-1]
             currentBox.removeChild(currentBox.firstChild)
-            sixthArr.pop()
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
+            secondArr.pop()
         } else if(currentBox === wholeBoard.secondRow[1]) {
             currentBox = wholeBoard.secondRow[1-1]
             currentBox.removeChild(currentBox.firstChild)
-            sixthArr.pop()
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
+            secondArr.pop()
         } else if(currentBox === wholeBoard.thirdRow[4]) {
             currentBox = wholeBoard.thirdRow[4-1]
             currentBox.removeChild(currentBox.firstChild)
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
             thirdArr.pop()
         } else if(currentBox === wholeBoard.thirdRow[3]) {
             currentBox = wholeBoard.thirdRow[3-1]
             currentBox.removeChild(currentBox.firstChild)
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
             thirdArr.pop()
         } else if(currentBox === wholeBoard.thirdRow[2]) {
             currentBox = wholeBoard.thirdRow[2-1]
             currentBox.removeChild(currentBox.firstChild)
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
             thirdArr.pop()
         } else if(currentBox === wholeBoard.thirdRow[1]) {
             currentBox = wholeBoard.thirdRow[1-1]
             currentBox.removeChild(currentBox.firstChild)
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
             thirdArr.pop()
         } else if(currentBox === wholeBoard.fourthRow[4]) {
             currentBox = wholeBoard.fourthRow[4-1]
             currentBox.removeChild(currentBox.firstChild)
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
             fourthArr.pop()
         } else if(currentBox === wholeBoard.fourthRow[3]) {
             currentBox = wholeBoard.fourthRow[3-1]
             currentBox.removeChild(currentBox.firstChild)
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
             fourthArr.pop()
         } else if(currentBox === wholeBoard.fourthRow[2]) {
             currentBox = wholeBoard.fourthRow[2-1]
             currentBox.removeChild(currentBox.firstChild)
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
             fourthArr.pop()
         } else if(currentBox === wholeBoard.fourthRow[1]) {
             currentBox = wholeBoard.fourthRow[1-1]
             currentBox.removeChild(currentBox.firstChild)
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
             fourthArr.pop()
         } else if(currentBox === wholeBoard.fifthRow[4]) {
             currentBox = wholeBoard.fifthRow[4-1]
             currentBox.removeChild(currentBox.firstChild)
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
             fifthArr.pop()
         } else if(currentBox === wholeBoard.fifthRow[3]) {
             currentBox = wholeBoard.fifthRow[3-1]
             currentBox.removeChild(currentBox.firstChild)
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
             fifthArr.pop()
         } else if(currentBox === wholeBoard.fifthRow[2]) {
             currentBox = wholeBoard.fifthRow[2-1]
             currentBox.removeChild(currentBox.firstChild)
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
             fifthArr.pop()
         } else if(currentBox === wholeBoard.fifthRow[1]) {
-            currentBox = wholeBoard.sixthRow[1-1]
+            currentBox = wholeBoard.fifthRow[1-1]
             currentBox.removeChild(currentBox.firstChild)
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
             fifthArr.pop()
         } else if(currentBox === wholeBoard.sixthRow[4]) {
             currentBox = wholeBoard.sixthRow[4-1]
             currentBox.removeChild(currentBox.firstChild)
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
             sixthArr.pop()
         } else if(currentBox === wholeBoard.sixthRow[3]) {
             currentBox = wholeBoard.sixthRow[3-1]
             currentBox.removeChild(currentBox.firstChild)
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
             sixthArr.pop()
         } else if(currentBox === wholeBoard.sixthRow[2]) {
             currentBox = wholeBoard.sixthRow[2-1]
             currentBox.removeChild(currentBox.firstChild)
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
             sixthArr.pop()
         } else if(currentBox === wholeBoard.sixthRow[1]) {
             currentBox = wholeBoard.sixthRow[1-1]
             currentBox.removeChild(currentBox.firstChild)
+            currentBox.style.boxShadow = ``
+            currentBox.style.border = `2px solid grey`
             sixthArr.pop()
         } 
     }
@@ -724,7 +979,7 @@ enterBut.addEventListener(`click`, event => {
 })
 
 function enterFunc(row) {
-    if(currentBox === row[4]) {
+    if(currentBox === row[4] && currentBox.hasChildNodes()) {
     submit = true
     }
 }
@@ -732,6 +987,8 @@ function enterFunc(row) {
 function letA(box) {
     if (!box.hasChildNodes()) {
         box.insertAdjacentHTML(`beforeend`, aKey.id)
+        box.style.boxShadow = `inset 0 0 5px 1px white, 0 0 5px 2px white`
+        box.style.border = `2px solid white`
         if (box.parentNode == rowOne) {
             firstArr.push(aKey.id)
         } else if(box.parentNode == rowTwo) {
@@ -756,6 +1013,8 @@ aKey.addEventListener(`click`, event => {
 function letB(box) {
     if (!box.hasChildNodes()) {
         box.insertAdjacentHTML(`beforeend`, bKey.id)
+        box.style.boxShadow = `inset 0 0 5px 1px white, 0 0 5px 2px white`
+        box.style.border = `2px solid white`
         if (box.parentNode == rowOne) {
             firstArr.push(bKey.id)
         } else if(box.parentNode == rowTwo) {
@@ -780,6 +1039,8 @@ bKey.addEventListener(`click`, event => {
 function letC(box) {
     if (!box.hasChildNodes()) {
         box.insertAdjacentHTML(`beforeend`, cKey.id)
+        box.style.boxShadow = `inset 0 0 5px 1px white, 0 0 5px 2px white`
+        box.style.border = `2px solid white`
         if (box.parentNode == rowOne) {
             firstArr.push(cKey.id)
         } else if(box.parentNode == rowTwo) {
@@ -804,6 +1065,8 @@ cKey.addEventListener(`click`, event => {
 function letD(box) {
     if (!box.hasChildNodes()) {
         box.insertAdjacentHTML(`beforeend`, dKey.id)
+        box.style.boxShadow = `inset 0 0 5px 1px white, 0 0 5px 2px white`
+        box.style.border = `2px solid white`
         if (box.parentNode == rowOne) {
             firstArr.push(dKey.id)
         } else if(box.parentNode == rowTwo) {
@@ -828,6 +1091,8 @@ dKey.addEventListener(`click`, event => {
 function letE(box) {
     if (!box.hasChildNodes()) {
         box.insertAdjacentHTML(`beforeend`, eKey.id)
+        box.style.boxShadow = `inset 0 0 5px 1px white, 0 0 5px 2px white`
+        box.style.border = `2px solid white`
         if (box.parentNode == rowOne) {
             firstArr.push(eKey.id)
         } else if(box.parentNode == rowTwo) {
@@ -852,6 +1117,8 @@ eKey.addEventListener(`click`, event => {
 function letF(box) {
     if (!box.hasChildNodes()) {
         box.insertAdjacentHTML(`beforeend`, fKey.id)
+        box.style.boxShadow = `inset 0 0 5px 1px white, 0 0 5px 2px white`
+        box.style.border = `2px solid white`
         if (box.parentNode == rowOne) {
             firstArr.push(fKey.id)
         } else if(box.parentNode == rowTwo) {
@@ -876,6 +1143,8 @@ fKey.addEventListener(`click`, event => {
 function letG(box) {
     if (!box.hasChildNodes()) {
         box.insertAdjacentHTML(`beforeend`, gKey.id)
+        box.style.boxShadow = `inset 0 0 5px 1px white, 0 0 5px 2px white`
+        box.style.border = `2px solid white`
         if (box.parentNode == rowOne) {
             firstArr.push(gKey.id)
         } else if(box.parentNode == rowTwo) {
@@ -900,6 +1169,8 @@ gKey.addEventListener(`click`, event => {
 function letH(box) {
     if (!box.hasChildNodes()) {
         box.insertAdjacentHTML(`beforeend`, hKey.id)
+        box.style.boxShadow = `inset 0 0 5px 1px white, 0 0 5px 2px white`
+        box.style.border = `2px solid white`
         if (box.parentNode == rowOne) {
             firstArr.push(hKey.id)
         } else if(box.parentNode == rowTwo) {
@@ -924,6 +1195,8 @@ hKey.addEventListener(`click`, event => {
 function letI(box) {
     if (!box.hasChildNodes()) {
         box.insertAdjacentHTML(`beforeend`, iKey.id)
+        box.style.boxShadow = `inset 0 0 5px 1px white, 0 0 5px 2px white`
+        box.style.border = `2px solid white`
         if (box.parentNode == rowOne) {
             firstArr.push(iKey.id)
         } else if(box.parentNode == rowTwo) {
@@ -948,6 +1221,8 @@ iKey.addEventListener(`click`, event => {
 function letJ(box) {
     if (!box.hasChildNodes()) {
         box.insertAdjacentHTML(`beforeend`, jKey.id)
+        box.style.boxShadow = `inset 0 0 5px 1px white, 0 0 5px 2px white`
+        box.style.border = `2px solid white`
         if (box.parentNode == rowOne) {
             firstArr.push(jKey.id)
         } else if(box.parentNode == rowTwo) {
@@ -972,6 +1247,8 @@ jKey.addEventListener(`click`, event => {
 function letK(box) {
     if (!box.hasChildNodes()) {
         box.insertAdjacentHTML(`beforeend`, kKey.id)
+        box.style.boxShadow = `inset 0 0 5px 1px white, 0 0 5px 2px white`
+        box.style.border = `2px solid white`
         if (box.parentNode == rowOne) {
             firstArr.push(kKey.id)
         } else if(box.parentNode == rowTwo) {
@@ -996,6 +1273,8 @@ kKey.addEventListener(`click`, event => {
 function letL(box) {
     if (!box.hasChildNodes()) {
         box.insertAdjacentHTML(`beforeend`, lKey.id)
+        box.style.boxShadow = `inset 0 0 5px 1px white, 0 0 5px 2px white`
+        box.style.border = `2px solid white`
         if (box.parentNode == rowOne) {
             firstArr.push(lKey.id)
         } else if(box.parentNode == rowTwo) {
@@ -1020,6 +1299,8 @@ lKey.addEventListener(`click`, event => {
 function letM(box) {
     if (!box.hasChildNodes()) {
         box.insertAdjacentHTML(`beforeend`, mKey.id)
+        box.style.boxShadow = `inset 0 0 5px 1px white, 0 0 5px 2px white`
+        box.style.border = `2px solid white`
         if (box.parentNode == rowOne) {
             firstArr.push(mKey.id)
         } else if(box.parentNode == rowTwo) {
@@ -1044,6 +1325,8 @@ mKey.addEventListener(`click`, event => {
 function letN(box) {
     if (!box.hasChildNodes()) {
         box.insertAdjacentHTML(`beforeend`, nKey.id)
+        box.style.boxShadow = `inset 0 0 5px 1px white, 0 0 5px 2px white`
+        box.style.border = `2px solid white`
         if (box.parentNode == rowOne) {
             firstArr.push(nKey.id)
         } else if(box.parentNode == rowTwo) {
@@ -1068,6 +1351,8 @@ nKey.addEventListener(`click`, event => {
 function letO(box) {
     if (!box.hasChildNodes()) {
         box.insertAdjacentHTML(`beforeend`, oKey.id)
+        box.style.boxShadow = `inset 0 0 5px 1px white, 0 0 5px 2px white`
+        box.style.border = `2px solid white`
         if (box.parentNode == rowOne) {
             firstArr.push(oKey.id)
         } else if(box.parentNode == rowTwo) {
@@ -1092,6 +1377,8 @@ oKey.addEventListener(`click`, event => {
 function letP(box) {
     if (!box.hasChildNodes()) {
         box.insertAdjacentHTML(`beforeend`, pKey.id)
+        box.style.boxShadow = `inset 0 0 5px 1px white, 0 0 5px 2px white`
+        box.style.border = `2px solid white`
         if (box.parentNode == rowOne) {
             firstArr.push(pKey.id)
         } else if(box.parentNode == rowTwo) {
@@ -1116,6 +1403,8 @@ pKey.addEventListener(`click`, event => {
 function letQ(box) {
     if (!box.hasChildNodes()) {
         box.insertAdjacentHTML(`beforeend`, qKey.id)
+        box.style.boxShadow = `inset 0 0 5px 1px white, 0 0 5px 2px white`
+        box.style.border = `2px solid white`
         if (box.parentNode == rowOne) {
             firstArr.push(qKey.id)
         } else if(box.parentNode == rowTwo) {
@@ -1140,6 +1429,8 @@ qKey.addEventListener(`click`, event => {
 function letR(box) {
     if (!box.hasChildNodes()) {
         box.insertAdjacentHTML(`beforeend`, rKey.id)
+        box.style.boxShadow = `inset 0 0 5px 1px white, 0 0 5px 2px white`
+        box.style.border = `2px solid white`
         if (box.parentNode == rowOne) {
             firstArr.push(rKey.id)
         } else if(box.parentNode == rowTwo) {
@@ -1164,6 +1455,8 @@ rKey.addEventListener(`click`, event => {
 function letS(box) {
     if (!box.hasChildNodes()) {
         box.insertAdjacentHTML(`beforeend`, sKey.id)
+        box.style.boxShadow = `inset 0 0 5px 1px white, 0 0 5px 2px white`
+        box.style.border = `2px solid white`
         if (box.parentNode == rowOne) {
             firstArr.push(sKey.id)
         } else if(box.parentNode == rowTwo) {
@@ -1188,6 +1481,8 @@ sKey.addEventListener(`click`, event => {
 function letT(box) {
     if (!box.hasChildNodes()) {
         box.insertAdjacentHTML(`beforeend`, tKey.id)
+        box.style.boxShadow = `inset 0 0 5px 1px white, 0 0 5px 2px white`
+        box.style.border = `2px solid white`
         if (box.parentNode == rowOne) {
             firstArr.push(tKey.id)
         } else if(box.parentNode == rowTwo) {
@@ -1212,6 +1507,8 @@ tKey.addEventListener(`click`, event => {
 function letU(box) {
     if (!box.hasChildNodes()) {
         box.insertAdjacentHTML(`beforeend`, uKey.id)
+        box.style.boxShadow = `inset 0 0 5px 1px white, 0 0 5px 2px white`
+        box.style.border = `2px solid white`
         if (box.parentNode == rowOne) {
             firstArr.push(uKey.id)
         } else if(box.parentNode == rowTwo) {
@@ -1236,6 +1533,8 @@ uKey.addEventListener(`click`, event => {
 function letV(box) {
     if (!box.hasChildNodes()) {
         box.insertAdjacentHTML(`beforeend`, vKey.id)
+        box.style.boxShadow = `inset 0 0 5px 1px white, 0 0 5px 2px white`
+        box.style.border = `2px solid white`
         if (box.parentNode == rowOne) {
             firstArr.push(vKey.id)
         } else if(box.parentNode == rowTwo) {
@@ -1260,6 +1559,8 @@ vKey.addEventListener(`click`, event => {
 function letW(box) {
     if (!box.hasChildNodes()) {
         box.insertAdjacentHTML(`beforeend`, wKey.id)
+        box.style.boxShadow = `inset 0 0 5px 1px white, 0 0 5px 2px white`
+        box.style.border = `2px solid white`
         if (box.parentNode == rowOne) {
             firstArr.push(wKey.id)
         } else if(box.parentNode == rowTwo) {
@@ -1284,6 +1585,8 @@ wKey.addEventListener(`click`, event => {
 function letX(box) {
     if (!box.hasChildNodes()) {
         box.insertAdjacentHTML(`beforeend`, xKey.id)
+        box.style.boxShadow = `inset 0 0 5px 1px white, 0 0 5px 2px white`
+        box.style.border = `2px solid white`
         if (box.parentNode == rowOne) {
             firstArr.push(xKey.id)
         } else if(box.parentNode == rowTwo) {
@@ -1308,6 +1611,8 @@ xKey.addEventListener(`click`, event => {
 function letY(box) {
     if (!box.hasChildNodes()) {
         box.insertAdjacentHTML(`beforeend`, yKey.id)
+        box.style.boxShadow = `inset 0 0 5px 1px white, 0 0 5px 2px white`
+        box.style.border = `2px solid white`
         if (box.parentNode == rowOne) {
             firstArr.push(yKey.id)
         } else if(box.parentNode == rowTwo) {
@@ -1332,6 +1637,8 @@ yKey.addEventListener(`click`, event => {
 function letZ(box) {
     if (!box.hasChildNodes()) {
         box.insertAdjacentHTML(`beforeend`, zKey.id)
+        box.style.boxShadow = `inset 0 0 5px 1px white, 0 0 5px 2px white`
+        box.style.border = `2px solid white`
         if (box.parentNode == rowOne) {
             firstArr.push(zKey.id)
         } else if(box.parentNode == rowTwo) {
