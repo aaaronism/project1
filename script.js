@@ -50,6 +50,45 @@ wordSelector()
 // let ab = ar.split('')
 // console.log(ar)
 
+let instructBox = document.querySelector(`.instructions`)
+let xBut = document.querySelector(`.buttonx`)
+let mask = document.querySelector(`.pagemask`)
+let qBut = document.querySelector(`.qq`)
+
+xBut.addEventListener(`click`, event => {
+    instructBox.close();
+    mask.style.backgroundColor = 'rgba(0, 0, 0, 0)'
+    mask.style.zIndex = '0'
+}
+)
+
+qBut.addEventListener(`click`, event => {
+    instructBox.show();
+    mask.style.backgroundColor = 'rgba(0, 0, 0, 0.8)'
+    mask.style.zIndex = '4'
+})
+
+let winLose = document.querySelector(`.statistics`)
+let nextButton = document.querySelector(`.nextnext`)
+let statusGame = document.querySelector(`.win`)
+
+nextButton.addEventListener(`click`, event => {
+    location.reload()
+})
+
+function loser() {
+    statusGame.innerText = `LOSE`
+    statusGame.style.color = `red`
+    winLose.show()
+}
+
+function winner() {
+    statusGame.innerText = `WIN`
+    statusGame.style.color = `green`
+    winLose.show()
+}
+
+
 // grid functionality
 let wordGrid = document.querySelector(`.board`)
 let rowOne = document.querySelector(`#row1`)
@@ -152,6 +191,7 @@ function moveNext() {
                             document.querySelector(`#back4`).style.transform = `rotateX(180deg)`
                             document.querySelector(`#back5`).style.transform = `rotateX(180deg)`
                             rowOneCheck()
+                            winner()
                     } else {
                         document.querySelector(`#box1`).style.transform = `rotateX(360deg)`
                         document.querySelector(`#box2`).style.transform = `rotateX(360deg)`
@@ -199,6 +239,7 @@ function moveNext() {
                             document.querySelector(`#back9`).style.transform = `rotateX(180deg)`
                             document.querySelector(`#back10`).style.transform = `rotateX(180deg)`
                             rowTwoCheck()
+                            winner()
                     } else {
                         document.querySelector(`#box6`).style.transform = `rotateX(360deg)`
                         document.querySelector(`#box7`).style.transform = `rotateX(360deg)`
@@ -245,6 +286,7 @@ function moveNext() {
                             document.querySelector(`#back14`).style.transform = `rotateX(180deg)`
                             document.querySelector(`#back15`).style.transform = `rotateX(180deg)`
                             rowThreeCheck()
+                            winner()
                     } else {
                         document.querySelector(`#box11`).style.transform = `rotateX(360deg)`
                         document.querySelector(`#box12`).style.transform = `rotateX(360deg)`
@@ -291,6 +333,7 @@ function moveNext() {
                             document.querySelector(`#back19`).style.transform = `rotateX(180deg)`
                             document.querySelector(`#back20`).style.transform = `rotateX(180deg)`
                             rowFourCheck()
+                            winner()
                     } else {
                         document.querySelector(`#box16`).style.transform = `rotateX(360deg)`
                         document.querySelector(`#box17`).style.transform = `rotateX(360deg)`
@@ -337,6 +380,7 @@ function moveNext() {
                             document.querySelector(`#back24`).style.transform = `rotateX(180deg)`
                             document.querySelector(`#back25`).style.transform = `rotateX(180deg)`
                             rowFiveCheck()
+                            winner()
                     } else {
                         document.querySelector(`#box21`).style.transform = `rotateX(360deg)`
                         document.querySelector(`#box22`).style.transform = `rotateX(360deg)`
@@ -383,6 +427,7 @@ function moveNext() {
                             document.querySelector(`#back29`).style.transform = `rotateX(180deg)`
                             document.querySelector(`#back30`).style.transform = `rotateX(180deg)`
                             rowSixCheck()
+                            winner()
                     } else {
                         document.querySelector(`#box26`).style.transform = `rotateX(360deg)`
                         document.querySelector(`#box27`).style.transform = `rotateX(360deg)`
@@ -398,7 +443,7 @@ function moveNext() {
                         // yellowLight(sixthArr)
                         greyLight(sixthArr)    
                         yellowKeyboard(sixthArr)
-                        alert(`you lose`)
+                        loser()
                     }
                 }
                 }
@@ -1800,19 +1845,19 @@ function rowOneCheck() {
     } else if (firstArr[0] === word[1] && boxTwo.style.background === 'green') {
         boxOne.style.background = `rgb(80, 80, 80)`
     } else if (firstArr[0] === word[1] && boxTwo.style.background !== 'green') {
-        boxOne.style.background = 'yellow'
+        boxOne.style.background = 'rgb(255,215,0)'
     } else if (firstArr[0] === word[2] && boxThree.style.background === 'green') {
         boxOne.style.background = `rgb(80, 80, 80)`
     } else if (firstArr[0] === word[2] && boxThree.style.background !== 'green') {
-        boxOne.style.background = 'yellow'
+        boxOne.style.background = 'rgb(255,215,0)'
     } else if (firstArr[0] === word[3] && boxFour.style.background === 'green') {
         boxOne.style.background = `rgb(80, 80, 80)`
     } else if (firstArr[0] === word[3] && boxFour.style.background !== 'green') {
-        boxOne.style.background = 'yellow'
+        boxOne.style.background = 'rgb(255,215,0)'
     } else if (firstArr[0] === word[4] && boxFive.style.background === 'green') {
         boxOne.style.background = `rgb(80, 80, 80)`
     } else if (firstArr[0] === word[4] && boxFive.style.background !== 'green') {
-        boxOne.style.background = 'yellow'
+        boxOne.style.background = 'rgb(255,215,0)'
     } else {
          boxOne.style.background = `rgb(80, 80, 80)`
     }
@@ -1823,25 +1868,25 @@ function rowOneCheck() {
     } else if (firstArr[1] === word[0] && firstArr[1] === firstArr[0]) {
         boxTwo.style.background = `rgb(80, 80, 80)`
     } else if (firstArr[1] === word[0] && boxOne.style.background !== 'green' && firstArr[1] !== firstArr[0]) {
-        boxTwo.style.background = 'yellow'
+        boxTwo.style.background = 'rgb(255,215,0)'
     } else if (firstArr[1] === word[2] && boxThree.style.background === 'green') {
         boxTwo.style.background = `rgb(80, 80, 80)`
     } else if (firstArr[1] === word[3] && firstArr[1] === firstArr[0]) {
         boxTwo.style.background = `rgb(80, 80, 80)`
     } else if (firstArr[1] === word[2] && boxThree.style.background !== 'green') {
-        boxTwo.style.background = 'yellow'
+        boxTwo.style.background = 'rgb(255,215,0)'
     } else if (firstArr[1] === word[3] && boxFour.style.background === 'green') {
        boxTwo.style.background = `rgb(80, 80, 80)`
     } else if (firstArr[1] === word[3] && firstArr[1] === firstArr[0]) {
         boxTwo.style.background = `rgb(80, 80, 80)`
     } else if (firstArr[1] === word[3] && boxFour.style.background !== 'green') {
-        boxTwo.style.background = 'yellow'
+        boxTwo.style.background = 'rgb(255,215,0)'
     } else if (firstArr[1] === word[4] && boxFive.style.background === 'green') {
        boxTwo.style.background = `rgb(80, 80, 80)`
     } else if (firstArr[1] === word[4] && firstArr[1] === firstArr[0]) {
         boxTwo.style.background = `rgb(80, 80, 80)`
     } else if (firstArr[1] === word[4] && boxFive.style.background !== 'green') {
-        boxTwo.style.background = 'yellow'
+        boxTwo.style.background = 'rgb(255,215,0)'
     } else {
          boxTwo.style.background = `rgb(80, 80, 80)`
     }
@@ -1854,7 +1899,7 @@ function rowOneCheck() {
     } else if (firstArr[2] === word[0] && firstArr[2] === firstArr[1]) {
             boxThree.style.background = `rgb(80, 80, 80)`
     } else if (firstArr[2] === word[0] && boxOne.style.background !== 'green' && firstArr[2] !== firstArr[1]) {
-                boxThree.style.background = 'yellow'
+                boxThree.style.background = 'rgb(255,215,0)'
     } else if (firstArr[2] === word[1] && boxTwo.style.background === 'green') {
         boxThree.style.background = `rgb(80, 80, 80)`
     } else if (firstArr[2] === word[1] && firstArr[2] === firstArr[0]) {
@@ -1862,7 +1907,7 @@ function rowOneCheck() {
     } else if (firstArr[2] === word[1] && firstArr[2] === firstArr[1]) {
         boxThree.style.background = `rgb(80, 80, 80)`
     } else if (firstArr[2] === word[1] && boxTwo.style.background !== 'green') {
-            boxThree.style.background = 'yellow'
+            boxThree.style.background = 'rgb(255,215,0)'
     } else if (firstArr[2] === word[3] && boxFour.style.background === 'green') {
         boxThree.style.background = `rgb(80, 80, 80)`
     } else if (firstArr[2] === word[3] && firstArr[2] === firstArr[0]) {
@@ -1870,7 +1915,7 @@ function rowOneCheck() {
     } else if (firstArr[2] === word[3] && firstArr[2] === firstArr[1]) {
         boxThree.style.background = `rgb(80, 80, 80)`
     } else if (firstArr[2] === word[3] && boxFour.style.background !== 'green') {
-        boxThree.style.background = 'yellow'
+        boxThree.style.background = 'rgb(255,215,0)'
     } else if (firstArr[2] === word[4] && boxFive.style.background === 'green') {
         boxThree.style.background = `rgb(80, 80, 80)`
     } else if (firstArr[2] === word[4] && firstArr[2] === firstArr[0]) {
@@ -1878,7 +1923,7 @@ function rowOneCheck() {
     } else if (firstArr[2] === word[4] && firstArr[2] === firstArr[1]) {
         boxThree.style.background = `rgb(80, 80, 80)`
     } else if (firstArr[2] === word[4] && boxFive.style.background !== 'green') {
-        boxThree.style.background = 'yellow'
+        boxThree.style.background = 'rgb(255,215,0)'
     } else {
         boxThree.style.background = `rgb(80, 80, 80)`
     }
@@ -1893,7 +1938,7 @@ function rowOneCheck() {
     } else if (firstArr[3] === word[0] && firstArr[3] === firstArr[2]) {
         boxFour.style.background = `rgb(80, 80, 80)`
     } else if (firstArr[3] === word[0] && boxOne.style.background !== 'green' && firstArr[3] !== firstArr[1] && firstArr[3] !== firstArr[2]) {
-            boxThree.style.background = 'yellow'
+            boxThree.style.background = 'rgb(255,215,0)'
     } else if (firstArr[3] === word[1] && boxTwo.style.background === 'green') {
         boxFour.style.background = `rgb(80, 80, 80)`
     } else if (firstArr[3] === word[1] && firstArr[3] === firstArr[0]) {
@@ -1903,7 +1948,7 @@ function rowOneCheck() {
     } else if (firstArr[3] === word[1] && firstArr[3] === firstArr[2]) {
         boxFour.style.background = `rgb(80, 80, 80)`
     } else if(firstArr[3] === word[1] && boxTwo.style.background !== 'green' && firstArr[3] !== firstArr[2]) {
-            boxFour.style.background = 'yellow'
+            boxFour.style.background = 'rgb(255,215,0)'
     } else if (firstArr[3] === word[2] && boxThree.style.background === 'green') {
         boxFour.style.background = `rgb(80, 80, 80)`
     } else if (firstArr[3] === word[2] && firstArr[3] === firstArr[0]) {
@@ -1913,7 +1958,7 @@ function rowOneCheck() {
     } else if (firstArr[3] === word[2] && firstArr[3] === firstArr[2]) {
         boxFour.style.background = `rgb(80, 80, 80)`
     } else if (firstArr[3] === word[2] && boxThree.style.background !== 'green') {
-            boxFour.style.background = 'yellow'
+            boxFour.style.background = 'rgb(255,215,0)'
     } else if (firstArr[3] === word[4] && boxFive.style.background === 'green') {
         boxFour.style.background = `rgb(80, 80, 80)`
     } else if (firstArr[3] === word[4] && firstArr[3] === firstArr[0]) {
@@ -1923,7 +1968,7 @@ function rowOneCheck() {
     } else if (firstArr[3] === word[4] && firstArr[3] === firstArr[2]) {
         boxFour.style.background = `rgb(80, 80, 80)`
     } else if (firstArr[3] === word[4] && boxFive.style.background !== 'green') {
-            boxFour.style.background = 'yellow'
+            boxFour.style.background = 'rgb(255,215,0)'
     } else {
         boxFour.style.background = `rgb(80, 80, 80)`
     }
@@ -1940,7 +1985,7 @@ function rowOneCheck() {
     } else if (firstArr[4] === word[0] && firstArr[4] === firstArr[3]) {
         boxFive.style.background = `rgb(80, 80, 80)`
     } else if (firstArr[4] === word[0] && boxOne.style.background !== 'green' && firstArr[4] !== firstArr[1] && firstArr[4] !== firstArr[2] && firstArr[4] !== firstArr[3]) {
-            boxFive.style.background = 'yellow'
+            boxFive.style.background = 'rgb(255,215,0)'
     } else if (firstArr[4] === word[1] && boxTwo.style.background === 'green') {
         boxFive.style.background = `rgb(80, 80, 80)`
     } else if (firstArr[4] === word[1] && firstArr[4] === firstArr[0]) {
@@ -1952,7 +1997,7 @@ function rowOneCheck() {
     } else if (firstArr[4] === word[1] && firstArr[4] === firstArr[3]) {
         boxFive.style.background = `rgb(80, 80, 80)`
     } else if (firstArr[4] === word[1] && firstArr[4] !== firstArr[2] && firstArr[4] !== firstArr[3]) {
-            boxFive.style.background = 'yellow'
+            boxFive.style.background = 'rgb(255,215,0)'
     } else if (firstArr[4] === word[2] && boxThree.style.background === 'green') {
         boxFive.style.background = `rgb(80, 80, 80)`
     } else if (firstArr[4] === word[2] && firstArr[4] === firstArr[0]) {
@@ -1964,7 +2009,7 @@ function rowOneCheck() {
     } else if (firstArr[4] === word[2] && firstArr[4] === firstArr[3]) {
         boxFive.style.background = `rgb(80, 80, 80)`
     } else if (firstArr[4] === word[2] && boxThree.style.background !== 'green' && firstArr[4] !== firstArr[2]) {
-        boxFive.style.background = 'yellow'
+        boxFive.style.background = 'rgb(255,215,0)'
     } else if (firstArr[4] === word[3] && boxFour.style.background === 'green') {
         boxFive.style.background = `rgb(80, 80, 80)`
     } else if (firstArr[4] === word[3] && firstArr[4] === firstArr[0]) {
@@ -1976,7 +2021,7 @@ function rowOneCheck() {
     } else if (firstArr[4] === word[3] && firstArr[4] === firstArr[3]) {
         boxFive.style.background = `rgb(80, 80, 80)`
     } else if (firstArr[4] === word[3] && boxFour.style.background !== 'green') {
-            boxFive.style.background = 'yellow'
+            boxFive.style.background = 'rgb(255,215,0)'
     } else {
         boxFive.style.background = `rgb(80, 80, 80)`
     }
@@ -2009,19 +2054,19 @@ function rowTwoCheck() {
     } else if (secondArr[0] === word[1] && boxSeven.style.background === 'green') {
         boxSix.style.background = `rgb(80, 80, 80)`
     } else if (secondArr[0] === word[1] && boxSeven.style.background !== 'green') {
-        boxSix.style.background = 'yellow'
+        boxSix.style.background = 'rgb(255,215,0)'
     } else if (secondArr[0] === word[2] && boxEight.style.background === 'green') {
         boxSix.style.background = `rgb(80, 80, 80)`
     } else if (secondArr[0] === word[2] && boxEight.style.background !== 'green') {
-        boxSix.style.background = 'yellow'
+        boxSix.style.background = 'rgb(255,215,0)'
     } else if (secondArr[0] === word[3] && boxNine.style.background === 'green') {
         boxSix.style.background = `rgb(80, 80, 80)`
     } else if (secondArr[0] === word[3] && boxNine.style.background !== 'green') {
-        boxSix.style.background = 'yellow'
+        boxSix.style.background = 'rgb(255,215,0)'
     } else if (secondArr[0] === word[4] && boxTen.style.background === 'green') {
         boxSix.style.background = `rgb(80, 80, 80)`
     } else if (secondArr[0] === word[4] && boxTen.style.background !== 'green') {
-        boxSix.style.background = 'yellow'
+        boxSix.style.background = 'rgb(255,215,0)'
     } else {
          boxSix.style.background = `rgb(80, 80, 80)`
     }
@@ -2032,25 +2077,25 @@ function rowTwoCheck() {
     } else if (secondArr[1] === word[0] && secondArr[1] === secondArr[0]) {
         boxSeven.style.background = `rgb(80, 80, 80)`
     } else if (secondArr[1] === word[0] && boxSix.style.background !== 'green' && secondArr[1] !== secondArr[0]) {
-        boxSeven.style.background = 'yellow'
+        boxSeven.style.background = 'rgb(255,215,0)'
     } else if (secondArr[1] === word[2] && boxEight.style.background === 'green') {
         boxSeven.style.background = `rgb(80, 80, 80)`
     } else if (secondArr[1] === word[3] && secondArr[1] === secondArr[0]) {
         boxSeven.style.background = `rgb(80, 80, 80)`
     } else if (secondArr[1] === word[2] && boxEight.style.background !== 'green') {
-        boxSeven.style.background = 'yellow'
+        boxSeven.style.background = 'rgb(255,215,0)'
     } else if (secondArr[1] === word[3] && boxNine.style.background === 'green') {
        boxSeven.style.background = `rgb(80, 80, 80)`
     } else if (secondArr[1] === word[3] && secondArr[1] === secondArr[0]) {
         boxSeven.style.background = `rgb(80, 80, 80)`
     } else if (secondArr[1] === word[3] && boxNine.style.background !== 'green') {
-        boxSeven.style.background = 'yellow'
+        boxSeven.style.background = 'rgb(255,215,0)'
     } else if (secondArr[1] === word[4] && boxTen.style.background === 'green') {
        boxSeven.style.background = `rgb(80, 80, 80)`
     } else if (secondArr[1] === word[4] && secondArr[1] === secondArr[0]) {
         boxSeven.style.background = `rgb(80, 80, 80)`
     } else if (secondArr[1] === word[4] && boxTen.style.background !== 'green') {
-        boxSeven.style.background = 'yellow'
+        boxSeven.style.background = 'rgb(255,215,0)'
     } else {
          boxSeven.style.background = `rgb(80, 80, 80)`
     }
@@ -2063,7 +2108,7 @@ function rowTwoCheck() {
     } else if (secondArr[2] === word[0] && secondArr[2] === secondArr[1]) {
             boxEight.style.background = `rgb(80, 80, 80)`
     } else if (secondArr[2] === word[0] && boxSix.style.background !== 'green' && secondArr[2] !== secondArr[1]) {
-                boxEight.style.background = 'yellow'
+                boxEight.style.background = 'rgb(255,215,0)'
     } else if (secondArr[2] === word[1] && boxSeven.style.background === 'green') {
         boxEight.style.background = `rgb(80, 80, 80)`
     } else if (secondArr[2] === word[1] && secondArr[2] === secondArr[0]) {
@@ -2071,7 +2116,7 @@ function rowTwoCheck() {
     } else if (secondArr[2] === word[1] && secondArr[2] === secondArr[1]) {
         boxEight.style.background = `rgb(80, 80, 80)`
     } else if (secondArr[2] === word[1] && boxSeven.style.background !== 'green') {
-            boxEight.style.background = 'yellow'
+            boxEight.style.background = 'rgb(255,215,0)'
     } else if (secondArr[2] === word[3] && boxNine.style.background === 'green') {
         boxEight.style.background = `rgb(80, 80, 80)`
     } else if (secondArr[2] === word[3] && secondArr[2] === secondArr[0]) {
@@ -2079,7 +2124,7 @@ function rowTwoCheck() {
     } else if (secondArr[2] === word[3] && secondArr[2] === secondArr[1]) {
         boxEight.style.background = `rgb(80, 80, 80)`
     } else if (secondArr[2] === word[3] && boxNine.style.background !== 'green') {
-        boxEight.style.background = 'yellow'
+        boxEight.style.background = 'rgb(255,215,0)'
     } else if (secondArr[2] === word[4] && boxTen.style.background === 'green') {
         boxEight.style.background = `rgb(80, 80, 80)`
     } else if (secondArr[2] === word[4] && secondArr[2] === secondArr[0]) {
@@ -2087,7 +2132,7 @@ function rowTwoCheck() {
     } else if (secondArr[2] === word[4] && secondArr[2] === secondArr[1]) {
         boxEight.style.background = `rgb(80, 80, 80)`
     } else if (secondArr[2] === word[4] && boxTen.style.background !== 'green') {
-        boxEight.style.background = 'yellow'
+        boxEight.style.background = 'rgb(255,215,0)'
     } else {
         boxEight.style.background = `rgb(80, 80, 80)`
     }
@@ -2102,7 +2147,7 @@ function rowTwoCheck() {
     } else if (secondArr[3] === word[0] && secondArr[3] === secondArr[2]) {
         boxNine.style.background = `rgb(80, 80, 80)`
     } else if (secondArr[3] === word[0] && boxSix.style.background !== 'green' && secondArr[3] !== secondArr[1] && secondArr[3] !== secondArr[2]) {
-            boxEight.style.background = 'yellow'
+            boxEight.style.background = 'rgb(255,215,0)'
     } else if (secondArr[3] === word[1] && boxSeven.style.background === 'green') {
         boxNine.style.background = `rgb(80, 80, 80)`
     } else if (secondArr[3] === word[1] && secondArr[3] === secondArr[0]) {
@@ -2112,7 +2157,7 @@ function rowTwoCheck() {
     } else if (secondArr[3] === word[1] && secondArr[3] === secondArr[2]) {
         boxNine.style.background = `rgb(80, 80, 80)`
     } else if(secondArr[3] === word[1] && boxSeven.style.background !== 'green' && secondArr[3] !== secondArr[2]) {
-            boxNine.style.background = 'yellow'
+            boxNine.style.background = 'rgb(255,215,0)'
     } else if (secondArr[3] === word[2] && boxEight.style.background === 'green') {
         boxNine.style.background = `rgb(80, 80, 80)`
     } else if (secondArr[3] === word[2] && secondArr[3] === secondArr[0]) {
@@ -2122,7 +2167,7 @@ function rowTwoCheck() {
     } else if (secondArr[3] === word[2] && secondArr[3] === secondArr[2]) {
         boxNine.style.background = `rgb(80, 80, 80)`
     } else if (secondArr[3] === word[2] && boxEight.style.background !== 'green') {
-            boxNine.style.background = 'yellow'
+            boxNine.style.background = 'rgb(255,215,0)'
     } else if (secondArr[3] === word[4] && boxTen.style.background === 'green') {
         boxNine.style.background = `rgb(80, 80, 80)`
     } else if (secondArr[3] === word[4] && secondArr[3] === secondArr[0]) {
@@ -2132,7 +2177,7 @@ function rowTwoCheck() {
     } else if (secondArr[3] === word[4] && secondArr[3] === secondArr[2]) {
         boxNine.style.background = `rgb(80, 80, 80)`
     } else if (secondArr[3] === word[4] && boxTen.style.background !== 'green') {
-            boxNine.style.background = 'yellow'
+            boxNine.style.background = 'rgb(255,215,0)'
     } else {
         boxNine.style.background = `rgb(80, 80, 80)`
     }
@@ -2149,7 +2194,7 @@ function rowTwoCheck() {
     } else if (secondArr[4] === word[0] && secondArr[4] === secondArr[3]) {
         boxTen.style.background = `rgb(80, 80, 80)`
     } else if (secondArr[4] === word[0] && boxSix.style.background !== 'green' && secondArr[4] !== secondArr[1] && secondArr[4] !== secondArr[2] && secondArr[4] !== secondArr[3]) {
-            boxTen.style.background = 'yellow'
+            boxTen.style.background = 'rgb(255,215,0)'
     } else if (secondArr[4] === word[1] && boxSeven.style.background === 'green') {
         boxTen.style.background = `rgb(80, 80, 80)`
     } else if (secondArr[4] === word[1] && secondArr[4] === secondArr[0]) {
@@ -2161,7 +2206,7 @@ function rowTwoCheck() {
     } else if (secondArr[4] === word[1] && secondArr[4] === secondArr[3]) {
         boxTen.style.background = `rgb(80, 80, 80)`
     } else if (secondArr[4] === word[1] && secondArr[4] !== secondArr[2] && secondArr[4] !== secondArr[3]) {
-            boxTen.style.background = 'yellow'
+            boxTen.style.background = 'rgb(255,215,0)'
     } else if (secondArr[4] === word[2] && boxEight.style.background === 'green') {
         boxTen.style.background = `rgb(80, 80, 80)`
     } else if (secondArr[4] === word[2] && secondArr[4] === secondArr[0]) {
@@ -2173,7 +2218,7 @@ function rowTwoCheck() {
     } else if (secondArr[4] === word[2] && secondArr[4] === secondArr[3]) {
         boxTen.style.background = `rgb(80, 80, 80)`
     } else if (secondArr[4] === word[2] && boxEight.style.background !== 'green' && secondArr[4] !== secondArr[2]) {
-        boxTen.style.background = 'yellow'
+        boxTen.style.background = 'rgb(255,215,0)'
     } else if (secondArr[4] === word[3] && boxNine.style.background === 'green') {
         boxTen.style.background = `rgb(80, 80, 80)`
     } else if (secondArr[4] === word[3] && secondArr[4] === secondArr[0]) {
@@ -2185,7 +2230,7 @@ function rowTwoCheck() {
     } else if (secondArr[4] === word[3] && secondArr[4] === secondArr[3]) {
         boxTen.style.background = `rgb(80, 80, 80)`
     } else if (secondArr[4] === word[3] && boxNine.style.background !== 'green') {
-            boxTen.style.background = 'yellow'
+            boxTen.style.background = 'rgb(255,215,0)'
     } else {
         boxTen.style.background = `rgb(80, 80, 80)`
     }
@@ -2216,19 +2261,19 @@ function rowThreeCheck() {
     } else if (thirdArr[0] === word[1] && boxTwelve.style.background === 'green') {
         boxEleven.style.background = `rgb(80, 80, 80)`
     } else if (thirdArr[0] === word[1] && boxTwelve.style.background !== 'green') {
-        boxEleven.style.background = 'yellow'
+        boxEleven.style.background = 'rgb(255,215,0)'
     } else if (thirdArr[0] === word[2] && boxThirteen.style.background === 'green') {
         boxEleven.style.background = `rgb(80, 80, 80)`
     } else if (thirdArr[0] === word[2] && boxThirteen.style.background !== 'green') {
-        boxEleven.style.background = 'yellow'
+        boxEleven.style.background = 'rgb(255,215,0)'
     } else if (thirdArr[0] === word[3] && boxFourteen.style.background === 'green') {
         boxEleven.style.background = `rgb(80, 80, 80)`
     } else if (thirdArr[0] === word[3] && boxFourteen.style.background !== 'green') {
-        boxEleven.style.background = 'yellow'
+        boxEleven.style.background = 'rgb(255,215,0)'
     } else if (thirdArr[0] === word[4] && boxFifteen.style.background === 'green') {
         boxEleven.style.background = `rgb(80, 80, 80)`
     } else if (thirdArr[0] === word[4] && boxFifteen.style.background !== 'green') {
-        boxEleven.style.background = 'yellow'
+        boxEleven.style.background = 'rgb(255,215,0)'
     } else {
          boxEleven.style.background = `rgb(80, 80, 80)`
     }
@@ -2239,25 +2284,25 @@ function rowThreeCheck() {
     } else if (thirdArr[1] === word[0] && thirdArr[1] === thirdArr[0]) {
         boxTwelve.style.background = `rgb(80, 80, 80)`
     } else if (thirdArr[1] === word[0] && boxEleven.style.background !== 'green' && thirdArr[1] !== thirdArr[0]) {
-        boxTwelve.style.background = 'yellow'
+        boxTwelve.style.background = 'rgb(255,215,0)'
     } else if (thirdArr[1] === word[2] && boxThirteen.style.background === 'green') {
         boxTwelve.style.background = `rgb(80, 80, 80)`
     } else if (thirdArr[1] === word[3] && thirdArr[1] === thirdArr[0]) {
         boxTwelve.style.background = `rgb(80, 80, 80)`
     } else if (thirdArr[1] === word[2] && boxThirteen.style.background !== 'green') {
-        boxTwelve.style.background = 'yellow'
+        boxTwelve.style.background = 'rgb(255,215,0)'
     } else if (thirdArr[1] === word[3] && boxFourteen.style.background === 'green') {
        boxTwelve.style.background = `rgb(80, 80, 80)`
     } else if (thirdArr[1] === word[3] && thirdArr[1] === thirdArr[0]) {
         boxTwelve.style.background = `rgb(80, 80, 80)`
     } else if (thirdArr[1] === word[3] && boxFourteen.style.background !== 'green') {
-        boxTwelve.style.background = 'yellow'
+        boxTwelve.style.background = 'rgb(255,215,0)'
     } else if (thirdArr[1] === word[4] && boxFifteen.style.background === 'green') {
        boxTwelve.style.background = `rgb(80, 80, 80)`
     } else if (thirdArr[1] === word[4] && thirdArr[1] === thirdArr[0]) {
         boxTwelve.style.background = `rgb(80, 80, 80)`
     } else if (thirdArr[1] === word[4] && boxFifteen.style.background !== 'green') {
-        boxTwelve.style.background = 'yellow'
+        boxTwelve.style.background = 'rgb(255,215,0)'
     } else {
          boxTwelve.style.background = `rgb(80, 80, 80)`
     }
@@ -2270,7 +2315,7 @@ function rowThreeCheck() {
     } else if (thirdArr[2] === word[0] && thirdArr[2] === thirdArr[1]) {
             boxThirteen.style.background = `rgb(80, 80, 80)`
     } else if (thirdArr[2] === word[0] && boxEleven.style.background !== 'green' && thirdArr[2] !== thirdArr[1]) {
-                boxThirteen.style.background = 'yellow'
+                boxThirteen.style.background = 'rgb(255,215,0)'
     } else if (thirdArr[2] === word[1] && boxTwelve.style.background === 'green') {
         boxThirteen.style.background = `rgb(80, 80, 80)`
     } else if (thirdArr[2] === word[1] && thirdArr[2] === thirdArr[0]) {
@@ -2278,7 +2323,7 @@ function rowThreeCheck() {
     } else if (thirdArr[2] === word[1] && thirdArr[2] === thirdArr[1]) {
         boxThirteen.style.background = `rgb(80, 80, 80)`
     } else if (thirdArr[2] === word[1] && boxTwelve.style.background !== 'green') {
-            boxThirteen.style.background = 'yellow'
+            boxThirteen.style.background = 'rgb(255,215,0)'
     } else if (thirdArr[2] === word[3] && boxFourteen.style.background === 'green') {
         boxThirteen.style.background = `rgb(80, 80, 80)`
     } else if (thirdArr[2] === word[3] && thirdArr[2] === thirdArr[0]) {
@@ -2286,7 +2331,7 @@ function rowThreeCheck() {
     } else if (thirdArr[2] === word[3] && thirdArr[2] === thirdArr[1]) {
         boxThirteen.style.background = `rgb(80, 80, 80)`
     } else if (thirdArr[2] === word[3] && boxFourteen.style.background !== 'green') {
-        boxThirteen.style.background = 'yellow'
+        boxThirteen.style.background = 'rgb(255,215,0)'
     } else if (thirdArr[2] === word[4] && boxFifteen.style.background === 'green') {
         boxThirteen.style.background = `rgb(80, 80, 80)`
     } else if (thirdArr[2] === word[4] && thirdArr[2] === thirdArr[0]) {
@@ -2294,7 +2339,7 @@ function rowThreeCheck() {
     } else if (thirdArr[2] === word[4] && thirdArr[2] === thirdArr[1]) {
         boxThirteen.style.background = `rgb(80, 80, 80)`
     } else if (thirdArr[2] === word[4] && boxFifteen.style.background !== 'green') {
-        boxThirteen.style.background = 'yellow'
+        boxThirteen.style.background = 'rgb(255,215,0)'
     } else {
         boxThirteen.style.background = `rgb(80, 80, 80)`
     }
@@ -2309,7 +2354,7 @@ function rowThreeCheck() {
     } else if (thirdArr[3] === word[0] && thirdArr[3] === thirdArr[2]) {
         boxFourteen.style.background = `rgb(80, 80, 80)`
     } else if (thirdArr[3] === word[0] && boxEleven.style.background !== 'green' && thirdArr[3] !== thirdArr[1] && thirdArr[3] !== thirdArr[2]) {
-            boxThirteen.style.background = 'yellow'
+            boxThirteen.style.background = 'rgb(255,215,0)'
     } else if (thirdArr[3] === word[1] && boxTwelve.style.background === 'green') {
         boxFourteen.style.background = `rgb(80, 80, 80)`
     } else if (thirdArr[3] === word[1] && thirdArr[3] === thirdArr[0]) {
@@ -2319,7 +2364,7 @@ function rowThreeCheck() {
     } else if (thirdArr[3] === word[1] && thirdArr[3] === thirdArr[2]) {
         boxFourteen.style.background = `rgb(80, 80, 80)`
     } else if(thirdArr[3] === word[1] && boxTwelve.style.background !== 'green' && thirdArr[3] !== thirdArr[2]) {
-            boxFourteen.style.background = 'yellow'
+            boxFourteen.style.background = 'rgb(255,215,0)'
     } else if (thirdArr[3] === word[2] && boxThirteen.style.background === 'green') {
         boxFourteen.style.background = `rgb(80, 80, 80)`
     } else if (thirdArr[3] === word[2] && thirdArr[3] === thirdArr[0]) {
@@ -2329,7 +2374,7 @@ function rowThreeCheck() {
     } else if (thirdArr[3] === word[2] && thirdArr[3] === thirdArr[2]) {
         boxFourteen.style.background = `rgb(80, 80, 80)`
     } else if (thirdArr[3] === word[2] && boxThirteen.style.background !== 'green') {
-            boxFourteen.style.background = 'yellow'
+            boxFourteen.style.background = 'rgb(255,215,0)'
     } else if (thirdArr[3] === word[4] && boxFifteen.style.background === 'green') {
         boxFourteen.style.background = `rgb(80, 80, 80)`
     } else if (thirdArr[3] === word[4] && thirdArr[3] === thirdArr[0]) {
@@ -2339,7 +2384,7 @@ function rowThreeCheck() {
     } else if (thirdArr[3] === word[4] && thirdArr[3] === thirdArr[2]) {
         boxFourteen.style.background = `rgb(80, 80, 80)`
     } else if (thirdArr[3] === word[4] && boxFifteen.style.background !== 'green') {
-            boxFourteen.style.background = 'yellow'
+            boxFourteen.style.background = 'rgb(255,215,0)'
     } else {
         boxFourteen.style.background = `rgb(80, 80, 80)`
     }
@@ -2356,7 +2401,7 @@ function rowThreeCheck() {
     } else if (thirdArr[4] === word[0] && thirdArr[4] === thirdArr[3]) {
         boxFifteen.style.background = `rgb(80, 80, 80)`
     } else if (thirdArr[4] === word[0] && boxEleven.style.background !== 'green' && thirdArr[4] !== thirdArr[1] && thirdArr[4] !== thirdArr[2] && thirdArr[4] !== thirdArr[3]) {
-            boxFifteen.style.background = 'yellow'
+            boxFifteen.style.background = 'rgb(255,215,0)'
     } else if (thirdArr[4] === word[1] && boxTwelve.style.background === 'green') {
         boxFifteen.style.background = `rgb(80, 80, 80)`
     } else if (thirdArr[4] === word[1] && thirdArr[4] === thirdArr[0]) {
@@ -2368,7 +2413,7 @@ function rowThreeCheck() {
     } else if (thirdArr[4] === word[1] && thirdArr[4] === thirdArr[3]) {
         boxFifteen.style.background = `rgb(80, 80, 80)`
     } else if (thirdArr[4] === word[1] && thirdArr[4] !== thirdArr[2] && thirdArr[4] !== thirdArr[3]) {
-            boxFifteen.style.background = 'yellow'
+            boxFifteen.style.background = 'rgb(255,215,0)'
     } else if (thirdArr[4] === word[2] && boxThirteen.style.background === 'green') {
         boxFifteen.style.background = `rgb(80, 80, 80)`
     } else if (thirdArr[4] === word[2] && thirdArr[4] === thirdArr[0]) {
@@ -2380,7 +2425,7 @@ function rowThreeCheck() {
     } else if (thirdArr[4] === word[2] && thirdArr[4] === thirdArr[3]) {
         boxFifteen.style.background = `rgb(80, 80, 80)`
     } else if (thirdArr[4] === word[2] && boxThirteen.style.background !== 'green' && thirdArr[4] !== thirdArr[2]) {
-        boxFifteen.style.background = 'yellow'
+        boxFifteen.style.background = 'rgb(255,215,0)'
     } else if (thirdArr[4] === word[3] && boxFourteen.style.background === 'green') {
         boxFifteen.style.background = `rgb(80, 80, 80)`
     } else if (thirdArr[4] === word[3] && thirdArr[4] === thirdArr[0]) {
@@ -2392,7 +2437,7 @@ function rowThreeCheck() {
     } else if (thirdArr[4] === word[3] && thirdArr[4] === thirdArr[3]) {
         boxFifteen.style.background = `rgb(80, 80, 80)`
     } else if (thirdArr[4] === word[3] && boxFourteen.style.background !== 'green') {
-            boxFifteen.style.background = 'yellow'
+            boxFifteen.style.background = 'rgb(255,215,0)'
     } else {
         boxFifteen.style.background = `rgb(80, 80, 80)`
     }
@@ -2423,19 +2468,19 @@ function rowFourCheck() {
     } else if (fourthArr[0] === word[1] && boxSeventeen.style.background === 'green') {
         boxSixteen.style.background = `rgb(80, 80, 80)`
     } else if (fourthArr[0] === word[1] && boxSeventeen.style.background !== 'green') {
-        boxSixteen.style.background = 'yellow'
+        boxSixteen.style.background = 'rgb(255,215,0)'
     } else if (fourthArr[0] === word[2] && boxEighteen.style.background === 'green') {
         boxSixteen.style.background = `rgb(80, 80, 80)`
     } else if (fourthArr[0] === word[2] && boxEighteen.style.background !== 'green') {
-        boxSixteen.style.background = 'yellow'
+        boxSixteen.style.background = 'rgb(255,215,0)'
     } else if (fourthArr[0] === word[3] && boxNineteen.style.background === 'green') {
         boxSixteen.style.background = `rgb(80, 80, 80)`
     } else if (fourthArr[0] === word[3] && boxNineteen.style.background !== 'green') {
-        boxSixteen.style.background = 'yellow'
+        boxSixteen.style.background = 'rgb(255,215,0)'
     } else if (fourthArr[0] === word[4] && boxTwenty.style.background === 'green') {
         boxSixteen.style.background = `rgb(80, 80, 80)`
     } else if (fourthArr[0] === word[4] && boxTwenty.style.background !== 'green') {
-        boxSixteen.style.background = 'yellow'
+        boxSixteen.style.background = 'rgb(255,215,0)'
     } else {
          boxSixteen.style.background = `rgb(80, 80, 80)`
     }
@@ -2446,25 +2491,25 @@ function rowFourCheck() {
     } else if (fourthArr[1] === word[0] && fourthArr[1] === fourthArr[0]) {
         boxSeventeen.style.background = `rgb(80, 80, 80)`
     } else if (fourthArr[1] === word[0] && boxSixteen.style.background !== 'green' && fourthArr[1] !== fourthArr[0]) {
-        boxSeventeen.style.background = 'yellow'
+        boxSeventeen.style.background = 'rgb(255,215,0)'
     } else if (fourthArr[1] === word[2] && boxEighteen.style.background === 'green') {
         boxSeventeen.style.background = `rgb(80, 80, 80)`
     } else if (fourthArr[1] === word[3] && fourthArr[1] === fourthArr[0]) {
         boxSeventeen.style.background = `rgb(80, 80, 80)`
     } else if (fourthArr[1] === word[2] && boxEighteen.style.background !== 'green') {
-        boxSeventeen.style.background = 'yellow'
+        boxSeventeen.style.background = 'rgb(255,215,0)'
     } else if (fourthArr[1] === word[3] && boxNineteen.style.background === 'green') {
        boxSeventeen.style.background = `rgb(80, 80, 80)`
     } else if (fourthArr[1] === word[3] && fourthArr[1] === fourthArr[0]) {
         boxSeventeen.style.background = `rgb(80, 80, 80)`
     } else if (fourthArr[1] === word[3] && boxNineteen.style.background !== 'green') {
-        boxSeventeen.style.background = 'yellow'
+        boxSeventeen.style.background = 'rgb(255,215,0)'
     } else if (fourthArr[1] === word[4] && boxTwenty.style.background === 'green') {
        boxSeventeen.style.background = `rgb(80, 80, 80)`
     } else if (fourthArr[1] === word[4] && fourthArr[1] === fourthArr[0]) {
         boxSeventeen.style.background = `rgb(80, 80, 80)`
     } else if (fourthArr[1] === word[4] && boxTwenty.style.background !== 'green') {
-        boxSeventeen.style.background = 'yellow'
+        boxSeventeen.style.background = 'rgb(255,215,0)'
     } else {
          boxSeventeen.style.background = `rgb(80, 80, 80)`
     }
@@ -2477,7 +2522,7 @@ function rowFourCheck() {
     } else if (fourthArr[2] === word[0] && fourthArr[2] === fourthArr[1]) {
             boxEighteen.style.background = `rgb(80, 80, 80)`
     } else if (fourthArr[2] === word[0] && boxSixteen.style.background !== 'green' && fourthArr[2] !== fourthArr[1]) {
-                boxEighteen.style.background = 'yellow'
+                boxEighteen.style.background = 'rgb(255,215,0)'
     } else if (fourthArr[2] === word[1] && boxSeventeen.style.background === 'green') {
         boxEighteen.style.background = `rgb(80, 80, 80)`
     } else if (fourthArr[2] === word[1] && fourthArr[2] === fourthArr[0]) {
@@ -2485,7 +2530,7 @@ function rowFourCheck() {
     } else if (fourthArr[2] === word[1] && fourthArr[2] === fourthArr[1]) {
         boxEighteen.style.background = `rgb(80, 80, 80)`
     } else if (fourthArr[2] === word[1] && boxSeventeen.style.background !== 'green') {
-            boxEighteen.style.background = 'yellow'
+            boxEighteen.style.background = 'rgb(255,215,0)'
     } else if (fourthArr[2] === word[3] && boxNineteen.style.background === 'green') {
         boxEighteen.style.background = `rgb(80, 80, 80)`
     } else if (fourthArr[2] === word[3] && fourthArr[2] === fourthArr[0]) {
@@ -2493,7 +2538,7 @@ function rowFourCheck() {
     } else if (fourthArr[2] === word[3] && fourthArr[2] === fourthArr[1]) {
         boxEighteen.style.background = `rgb(80, 80, 80)`
     } else if (fourthArr[2] === word[3] && boxNineteen.style.background !== 'green') {
-        boxEighteen.style.background = 'yellow'
+        boxEighteen.style.background = 'rgb(255,215,0)'
     } else if (fourthArr[2] === word[4] && boxTwenty.style.background === 'green') {
         boxEighteen.style.background = `rgb(80, 80, 80)`
     } else if (fourthArr[2] === word[4] && fourthArr[2] === fourthArr[0]) {
@@ -2501,7 +2546,7 @@ function rowFourCheck() {
     } else if (fourthArr[2] === word[4] && fourthArr[2] === fourthArr[1]) {
         boxEighteen.style.background = `rgb(80, 80, 80)`
     } else if (fourthArr[2] === word[4] && boxTwenty.style.background !== 'green') {
-        boxEighteen.style.background = 'yellow'
+        boxEighteen.style.background = 'rgb(255,215,0)'
     } else {
         boxEighteen.style.background = `rgb(80, 80, 80)`
     }
@@ -2516,7 +2561,7 @@ function rowFourCheck() {
     } else if (fourthArr[3] === word[0] && fourthArr[3] === fourthArr[2]) {
         boxNineteen.style.background = `rgb(80, 80, 80)`
     } else if (fourthArr[3] === word[0] && boxSixteen.style.background !== 'green' && fourthArr[3] !== fourthArr[1] && fourthArr[3] !== fourthArr[2]) {
-            boxEighteen.style.background = 'yellow'
+            boxEighteen.style.background = 'rgb(255,215,0)'
     } else if (fourthArr[3] === word[1] && boxSeventeen.style.background === 'green') {
         boxNineteen.style.background = `rgb(80, 80, 80)`
     } else if (fourthArr[3] === word[1] && fourthArr[3] === fourthArr[0]) {
@@ -2526,7 +2571,7 @@ function rowFourCheck() {
     } else if (fourthArr[3] === word[1] && fourthArr[3] === fourthArr[2]) {
         boxNineteen.style.background = `rgb(80, 80, 80)`
     } else if(fourthArr[3] === word[1] && boxSeventeen.style.background !== 'green' && fourthArr[3] !== fourthArr[2]) {
-            boxNineteen.style.background = 'yellow'
+            boxNineteen.style.background = 'rgb(255,215,0)'
     } else if (fourthArr[3] === word[2] && boxEighteen.style.background === 'green') {
         boxNineteen.style.background = `rgb(80, 80, 80)`
     } else if (fourthArr[3] === word[2] && fourthArr[3] === fourthArr[0]) {
@@ -2536,7 +2581,7 @@ function rowFourCheck() {
     } else if (fourthArr[3] === word[2] && fourthArr[3] === fourthArr[2]) {
         boxNineteen.style.background = `rgb(80, 80, 80)`
     } else if (fourthArr[3] === word[2] && boxEighteen.style.background !== 'green') {
-            boxNineteen.style.background = 'yellow'
+            boxNineteen.style.background = 'rgb(255,215,0)'
     } else if (fourthArr[3] === word[4] && boxTwenty.style.background === 'green') {
         boxNineteen.style.background = `rgb(80, 80, 80)`
     } else if (fourthArr[3] === word[4] && fourthArr[3] === fourthArr[0]) {
@@ -2546,7 +2591,7 @@ function rowFourCheck() {
     } else if (fourthArr[3] === word[4] && fourthArr[3] === fourthArr[2]) {
         boxNineteen.style.background = `rgb(80, 80, 80)`
     } else if (fourthArr[3] === word[4] && boxTwenty.style.background !== 'green') {
-            boxNineteen.style.background = 'yellow'
+            boxNineteen.style.background = 'rgb(255,215,0)'
     } else {
         boxNineteen.style.background = `rgb(80, 80, 80)`
     }
@@ -2563,7 +2608,7 @@ function rowFourCheck() {
     } else if (fourthArr[4] === word[0] && fourthArr[4] === fourthArr[3]) {
         boxTwenty.style.background = `rgb(80, 80, 80)`
     } else if (fourthArr[4] === word[0] && boxSixteen.style.background !== 'green' && fourthArr[4] !== fourthArr[1] && fourthArr[4] !== fourthArr[2] && fourthArr[4] !== fourthArr[3]) {
-            boxTwenty.style.background = 'yellow'
+            boxTwenty.style.background = 'rgb(255,215,0)'
     } else if (fourthArr[4] === word[1] && boxSeventeen.style.background === 'green') {
         boxTwenty.style.background = `rgb(80, 80, 80)`
     } else if (fourthArr[4] === word[1] && fourthArr[4] === fourthArr[0]) {
@@ -2575,7 +2620,7 @@ function rowFourCheck() {
     } else if (fourthArr[4] === word[1] && fourthArr[4] === fourthArr[3]) {
         boxTwenty.style.background = `rgb(80, 80, 80)`
     } else if (fourthArr[4] === word[1] && fourthArr[4] !== fourthArr[2] && fourthArr[4] !== fourthArr[3]) {
-            boxTwenty.style.background = 'yellow'
+            boxTwenty.style.background = 'rgb(255,215,0)'
     } else if (fourthArr[4] === word[2] && boxEighteen.style.background === 'green') {
         boxTwenty.style.background = `rgb(80, 80, 80)`
     } else if (fourthArr[4] === word[2] && fourthArr[4] === fourthArr[0]) {
@@ -2587,7 +2632,7 @@ function rowFourCheck() {
     } else if (fourthArr[4] === word[2] && fourthArr[4] === fourthArr[3]) {
         boxTwenty.style.background = `rgb(80, 80, 80)`
     } else if (fourthArr[4] === word[2] && boxEighteen.style.background !== 'green' && fourthArr[4] !== fourthArr[2]) {
-        boxTwenty.style.background = 'yellow'
+        boxTwenty.style.background = 'rgb(255,215,0)'
     } else if (fourthArr[4] === word[3] && boxNineteen.style.background === 'green') {
         boxTwenty.style.background = `rgb(80, 80, 80)`
     } else if (fourthArr[4] === word[3] && fourthArr[4] === fourthArr[0]) {
@@ -2599,7 +2644,7 @@ function rowFourCheck() {
     } else if (fourthArr[4] === word[3] && fourthArr[4] === fourthArr[3]) {
         boxTwenty.style.background = `rgb(80, 80, 80)`
     } else if (fourthArr[4] === word[3] && boxNineteen.style.background !== 'green') {
-            boxTwenty.style.background = 'yellow'
+            boxTwenty.style.background = 'rgb(255,215,0)'
     } else {
         boxTwenty.style.background = `rgb(80, 80, 80)`
     }
@@ -2630,19 +2675,19 @@ function rowFiveCheck() {
     } else if (fifthArr[0] === word[1] && boxTwoTwo.style.background === 'green') {
         boxTwoOne.style.background = `rgb(80, 80, 80)`
     } else if (fifthArr[0] === word[1] && boxTwoTwo.style.background !== 'green') {
-        boxTwoOne.style.background = 'yellow'
+        boxTwoOne.style.background = 'rgb(255,215,0)'
     } else if (fifthArr[0] === word[2] && boxTwoThree.style.background === 'green') {
         boxTwoOne.style.background = `rgb(80, 80, 80)`
     } else if (fifthArr[0] === word[2] && boxTwoThree.style.background !== 'green') {
-        boxTwoOne.style.background = 'yellow'
+        boxTwoOne.style.background = 'rgb(255,215,0)'
     } else if (fifthArr[0] === word[3] && boxTwoFour.style.background === 'green') {
         boxTwoOne.style.background = `rgb(80, 80, 80)`
     } else if (fifthArr[0] === word[3] && boxTwoFour.style.background !== 'green') {
-        boxTwoOne.style.background = 'yellow'
+        boxTwoOne.style.background = 'rgb(255,215,0)'
     } else if (fifthArr[0] === word[4] && boxTwoFive.style.background === 'green') {
         boxTwoOne.style.background = `rgb(80, 80, 80)`
     } else if (fifthArr[0] === word[4] && boxTwoFive.style.background !== 'green') {
-        boxTwoOne.style.background = 'yellow'
+        boxTwoOne.style.background = 'rgb(255,215,0)'
     } else {
          boxTwoOne.style.background = `rgb(80, 80, 80)`
     }
@@ -2653,25 +2698,25 @@ function rowFiveCheck() {
     } else if (fifthArr[1] === word[0] && fifthArr[1] === fifthArr[0]) {
         boxTwoTwo.style.background = `rgb(80, 80, 80)`
     } else if (fifthArr[1] === word[0] && boxTwoOne.style.background !== 'green' && fifthArr[1] !== fifthArr[0]) {
-        boxTwoTwo.style.background = 'yellow'
+        boxTwoTwo.style.background = 'rgb(255,215,0)'
     } else if (fifthArr[1] === word[2] && boxTwoThree.style.background === 'green') {
         boxTwoTwo.style.background = `rgb(80, 80, 80)`
     } else if (fifthArr[1] === word[3] && fifthArr[1] === fifthArr[0]) {
         boxTwoTwo.style.background = `rgb(80, 80, 80)`
     } else if (fifthArr[1] === word[2] && boxTwoThree.style.background !== 'green') {
-        boxTwoTwo.style.background = 'yellow'
+        boxTwoTwo.style.background = 'rgb(255,215,0)'
     } else if (fifthArr[1] === word[3] && boxTwoFour.style.background === 'green') {
        boxTwoTwo.style.background = `rgb(80, 80, 80)`
     } else if (fifthArr[1] === word[3] && fifthArr[1] === fifthArr[0]) {
         boxTwoTwo.style.background = `rgb(80, 80, 80)`
     } else if (fifthArr[1] === word[3] && boxTwoFour.style.background !== 'green') {
-        boxTwoTwo.style.background = 'yellow'
+        boxTwoTwo.style.background = 'rgb(255,215,0)'
     } else if (fifthArr[1] === word[4] && boxTwoFive.style.background === 'green') {
        boxTwoTwo.style.background = `rgb(80, 80, 80)`
     } else if (fifthArr[1] === word[4] && fifthArr[1] === fifthArr[0]) {
         boxTwoTwo.style.background = `rgb(80, 80, 80)`
     } else if (fifthArr[1] === word[4] && boxTwoFive.style.background !== 'green') {
-        boxTwoTwo.style.background = 'yellow'
+        boxTwoTwo.style.background = 'rgb(255,215,0)'
     } else {
          boxTwoTwo.style.background = `rgb(80, 80, 80)`
     }
@@ -2684,7 +2729,7 @@ function rowFiveCheck() {
     } else if (fifthArr[2] === word[0] && fifthArr[2] === fifthArr[1]) {
             boxTwoThree.style.background = `rgb(80, 80, 80)`
     } else if (fifthArr[2] === word[0] && boxTwoOne.style.background !== 'green' && fifthArr[2] !== fifthArr[1]) {
-                boxTwoThree.style.background = 'yellow'
+                boxTwoThree.style.background = 'rgb(255,215,0)'
     } else if (fifthArr[2] === word[1] && boxTwoTwo.style.background === 'green') {
         boxTwoThree.style.background = `rgb(80, 80, 80)`
     } else if (fifthArr[2] === word[1] && fifthArr[2] === fifthArr[0]) {
@@ -2692,7 +2737,7 @@ function rowFiveCheck() {
     } else if (fifthArr[2] === word[1] && fifthArr[2] === fifthArr[1]) {
         boxTwoThree.style.background = `rgb(80, 80, 80)`
     } else if (fifthArr[2] === word[1] && boxTwoTwo.style.background !== 'green') {
-            boxTwoThree.style.background = 'yellow'
+            boxTwoThree.style.background = 'rgb(255,215,0)'
     } else if (fifthArr[2] === word[3] && boxTwoFour.style.background === 'green') {
         boxTwoThree.style.background = `rgb(80, 80, 80)`
     } else if (fifthArr[2] === word[3] && fifthArr[2] === fifthArr[0]) {
@@ -2700,7 +2745,7 @@ function rowFiveCheck() {
     } else if (fifthArr[2] === word[3] && fifthArr[2] === fifthArr[1]) {
         boxTwoThree.style.background = `rgb(80, 80, 80)`
     } else if (fifthArr[2] === word[3] && boxTwoFour.style.background !== 'green') {
-        boxTwoThree.style.background = 'yellow'
+        boxTwoThree.style.background = 'rgb(255,215,0)'
     } else if (fifthArr[2] === word[4] && boxTwoFive.style.background === 'green') {
         boxTwoThree.style.background = `rgb(80, 80, 80)`
     } else if (fifthArr[2] === word[4] && fifthArr[2] === fifthArr[0]) {
@@ -2708,7 +2753,7 @@ function rowFiveCheck() {
     } else if (fifthArr[2] === word[4] && fifthArr[2] === fifthArr[1]) {
         boxTwoThree.style.background = `rgb(80, 80, 80)`
     } else if (fifthArr[2] === word[4] && boxTwoFive.style.background !== 'green') {
-        boxTwoThree.style.background = 'yellow'
+        boxTwoThree.style.background = 'rgb(255,215,0)'
     } else {
         boxTwoThree.style.background = `rgb(80, 80, 80)`
     }
@@ -2723,7 +2768,7 @@ function rowFiveCheck() {
     } else if (fifthArr[3] === word[0] && fifthArr[3] === fifthArr[2]) {
         boxTwoFour.style.background = `rgb(80, 80, 80)`
     } else if (fifthArr[3] === word[0] && boxTwoOne.style.background !== 'green' && fifthArr[3] !== fifthArr[1] && fifthArr[3] !== fifthArr[2]) {
-            boxTwoThree.style.background = 'yellow'
+            boxTwoThree.style.background = 'rgb(255,215,0)'
     } else if (fifthArr[3] === word[1] && boxTwoTwo.style.background === 'green') {
         boxTwoFour.style.background = `rgb(80, 80, 80)`
     } else if (fifthArr[3] === word[1] && fifthArr[3] === fifthArr[0]) {
@@ -2733,7 +2778,7 @@ function rowFiveCheck() {
     } else if (fifthArr[3] === word[1] && fifthArr[3] === fifthArr[2]) {
         boxTwoFour.style.background = `rgb(80, 80, 80)`
     } else if(fifthArr[3] === word[1] && boxTwoTwo.style.background !== 'green' && fifthArr[3] !== fifthArr[2]) {
-            boxTwoFour.style.background = 'yellow'
+            boxTwoFour.style.background = 'rgb(255,215,0)'
     } else if (fifthArr[3] === word[2] && boxTwoThree.style.background === 'green') {
         boxTwoFour.style.background = `rgb(80, 80, 80)`
     } else if (fifthArr[3] === word[2] && fifthArr[3] === fifthArr[0]) {
@@ -2743,7 +2788,7 @@ function rowFiveCheck() {
     } else if (fifthArr[3] === word[2] && fifthArr[3] === fifthArr[2]) {
         boxTwoFour.style.background = `rgb(80, 80, 80)`
     } else if (fifthArr[3] === word[2] && boxTwoThree.style.background !== 'green') {
-            boxTwoFour.style.background = 'yellow'
+            boxTwoFour.style.background = 'rgb(255,215,0)'
     } else if (fifthArr[3] === word[4] && boxTwoFive.style.background === 'green') {
         boxTwoFour.style.background = `rgb(80, 80, 80)`
     } else if (fifthArr[3] === word[4] && fifthArr[3] === fifthArr[0]) {
@@ -2753,7 +2798,7 @@ function rowFiveCheck() {
     } else if (fifthArr[3] === word[4] && fifthArr[3] === fifthArr[2]) {
         boxTwoFour.style.background = `rgb(80, 80, 80)`
     } else if (fifthArr[3] === word[4] && boxTwoFive.style.background !== 'green') {
-            boxTwoFour.style.background = 'yellow'
+            boxTwoFour.style.background = 'rgb(255,215,0)'
     } else {
         boxTwoFour.style.background = `rgb(80, 80, 80)`
     }
@@ -2770,7 +2815,7 @@ function rowFiveCheck() {
     } else if (fifthArr[4] === word[0] && fifthArr[4] === fifthArr[3]) {
         boxTwoFive.style.background = `rgb(80, 80, 80)`
     } else if (fifthArr[4] === word[0] && boxTwoOne.style.background !== 'green' && fifthArr[4] !== fifthArr[1] && fifthArr[4] !== fifthArr[2] && fifthArr[4] !== fifthArr[3]) {
-            boxTwoFive.style.background = 'yellow'
+            boxTwoFive.style.background = 'rgb(255,215,0)'
     } else if (fifthArr[4] === word[1] && boxTwoTwo.style.background === 'green') {
         boxTwoFive.style.background = `rgb(80, 80, 80)`
     } else if (fifthArr[4] === word[1] && fifthArr[4] === fifthArr[0]) {
@@ -2782,7 +2827,7 @@ function rowFiveCheck() {
     } else if (fifthArr[4] === word[1] && fifthArr[4] === fifthArr[3]) {
         boxTwoFive.style.background = `rgb(80, 80, 80)`
     } else if (fifthArr[4] === word[1] && fifthArr[4] !== fifthArr[2] && fifthArr[4] !== fifthArr[3]) {
-            boxTwoFive.style.background = 'yellow'
+            boxTwoFive.style.background = 'rgb(255,215,0)'
     } else if (fifthArr[4] === word[2] && boxTwoThree.style.background === 'green') {
         boxTwoFive.style.background = `rgb(80, 80, 80)`
     } else if (fifthArr[4] === word[2] && fifthArr[4] === fifthArr[0]) {
@@ -2794,7 +2839,7 @@ function rowFiveCheck() {
     } else if (fifthArr[4] === word[2] && fifthArr[4] === fifthArr[3]) {
         boxTwoFive.style.background = `rgb(80, 80, 80)`
     } else if (fifthArr[4] === word[2] && boxTwoThree.style.background !== 'green' && fifthArr[4] !== fifthArr[2]) {
-        boxTwoFive.style.background = 'yellow'
+        boxTwoFive.style.background = 'rgb(255,215,0)'
     } else if (fifthArr[4] === word[3] && boxTwoFour.style.background === 'green') {
         boxTwoFive.style.background = `rgb(80, 80, 80)`
     } else if (fifthArr[4] === word[3] && fifthArr[4] === fifthArr[0]) {
@@ -2806,7 +2851,7 @@ function rowFiveCheck() {
     } else if (fifthArr[4] === word[3] && fifthArr[4] === fifthArr[3]) {
         boxTwoFive.style.background = `rgb(80, 80, 80)`
     } else if (fifthArr[4] === word[3] && boxTwoFour.style.background !== 'green') {
-            boxTwoFive.style.background = 'yellow'
+            boxTwoFive.style.background = 'rgb(255,215,0)'
     } else {
         boxTwoFive.style.background = `rgb(80, 80, 80)`
     }
@@ -2837,19 +2882,19 @@ function rowSixCheck() {
     } else if (sixthArr[0] === word[1] && boxTwoSeven.style.background === 'green') {
         boxTwoSix.style.background = `rgb(80, 80, 80)`
     } else if (sixthArr[0] === word[1] && boxTwoSeven.style.background !== 'green') {
-        boxTwoSix.style.background = 'yellow'
+        boxTwoSix.style.background = 'rgb(255,215,0)'
     } else if (sixthArr[0] === word[2] && boxTwoEight.style.background === 'green') {
         boxTwoSix.style.background = `rgb(80, 80, 80)`
     } else if (sixthArr[0] === word[2] && boxTwoEight.style.background !== 'green') {
-        boxTwoSix.style.background = 'yellow'
+        boxTwoSix.style.background = 'rgb(255,215,0)'
     } else if (sixthArr[0] === word[3] && boxTwoNine.style.background === 'green') {
         boxTwoSix.style.background = `rgb(80, 80, 80)`
     } else if (sixthArr[0] === word[3] && boxTwoNine.style.background !== 'green') {
-        boxTwoSix.style.background = 'yellow'
+        boxTwoSix.style.background = 'rgb(255,215,0)'
     } else if (sixthArr[0] === word[4] && boxThirty.style.background === 'green') {
         boxTwoSix.style.background = `rgb(80, 80, 80)`
     } else if (sixthArr[0] === word[4] && boxThirty.style.background !== 'green') {
-        boxTwoSix.style.background = 'yellow'
+        boxTwoSix.style.background = 'rgb(255,215,0)'
     } else {
          boxTwoSix.style.background = `rgb(80, 80, 80)`
     }
@@ -2860,25 +2905,25 @@ function rowSixCheck() {
     } else if (sixthArr[1] === word[0] && sixthArr[1] === sixthArr[0]) {
         boxTwoSeven.style.background = `rgb(80, 80, 80)`
     } else if (sixthArr[1] === word[0] && boxTwoSix.style.background !== 'green' && sixthArr[1] !== sixthArr[0]) {
-        boxTwoSeven.style.background = 'yellow'
+        boxTwoSeven.style.background = 'rgb(255,215,0)'
     } else if (sixthArr[1] === word[2] && boxTwoEight.style.background === 'green') {
         boxTwoSeven.style.background = `rgb(80, 80, 80)`
     } else if (sixthArr[1] === word[3] && sixthArr[1] === sixthArr[0]) {
         boxTwoSeven.style.background = `rgb(80, 80, 80)`
     } else if (sixthArr[1] === word[2] && boxTwoEight.style.background !== 'green') {
-        boxTwoSeven.style.background = 'yellow'
+        boxTwoSeven.style.background = 'rgb(255,215,0)'
     } else if (sixthArr[1] === word[3] && boxTwoNine.style.background === 'green') {
        boxTwoSeven.style.background = `rgb(80, 80, 80)`
     } else if (sixthArr[1] === word[3] && sixthArr[1] === sixthArr[0]) {
         boxTwoSeven.style.background = `rgb(80, 80, 80)`
     } else if (sixthArr[1] === word[3] && boxTwoNine.style.background !== 'green') {
-        boxTwoSeven.style.background = 'yellow'
+        boxTwoSeven.style.background = 'rgb(255,215,0)'
     } else if (sixthArr[1] === word[4] && boxThirty.style.background === 'green') {
        boxTwoSeven.style.background = `rgb(80, 80, 80)`
     } else if (sixthArr[1] === word[4] && sixthArr[1] === sixthArr[0]) {
         boxTwoSeven.style.background = `rgb(80, 80, 80)`
     } else if (sixthArr[1] === word[4] && boxThirty.style.background !== 'green') {
-        boxTwoSeven.style.background = 'yellow'
+        boxTwoSeven.style.background = 'rgb(255,215,0)'
     } else {
          boxTwoSeven.style.background = `rgb(80, 80, 80)`
     }
@@ -2891,7 +2936,7 @@ function rowSixCheck() {
     } else if (sixthArr[2] === word[0] && sixthArr[2] === sixthArr[1]) {
             boxTwoEight.style.background = `rgb(80, 80, 80)`
     } else if (sixthArr[2] === word[0] && boxTwoSix.style.background !== 'green' && sixthArr[2] !== sixthArr[1]) {
-                boxTwoEight.style.background = 'yellow'
+                boxTwoEight.style.background = 'rgb(255,215,0)'
     } else if (sixthArr[2] === word[1] && boxTwoSeven.style.background === 'green') {
         boxTwoEight.style.background = `rgb(80, 80, 80)`
     } else if (sixthArr[2] === word[1] && sixthArr[2] === sixthArr[0]) {
@@ -2899,7 +2944,7 @@ function rowSixCheck() {
     } else if (sixthArr[2] === word[1] && sixthArr[2] === sixthArr[1]) {
         boxTwoEight.style.background = `rgb(80, 80, 80)`
     } else if (sixthArr[2] === word[1] && boxTwoSeven.style.background !== 'green') {
-            boxTwoEight.style.background = 'yellow'
+            boxTwoEight.style.background = 'rgb(255,215,0)'
     } else if (sixthArr[2] === word[3] && boxTwoNine.style.background === 'green') {
         boxTwoEight.style.background = `rgb(80, 80, 80)`
     } else if (sixthArr[2] === word[3] && sixthArr[2] === sixthArr[0]) {
@@ -2907,7 +2952,7 @@ function rowSixCheck() {
     } else if (sixthArr[2] === word[3] && sixthArr[2] === sixthArr[1]) {
         boxTwoEight.style.background = `rgb(80, 80, 80)`
     } else if (sixthArr[2] === word[3] && boxTwoNine.style.background !== 'green') {
-        boxTwoEight.style.background = 'yellow'
+        boxTwoEight.style.background = 'rgb(255,215,0)'
     } else if (sixthArr[2] === word[4] && boxThirty.style.background === 'green') {
         boxTwoEight.style.background = `rgb(80, 80, 80)`
     } else if (sixthArr[2] === word[4] && sixthArr[2] === sixthArr[0]) {
@@ -2915,7 +2960,7 @@ function rowSixCheck() {
     } else if (sixthArr[2] === word[4] && sixthArr[2] === sixthArr[1]) {
         boxTwoEight.style.background = `rgb(80, 80, 80)`
     } else if (sixthArr[2] === word[4] && boxThirty.style.background !== 'green') {
-        boxTwoEight.style.background = 'yellow'
+        boxTwoEight.style.background = 'rgb(255,215,0)'
     } else {
         boxTwoEight.style.background = `rgb(80, 80, 80)`
     }
@@ -2930,7 +2975,7 @@ function rowSixCheck() {
     } else if (sixthArr[3] === word[0] && sixthArr[3] === sixthArr[2]) {
         boxTwoNine.style.background = `rgb(80, 80, 80)`
     } else if (sixthArr[3] === word[0] && boxTwoSix.style.background !== 'green' && sixthArr[3] !== sixthArr[1] && sixthArr[3] !== sixthArr[2]) {
-            boxTwoEight.style.background = 'yellow'
+            boxTwoEight.style.background = 'rgb(255,215,0)'
     } else if (sixthArr[3] === word[1] && boxTwoSeven.style.background === 'green') {
         boxTwoNine.style.background = `rgb(80, 80, 80)`
     } else if (sixthArr[3] === word[1] && sixthArr[3] === sixthArr[0]) {
@@ -2940,7 +2985,7 @@ function rowSixCheck() {
     } else if (sixthArr[3] === word[1] && sixthArr[3] === sixthArr[2]) {
         boxTwoNine.style.background = `rgb(80, 80, 80)`
     } else if(sixthArr[3] === word[1] && boxTwoSeven.style.background !== 'green' && sixthArr[3] !== sixthArr[2]) {
-            boxTwoNine.style.background = 'yellow'
+            boxTwoNine.style.background = 'rgb(255,215,0)'
     } else if (sixthArr[3] === word[2] && boxTwoEight.style.background === 'green') {
         boxTwoNine.style.background = `rgb(80, 80, 80)`
     } else if (sixthArr[3] === word[2] && sixthArr[3] === sixthArr[0]) {
@@ -2950,7 +2995,7 @@ function rowSixCheck() {
     } else if (sixthArr[3] === word[2] && sixthArr[3] === sixthArr[2]) {
         boxTwoNine.style.background = `rgb(80, 80, 80)`
     } else if (sixthArr[3] === word[2] && boxTwoEight.style.background !== 'green') {
-            boxTwoNine.style.background = 'yellow'
+            boxTwoNine.style.background = 'rgb(255,215,0)'
     } else if (sixthArr[3] === word[4] && boxThirty.style.background === 'green') {
         boxTwoNine.style.background = `rgb(80, 80, 80)`
     } else if (sixthArr[3] === word[4] && sixthArr[3] === sixthArr[0]) {
@@ -2960,7 +3005,7 @@ function rowSixCheck() {
     } else if (sixthArr[3] === word[4] && sixthArr[3] === sixthArr[2]) {
         boxTwoNine.style.background = `rgb(80, 80, 80)`
     } else if (sixthArr[3] === word[4] && boxThirty.style.background !== 'green') {
-            boxTwoNine.style.background = 'yellow'
+            boxTwoNine.style.background = 'rgb(255,215,0)'
     } else {
         boxTwoNine.style.background = `rgb(80, 80, 80)`
     }
@@ -2977,7 +3022,7 @@ function rowSixCheck() {
     } else if (sixthArr[4] === word[0] && sixthArr[4] === sixthArr[3]) {
         boxThirty.style.background = `rgb(80, 80, 80)`
     } else if (sixthArr[4] === word[0] && boxTwoSix.style.background !== 'green' && sixthArr[4] !== sixthArr[1] && sixthArr[4] !== sixthArr[2] && sixthArr[4] !== sixthArr[3]) {
-            boxThirty.style.background = 'yellow'
+            boxThirty.style.background = 'rgb(255,215,0)'
     } else if (sixthArr[4] === word[1] && boxTwoSeven.style.background === 'green') {
         boxThirty.style.background = `rgb(80, 80, 80)`
     } else if (sixthArr[4] === word[1] && sixthArr[4] === sixthArr[0]) {
@@ -2989,7 +3034,7 @@ function rowSixCheck() {
     } else if (sixthArr[4] === word[1] && sixthArr[4] === sixthArr[3]) {
         boxThirty.style.background = `rgb(80, 80, 80)`
     } else if (sixthArr[4] === word[1] && sixthArr[4] !== sixthArr[2] && sixthArr[4] !== sixthArr[3]) {
-            boxThirty.style.background = 'yellow'
+            boxThirty.style.background = 'rgb(255,215,0)'
     } else if (sixthArr[4] === word[2] && boxTwoEight.style.background === 'green') {
         boxThirty.style.background = `rgb(80, 80, 80)`
     } else if (sixthArr[4] === word[2] && sixthArr[4] === sixthArr[0]) {
@@ -3001,7 +3046,7 @@ function rowSixCheck() {
     } else if (sixthArr[4] === word[2] && sixthArr[4] === sixthArr[3]) {
         boxThirty.style.background = `rgb(80, 80, 80)`
     } else if (sixthArr[4] === word[2] && boxTwoEight.style.background !== 'green' && sixthArr[4] !== sixthArr[2]) {
-        boxThirty.style.background = 'yellow'
+        boxThirty.style.background = 'rgb(255,215,0)'
     } else if (sixthArr[4] === word[3] && boxTwoNine.style.background === 'green') {
         boxThirty.style.background = `rgb(80, 80, 80)`
     } else if (sixthArr[4] === word[3] && sixthArr[4] === sixthArr[0]) {
@@ -3013,7 +3058,7 @@ function rowSixCheck() {
     } else if (sixthArr[4] === word[3] && sixthArr[4] === sixthArr[3]) {
         boxThirty.style.background = `rgb(80, 80, 80)`
     } else if (sixthArr[4] === word[3] && boxTwoNine.style.background !== 'green') {
-            boxThirty.style.background = 'yellow'
+            boxThirty.style.background = 'rgb(255,215,0)'
     } else {
         boxThirty.style.background = `rgb(80, 80, 80)`
     }
