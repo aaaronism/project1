@@ -712,3 +712,15 @@ dialog {
     line-height: 62px;
     font-family: 'Poppins', sans-serif;
 }
+
+@media (max-device-width:768px) {
+    html {
+        zoom: .5;
+    }
+    
+    .instructions {
+        font-size: 5px;
+        width: 100px;
+        height: 100px;
+    }
+}
