@@ -92,6 +92,7 @@ dialog {
     font-size: 25px;
     border:rgb(144, 144, 144);
     color: white;
+    z-index: 5;
 }
 
 .buttonx:hover {
