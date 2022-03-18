@@ -713,14 +713,14 @@ dialog {
     font-family: 'Poppins', sans-serif;
 }
 
-@media (max-device-width:768px) {
+@media only screen and (max-width:768px) {
     html {
-        zoom: .5;
+        zoom: .7;
     }
-    
+
     .instructions {
-        font-size: 5px;
-        width: 100px;
-        height: 100px;
+        width: 400px;
+        height: 750px;
+        font-size: 16.5px;
     }
 }
