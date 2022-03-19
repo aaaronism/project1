@@ -112,9 +112,15 @@ dialog {
 
 .statistics h2 {
     text-align: center;
-    margin: -5px 0 10px 0;
+    margin: -10px 0 -15px 0;
     font-size: 100px;
     text-shadow: 0 0 3px white, 0 0 3px white;
+}
+
+.wordword {
+    text-align: center;
+    margin: 10px 0 -25px 0;
+    font-size: 40px;
 }
 
 .nextbut {
@@ -720,9 +726,7 @@ dialog {
 
 @media only screen and (max-width:600px) {
     .instructions {
-        width: 500px;
-        height: 780px;
-        font-size: 16.5px;
+        zoom: .65
     }
 }
 
@@ -833,64 +837,3 @@ dialog {
         top: 1%
     }
 }
-
-/*
-@media only screen and (min-width:768px) {
-    html {
-        zoom: .7;
-    }
-
-    .instructions {
-        width: 500px;
-        height: 780px;
-        font-size: 16.5px;
-    }
-
-    .board {
-        zoom: .88;
-    }
-    
-    .boardback {
-        zoom: .88
-    }
-}
-
-@media only screen and (min-width:992px) {
-    html {
-        zoom: .8;
-    }
-
-    .instructions {
-        width: 500px;
-        height: 780px;
-        font-size: 16.5px;
-    }
-
-    .board {
-        zoom: .88;
-    }
-    
-    .boardback {
-        zoom: .88
-    }
-}
-
-@media only screen and (min-width:1200px) {
-    html {
-        zoom: 1;
-    }
-
-    .instructions {
-        width: 500px;
-        height: 780px;
-        font-size: 16.5px;
-    }
-
-    .board {
-        zoom: .88;
-    }
-    
-    .boardback {
-        zoom: .88
-    }
-} */

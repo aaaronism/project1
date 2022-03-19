@@ -71,6 +71,7 @@ qBut.addEventListener(`click`, event => {
 let winLose = document.querySelector(`.statistics`)
 let nextButton = document.querySelector(`.nextnext`)
 let statusGame = document.querySelector(`.win`)
+let finalWord = document.querySelector(`.wordword`)
 
 nextButton.addEventListener(`click`, event => {
     location.reload()
@@ -78,6 +79,7 @@ nextButton.addEventListener(`click`, event => {
 
 function loser() {
     statusGame.innerText = `LOSE`
+    finalWord.innerText = `word = ` + `"` + word.join('') + `"`
     statusGame.style.color = `red`
     winLose.show()
 }
