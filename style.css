@@ -145,7 +145,7 @@ dialog {
 .board {
     display: grid;
     justify-content: center;
-    padding: 115.5px 0 0 0;
+    padding: 125px 0 0 0;
     text-align: center;
     font-size: 40px;
     font-family: 'Poppins', sans-serif;
@@ -659,7 +659,7 @@ dialog {
     left: 0;
     right: 0;
     position: absolute;
-    z-index: 2;
+    z-index: 3;
 }
 
 #key1 {
@@ -718,7 +718,124 @@ dialog {
     font-family: 'Poppins', sans-serif;
 }
 
-@media only screen and (max-width:768px) {
+@media only screen and (max-width:600px) {
+    .instructions {
+        width: 500px;
+        height: 780px;
+        font-size: 16.5px;
+    }
+}
+
+@media (max-height: 400px) {
+    .board {
+        zoom: .2;
+        top: 16%;
+    }
+    
+    .boardback {
+        zoom: .2;
+        top: 16%
+    }
+}
+
+@media (min-height: 400px) {
+    .board {
+        zoom: .26;
+        top: 15%;
+    }
+    
+    .boardback {
+        zoom: .26;
+        top: 15%
+    }
+}
+
+@media (min-height: 450px) {
+    .board {
+        zoom: .36;
+        top: 10%;
+    }
+    
+    .boardback {
+        zoom: .36;
+        top: 10%
+    }
+}
+
+@media (min-height: 500px) {
+    .board {
+        zoom: .49;
+        top: 6%;
+    }
+    
+    .boardback {
+        zoom: .49;
+        top: 6%
+    }
+}
+
+@media (min-height: 550px) {
+    .board {
+        zoom: .55;
+        top: 6%;
+    }
+    
+    .boardback {
+        zoom: .55;
+        top: 6%
+    }
+}
+
+@media (min-height: 600px) {
+    .board {
+        zoom: .62;
+        top: 6%;
+    }
+    
+    .boardback {
+        zoom: .62;
+        top: 6%
+    }
+}
+
+@media (min-height: 650px) {
+    .board {
+        zoom: .74;
+        top: 3%;
+    }
+    
+    .boardback {
+        zoom: .74;
+        top: 3%
+    }
+}
+
+@media (min-height: 700px) {
+    .board {
+        zoom: .86;
+        top: 1%;
+    }
+    
+    .boardback {
+        zoom: .86;
+        top: 1%
+    }
+}
+
+@media (min-height: 750px) {
+    .board {
+        zoom: .95;
+        top: 1%;
+    }
+    
+    .boardback {
+        zoom: .95;
+        top: 1%
+    }
+}
+
+/*
+@media only screen and (min-width:768px) {
     html {
         zoom: .7;
     }
@@ -730,14 +847,50 @@ dialog {
     }
 
     .board {
-        zoom: .9;
+        zoom: .88;
     }
     
     .boardback {
-        zoom: .9
-    }
-
-    .keyboard {
-        zoom: .9;
+        zoom: .88
     }
 }
+
+@media only screen and (min-width:992px) {
+    html {
+        zoom: .8;
+    }
+
+    .instructions {
+        width: 500px;
+        height: 780px;
+        font-size: 16.5px;
+    }
+
+    .board {
+        zoom: .88;
+    }
+    
+    .boardback {
+        zoom: .88
+    }
+}
+
+@media only screen and (min-width:1200px) {
+    html {
+        zoom: 1;
+    }
+
+    .instructions {
+        width: 500px;
+        height: 780px;
+        font-size: 16.5px;
+    }
+
+    .board {
+        zoom: .88;
+    }
+    
+    .boardback {
+        zoom: .88
+    }
+} */
