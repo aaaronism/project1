@@ -1,6 +1,6 @@
 # Wordle
 
-[Play Wordle Here](https://aaaronism.github.io/project1/)
+[Play Wordle Here](https://aaaronism.github.io/wordle-clone/)
 
 ## Objective
 Guess the 5 letter word in 6 tries. You must press the enter button to submit each guess. After each guess, the tiles will turn green if you got the letter in the correct spot, yellow if the letter is in the word but in the wrong spot, and grey if it is not in the word at all.
