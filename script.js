@@ -24,19 +24,21 @@
 let word
 
 function wordSelector () {
-const url = "https://random-words-api.vercel.app/word"
+const url = "https://random-word-api.herokuapp.com/word?length=5"
 fetch(url)
     .then(res => {
         return res.json()
     })
     .then(res => {
-        console.log("success!", res[0].word)
-        if (res[0].word.length === 5) {
-            wordDay = res[0].word.toUpperCase().split('')
-            word = wordDay
-        } else {
-            location.reload()
-        }
+        // console.log("success!", res)
+        wordDay = res[0].toUpperCase().split('')
+        word = wordDay
+        // if (res[0].length === 5) {
+        //     wordDay = res[0].toUpperCase().split('')
+        //     word = wordDay
+        // } else {
+        //     location.reload()
+        // }
     })
     .catch(error => {
         console.log("Error!", error)
